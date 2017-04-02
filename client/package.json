@@ -1,0 +1,37 @@
+{
+  "name": "apollo-upload-examples-client",
+  "private": true,
+  "dependencies": {
+    "apollo-upload-client": "^3.0.1",
+    "babel-plugin-transform-inline-environment-variables": "^0.0.2",
+    "next": "^2.0.1",
+    "react": "^15.4.2",
+    "react-apollo": "^1.0.0",
+    "react-dom": "^15.4.2",
+    "zoo": "^0.1.9"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "standard": "^9.0.2"
+  },
+  "scripts": {
+    "lint": "standard",
+    "dev": "zoo next",
+    "build": "zoo next build",
+    "start": "zoo next start"
+  },
+  "babel": {
+    "presets": [
+      "next/babel"
+    ],
+    "plugins": [
+      "transform-inline-environment-variables"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      ".next/**"
+    ]
+  }
+}

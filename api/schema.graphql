@@ -1,0 +1,22 @@
+type File {
+  name: String!
+  type: String!
+  size: Int!
+  path: String!
+}
+
+input Upload {
+  name: String!
+  type: String!
+  size: Int!
+  path: String!
+}
+
+type Query {
+  # GraphQL will not work without defining a query.
+  ignore: Boolean
+}
+
+type Mutation {
+  singleUpload (file: Upload!): File!
+}
