@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import withData from '../helpers/with-data'
 import SingleUploader from '../components/single-uploader'
+import MultiUploader from '../components/multi-uploader'
 
 export default withData(props => (
   <div>
@@ -13,10 +14,20 @@ export default withData(props => (
         body {
           margin: 2em;
         }
+        section {
+          height: 50vh;
+        }
       `}</style>
     </Head>
-    <h1>Apollo upload example</h1>
-    <p>Select an image to upload and view the response in the console.</p>
-    <SingleUploader />
+    <section>
+      <h1>Apollo upload example (single file)</h1>
+      <p>Select an image to upload and view the response in the console.</p>
+      <SingleUploader />
+    </section>
+    <section>
+      <h1>Apollo upload example (multiple files)</h1>
+      <p>Select multiple images to upload and view the response in the console.</p>
+      <MultiUploader />
+    </section>
   </div>
 ))
