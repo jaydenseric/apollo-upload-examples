@@ -8,4 +8,4 @@ An example GraphQL API using [Apollo upload server](https://github.com/jaydenser
 
 ## Setup
 
-See readmes in `/client` and `/api`.
+See readmes in `/api` and `/app`.

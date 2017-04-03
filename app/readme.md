@@ -1,6 +1,6 @@
-# Apollo upload examples client
+# Apollo upload example web application
 
-An example [Next.js](https://github.com/zeit/next.js) [React Apollo client](http://dev.apollodata.com/react) using [Apollo upload client](https://github.com/jaydenseric/apollo-upload-client).
+An example web application using [Next.js](https://github.com/zeit/next.js), [React Apollo client](http://dev.apollodata.com/react) and [Apollo upload client](https://github.com/jaydenseric/apollo-upload-client).
 
 ## Setup
 
