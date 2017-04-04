@@ -20,7 +20,7 @@ class MultiUploader extends Component {
 }
 
 export default graphql(gql`
-  mutation multiUpload ($files: [Upload!]) {
+  mutation multiUpload ($files: [Upload!]!) {
     multiUpload (files: $files) {
       name
       type
