@@ -9,21 +9,21 @@ const getNewVal = (result) => {
 
 export default {
   Query: {
-    async allUploads () {
+    allUploads () {
       const db = getRethinkDB()
-      return await db.table('uploads')
+      return db.table('uploads')
     }
   },
   Mutation: {
-    async singleUpload (_, {file}) {
+    singleUpload (_, {file}) {
       const db = getRethinkDB()
-      const result = await db.table('uploads')
+      const result = db.table('uploads')
         .insert(file, {returnChanges: true})
       return getNewVal(result)
     },
-    async multiUpload (_, {files}) {
+    multiUpload (_, {files}) {
       const db = getRethinkDB()
-      const result = await db.table('uploads')
+      const result = db.table('uploads')
         .insert(files, {returnChanges: true})
       return getNewVal(result)
     }
