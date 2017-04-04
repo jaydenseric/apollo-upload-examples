@@ -15,7 +15,7 @@ export default withData(props => (
           margin: 2em;
         }
         section {
-          height: 50vh;
+          height: calc(50vh - 4em);
         }
       `}</style>
     </Head>
