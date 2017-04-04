@@ -16,6 +16,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
     "koa-router": "^7.1.1",
+    "rethinkdbdash": "^2.3.28",
     "source-map-support": "^0.4.14",
     "webpack": "^2.3.2",
     "zoo": "^0.1.9"
