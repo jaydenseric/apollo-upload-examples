@@ -9,8 +9,9 @@ const getNewVal = (result) => {
 
 export default {
   Query: {
-    ignore () {
-      return null
+    async allUploads () {
+      const db = getRethinkDB()
+      return await db.table('uploads')
     }
   },
   Mutation: {
