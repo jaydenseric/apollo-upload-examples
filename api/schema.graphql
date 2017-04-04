@@ -18,5 +18,5 @@ type Query {
 
 type Mutation {
   singleUpload (file: Upload!): File!
-  multiUpload (files: [Upload!]): [File!]
+  multiUpload (files: [Upload!]!): [File!]!
 }
