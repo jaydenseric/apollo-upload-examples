@@ -1,4 +1,5 @@
 type File {
+  id: String!
   name: String!
   type: String!
   size: Int!
