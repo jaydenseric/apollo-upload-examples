@@ -2,6 +2,7 @@ import Head from 'next/head'
 import withData from '../helpers/with-data'
 import SingleUploader from '../components/single-uploader'
 import MultiUploader from '../components/multi-uploader'
+import UploadList from '../components/upload-list'
 
 export default withData(props => (
   <div>
@@ -29,6 +30,9 @@ export default withData(props => (
       <h2>Multiple file upload</h2>
       <p>Select multiple images to upload and view the response in the console.</p>
       <MultiUploader />
+    </section>
+    <section>
+      <UploadList />
     </section>
   </div>
 ))
