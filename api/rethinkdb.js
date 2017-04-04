@@ -1,10 +1,13 @@
 import rethinkdbdash from 'rethinkdbdash'
-import {rethinkdb} from './config'
 
 let driver
 export default () => {
   if (!driver) {
-    driver = rethinkdbdash(rethinkdb)
+    driver = rethinkdbdash({
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      db: process.env.DB_NAME
+    })
   }
   return driver
 }
