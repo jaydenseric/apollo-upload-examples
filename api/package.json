@@ -18,19 +18,17 @@
     "koa-router": "^7.1.1",
     "rethinkdbdash": "^2.3.28",
     "source-map-support": "^0.4.14",
-    "webpack": "^2.3.2",
+    "webpack": "^2.3.3",
     "zoo": "^0.1.9"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.0",
     "babel-eslint": "^7.2.1",
-    "chalk": "^1.1.3",
-    "indent-string": "^3.1.0",
-    "standard": "^9.0.2"
+    "standard": "^9.0.2",
+    "webpack-watch-server": "^1.0.0"
   },
   "scripts": {
     "lint": "standard",
-    "dev": "zoo babel-node scripts/dev",
+    "dev": "zoo webpack-watch-server",
     "build": "zoo webpack",
     "start": "zoo node dist"
   },
