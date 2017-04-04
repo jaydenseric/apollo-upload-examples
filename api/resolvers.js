@@ -17,15 +17,15 @@ export default {
   Mutation: {
     singleUpload (_, {file}) {
       const db = getRethinkDB()
-      const result = db.table('uploads')
+      return db.table('uploads')
         .insert(file, {returnChanges: true})
-      return getNewVal(result)
+        .then((result) => getNewVal(result))
     },
     multiUpload (_, {files}) {
       const db = getRethinkDB()
-      const result = db.table('uploads')
+      return db.table('uploads')
         .insert(files, {returnChanges: true})
-      return getNewVal(result)
+        .then((result) => getNewVal(result))
     }
   }
 }
