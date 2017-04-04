@@ -12,20 +12,21 @@ export default {
     allUploads () {
       const db = getRethinkDB()
       return db.table('uploads')
+      .then((result) => result)
     }
   },
   Mutation: {
     singleUpload (_, {file}) {
       const db = getRethinkDB()
       return db.table('uploads')
-        .insert(file, {returnChanges: true})
-        .then((result) => getNewVal(result))
+      .insert(file, {returnChanges: true})
+      .then((result) => getNewVal(result))
     },
     multiUpload (_, {files}) {
       const db = getRethinkDB()
       return db.table('uploads')
-        .insert(files, {returnChanges: true})
-        .then((result) => getNewVal(result))
+      .insert(files, {returnChanges: true})
+      .then((result) => getNewVal(result))
     }
   }
 }
