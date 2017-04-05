@@ -1,32 +1,35 @@
-import getRethinkDB from './rethinkdb'
+import low from 'lowdb'
+import fileAsync from 'lowdb/lib/storages/file-async'
 
-const getNewVal = (result) => {
-  if (result.changes.length === 1) {
-    return result.changes[0].new_val
-  }
-  return result.changes.map((file) => file.new_val)
+// Start database using file-async storage
+const db = low('db.json', {
+  storage: fileAsync
+})
+
+db.defaults({uploads: []})
+  .write()
+
+const saveFile = (file) => {
+  return db.get('uploads')
+    .push(file)
+    .last()
+    .write()
+    .then((result) => result)
 }
-
 export default {
   Query: {
     allUploads () {
-      const db = getRethinkDB()
-      return db.table('uploads')
-      .then((result) => result)
+      return db.get('uploads').value()
     }
   },
   Mutation: {
     singleUpload (_, {file}) {
-      const db = getRethinkDB()
-      return db.table('uploads')
-      .insert(file, {returnChanges: true})
-      .then((result) => getNewVal(result))
+      return saveFile(file)
     },
     multiUpload (_, {files}) {
-      const db = getRethinkDB()
-      return db.table('uploads')
-      .insert(files, {returnChanges: true})
-      .then((result) => getNewVal(result))
+      return Promise.all(files.map((file) => {
+        return saveFile(file)
+      })).then((results) => results)
     }
   }
 }
