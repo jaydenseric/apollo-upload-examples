@@ -1,13 +1,35 @@
+import low from 'lowdb'
+import fileAsync from 'lowdb/lib/storages/file-async'
+
+// Start database using file-async storage
+const db = low('db.json', {
+  storage: fileAsync
+})
+
+db.defaults({uploads: []})
+  .write()
+
+const saveFile = (file) => {
+  return db.get('uploads')
+    .push(file)
+    .last()
+    .write()
+    .then((result) => result)
+}
 export default {
   Query: {
-    ignore () {
-      return null
+    allUploads () {
+      return db.get('uploads').value()
     }
   },
   Mutation: {
-    singleUpload (root, {file}) {
-      console.log('Uploaded file:', file)
-      return file
+    singleUpload (_, {file}) {
+      return saveFile(file)
+    },
+    multiUpload (_, {files}) {
+      return Promise.all(files.map((file) => {
+        return saveFile(file)
+      })).then((results) => results)
     }
   }
 }

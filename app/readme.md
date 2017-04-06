@@ -5,7 +5,7 @@ An example web application using [Next.js](https://github.com/zeit/next.js), [Re
 ## Setup
 
 1. Install the latest [Node.js](https://nodejs.org).
-2. Run `npm install` within the `api` directory in Terminal.
+2. Run `npm install` within the `app` directory in Terminal.
 3. Copy `.env.example`, rename it `.env` and customize.
 
 For development run `npm run dev`.

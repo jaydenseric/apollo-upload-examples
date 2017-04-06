@@ -13,10 +13,10 @@ input Upload {
 }
 
 type Query {
-  # GraphQL will not work without defining a query.
-  ignore: Boolean
+  allUploads: [File]
 }
 
 type Mutation {
   singleUpload (file: Upload!): File!
+  multiUpload (files: [Upload!]!): [File!]!
 }
