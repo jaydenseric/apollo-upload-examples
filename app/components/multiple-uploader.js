@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import {graphql, gql} from 'react-apollo'
 
-class MultiUploader extends Component {
+class MultipleUploader extends Component {
   handleChange = ({target}) => {
     if (target.validity.valid) {
       this.props
@@ -20,12 +20,12 @@ class MultiUploader extends Component {
 }
 
 export default graphql(gql`
-  mutation multiUpload ($files: [Upload!]!) {
-    multiUpload (files: $files) {
+  mutation multipleUpload ($files: [Upload!]!) {
+    multipleUpload (files: $files) {
       name
       type
       size
       path
     }
   }
-`)(MultiUploader)
+`)(MultipleUploader)

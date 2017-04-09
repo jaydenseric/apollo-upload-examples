@@ -9,12 +9,12 @@ const db = low('db.json', {
 db.defaults({uploads: []})
   .write()
 
-const saveFile = (file) => {
+const saveFile = file => {
   return db.get('uploads')
     .push(file)
     .last()
     .write()
-    .then((result) => result)
+    .then(result => result)
 }
 export default {
   Query: {
@@ -26,10 +26,10 @@ export default {
     singleUpload (_, {file}) {
       return saveFile(file)
     },
-    multiUpload (_, {files}) {
+    multipleUpload (_, {files}) {
       return Promise.all(files.map((file) => {
         return saveFile(file)
-      })).then((results) => results)
+      })).then(results => results)
     }
   }
 }
