@@ -11,21 +11,23 @@ db.defaults({uploads: []})
 
 const saveFile = file => {
   return db.get('uploads')
-    .push(file)
+    .push({
+      id: file.path,
+      ...file
+    })
     .last()
     .write()
     .then(result => result)
 }
+
 export default {
   Query: {
-    allUploads () {
+    uploads () {
       return db.get('uploads').value()
     }
   },
   Mutation: {
-    singleUpload (_, {file}) {
-      return saveFile(file)
-    },
+    singleUpload: (_, {file}) => saveFile(file),
     multipleUpload (_, {files}) {
       return Promise.all(files.map((file) => {
         return saveFile(file)

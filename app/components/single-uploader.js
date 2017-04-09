@@ -1,5 +1,6 @@
 import {Component} from 'react'
 import {graphql, gql} from 'react-apollo'
+import uploadsQuery from '../queries/uploads'
 
 class SingleUploader extends Component {
   handleChange = ({target}) => {
@@ -8,7 +9,10 @@ class SingleUploader extends Component {
         .mutate({
           variables: {
             file: target.files[0]
-          }
+          },
+          refetchQueries: [{
+            query: uploadsQuery
+          }]
         })
         .then(({data}) => console.log('Mutation response:', data))
     }
@@ -22,6 +26,7 @@ class SingleUploader extends Component {
 export default graphql(gql`
   mutation singleUpload ($file: Upload!) {
     singleUpload (file: $file) {
+      id
       name
       type
       size

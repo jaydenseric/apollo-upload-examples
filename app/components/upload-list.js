@@ -1,6 +1,7 @@
-import {graphql, gql} from 'react-apollo'
+import {graphql} from 'react-apollo'
+import uploadsQuery from '../queries/uploads'
 
-const UploadList = ({data: {allUploads}}) => {
+const UploadList = ({data: {uploads}}) => {
   return (
     <table>
       <thead>
@@ -12,8 +13,8 @@ const UploadList = ({data: {allUploads}}) => {
         </tr>
       </thead>
       <tbody>
-        {allUploads.map(({name, type, size, path}) => (
-          <tr key={path}>
+        {uploads.map(({id, name, type, size, path}) => (
+          <tr key={id}>
             <td>{name}</td>
             <td>{type}</td>
             <td>{size}</td>
@@ -34,13 +35,4 @@ const UploadList = ({data: {allUploads}}) => {
   )
 }
 
-export default graphql(gql`
-  query allUploads {
-    allUploads {
-      name
-      type
-      size
-      path
-    }
-  }
-`)(UploadList)
+export default graphql(uploadsQuery)(UploadList)
