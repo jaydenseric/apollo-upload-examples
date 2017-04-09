@@ -7,7 +7,6 @@ import koaBody from 'koa-bodyparser'
 import {makeExecutableSchema} from 'graphql-tools'
 import {graphqlKoa} from 'graphql-server-koa'
 import {apolloUploadKoa} from 'apollo-upload-server'
-import {apiEndpoint} from './config'
 import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
 
@@ -29,7 +28,7 @@ app.use(koaBody())
 
 // GraphQL API
 router.post(
-  apiEndpoint,
+  '/graphql',
   apolloUploadKoa({
     uploadDir: '/tmp/uploads'
   }),

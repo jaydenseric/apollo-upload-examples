@@ -1,5 +1,5 @@
+import path from 'path'
 import {NoEmitOnErrorsPlugin} from 'webpack'
-import {distPath} from './config'
 
 const config = {
   devtool: 'source-map',
@@ -7,7 +7,7 @@ const config = {
     index: './server.js'
   },
   output: {
-    path: distPath,
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     libraryTarget: 'commonjs2'
   },
