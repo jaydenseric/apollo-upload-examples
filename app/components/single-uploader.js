@@ -5,16 +5,14 @@ import uploadsQuery from '../queries/uploads'
 class SingleUploader extends Component {
   handleChange = ({target}) => {
     if (target.validity.valid) {
-      this.props
-        .mutate({
-          variables: {
-            file: target.files[0]
-          },
-          refetchQueries: [{
-            query: uploadsQuery
-          }]
-        })
-        .then(({data}) => console.log('Mutation response:', data))
+      this.props.mutate({
+        variables: {
+          file: target.files[0]
+        },
+        refetchQueries: [{
+          query: uploadsQuery
+        }]
+      })
     }
   }
 
