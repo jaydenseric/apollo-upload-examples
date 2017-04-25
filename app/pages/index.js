@@ -20,11 +20,11 @@ export default withData(props => (
     </Head>
     <h1>Apollo upload examples</h1>
     <Section heading='Single file upload'>
-      <p>Select an image to upload and view the response in the console.</p>
+      <p>Select an file to upload and view the response in the console.</p>
       <SingleUploader />
     </Section>
     <Section heading='Multiple file upload'>
-      <p>Select multiple images to upload and view the response in the console.</p>
+      <p>Select multiple files to upload and view the response in the console.</p>
       <MultipleUploader />
     </Section>
     <Section heading='Uploaded files'>

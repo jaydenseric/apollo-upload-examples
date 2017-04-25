@@ -15,7 +15,7 @@ const SingleUploader = ({mutate}) => {
     }
   }
 
-  return <input type='file' accept={'image/jpeg,image/png'} required onChange={handleChange} />
+  return <input type='file' required onChange={handleChange} />
 }
 
 export default graphql(gql`

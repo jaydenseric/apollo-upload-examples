@@ -15,7 +15,7 @@ const MultipleUploader = ({mutate}) => {
     }
   }
 
-  return <input type='file' accept={'image/jpeg,image/png'} multiple required onChange={handleChange} />
+  return <input type='file' multiple required onChange={handleChange} />
 }
 
 export default graphql(gql`
