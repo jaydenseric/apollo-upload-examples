@@ -2,17 +2,17 @@
   "name": "apollo-upload-examples-app",
   "private": true,
   "dependencies": {
-    "apollo-upload-client": "^3.0.2",
+    "apollo-upload-client": "^4.0.1",
     "babel-plugin-transform-inline-environment-variables": "^0.0.2",
-    "next": "^2.1.0",
-    "react": "^15.5.3",
-    "react-apollo": "^1.0.1",
-    "react-dom": "^15.5.3",
+    "next": "^2.2.0",
+    "react": "^15.5.4",
+    "react-apollo": "^1.1.0",
+    "react-dom": "^15.5.4",
     "zoo": "^0.1.9"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.1",
-    "standard": "^10.0.1"
+    "babel-eslint": "^7.2.3",
+    "standard": "^10.0.2"
   },
   "scripts": {
     "lint": "standard",
