@@ -1,11 +1,10 @@
-import {Component} from 'react'
 import {graphql, gql} from 'react-apollo'
 import uploadsQuery from '../queries/uploads'
 
-class SingleUploader extends Component {
-  handleChange = ({target}) => {
+const SingleUploader = ({mutate}) => {
+  const handleChange = ({target}) => {
     if (target.validity.valid) {
-      this.props.mutate({
+      mutate({
         variables: {
           file: target.files[0]
         },
@@ -16,9 +15,7 @@ class SingleUploader extends Component {
     }
   }
 
-  render () {
-    return <input type='file' accept={'image/jpeg,image/png'} required onChange={this.handleChange} />
-  }
+  return <input type='file' accept={'image/jpeg,image/png'} required onChange={handleChange} />
 }
 
 export default graphql(gql`
