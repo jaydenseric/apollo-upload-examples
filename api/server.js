@@ -30,7 +30,7 @@ app.use(koaBody())
 router.post(
   '/graphql',
   apolloUploadKoa({
-    uploadDir: '/tmp/uploads'
+    uploadDir: '/tmp/apollo-upload-examples'
   }),
   graphqlKoa({
     schema
