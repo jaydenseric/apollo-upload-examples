@@ -20,7 +20,7 @@ const HomePage = () =>
     </Head>
     <h1>Apollo upload examples</h1>
     <Section heading="Single file upload">
-      <p>Select an file to upload and view the response in the console.</p>
+      <p>Select a file to upload and view the response in the console.</p>
       <SingleUploader />
     </Section>
     <Section heading="Multiple file upload">
