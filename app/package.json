@@ -20,6 +20,10 @@
     "build": "zoo next build",
     "start": "zoo next start"
   },
+  "engines": {
+    "node": ">=8.1.2",
+    "npm": ">=5"
+  },
   "babel": {
     "presets": [
       "next/babel"

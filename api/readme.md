@@ -14,4 +14,4 @@ For production run `npm run build && npm run start`.
 
 ## Support
 
-- Node.js versions >= 7.6.
+See `engines` in `package.json`.
