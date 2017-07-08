@@ -5,12 +5,15 @@ const db = low('db.json', {
   storage
 })
 
-db.defaults({
-  uploads: []
-}).write()
+db
+  .defaults({
+    uploads: []
+  })
+  .write()
 
 const saveFile = file => {
-  return db.get('uploads')
+  return db
+    .get('uploads')
     .push({
       id: file.path,
       ...file
@@ -22,14 +25,16 @@ const saveFile = file => {
 
 export default {
   Query: {
-    uploads () {
+    uploads() {
       return db.get('uploads').value()
     }
   },
   Mutation: {
-    singleUpload: (_, {file}) => saveFile(file),
-    multipleUpload (_, {files}) {
-      return Promise.all(files.map(file => saveFile(file))).then(results => results)
+    singleUpload: (_, { file }) => saveFile(file),
+    multipleUpload(_, { files }) {
+      return Promise.all(files.map(file => saveFile(file))).then(
+        results => results
+      )
     }
   }
 }

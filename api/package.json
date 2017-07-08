@@ -23,11 +23,15 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "standard": "^10.0.2",
+    "eslint": "^4.1.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "prettier": "^1.5.2",
     "webpack-watch-server": "^1.0.0"
   },
   "scripts": {
-    "lint": "standard",
+    "lint": "eslint .",
     "dev": "zoo webpack-watch-server",
     "build": "zoo webpack",
     "start": "zoo node dist"
@@ -49,10 +53,39 @@
       "stage-0"
     ]
   },
-  "standard": {
+  "eslintConfig": {
     "parser": "babel-eslint",
-    "ignore": [
-      "dist/**"
-    ]
-  }
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2017,
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/recommended",
+      "plugin:node/recommended"
+    ],
+    "plugins": [
+      "import",
+      "node",
+      "prettier"
+    ],
+    "rules": {
+      "node/no-unsupported-features": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": false,
+          "singleQuote": true
+        }
+      ]
+    }
+  },
+  "eslintIgnore": ["dist"]
 }
