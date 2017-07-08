@@ -1,16 +1,12 @@
 import 'isomorphic-fetch'
 import React from 'react'
-import {
-  ApolloClient,
-  ApolloProvider,
-  getDataFromTree
-} from 'react-apollo'
-import {createNetworkInterface} from 'apollo-upload-client'
+import { ApolloClient, ApolloProvider, getDataFromTree } from 'react-apollo'
+import { createNetworkInterface } from 'apollo-upload-client'
 
 const ssrMode = !process.browser
 let apolloClient = null
 
-function initClient (headers, initialState) {
+function initClient(headers, initialState) {
   return new ApolloClient({
     initialState,
     ssrMode,
@@ -20,15 +16,15 @@ function initClient (headers, initialState) {
   })
 }
 
-function getClient (headers, initialState = {}) {
+function getClient(headers, initialState = {}) {
   if (ssrMode) return initClient(headers, initialState)
   if (!apolloClient) apolloClient = initClient(headers, initialState)
   return apolloClient
 }
 
-export default Component => (
+export default Component =>
   class extends React.Component {
-    static async getInitialProps (ctx) {
+    static async getInitialProps(ctx) {
       const headers = ctx.req ? ctx.req.headers : {}
       const client = getClient(headers)
 
@@ -37,7 +33,9 @@ export default Component => (
           query: ctx.query,
           pathname: ctx.pathname
         },
-        ...await (Component.getInitialProps ? Component.getInitialProps(ctx) : {})
+        ...(await (Component.getInitialProps
+          ? Component.getInitialProps(ctx)
+          : {}))
       }
 
       if (ssrMode) {
@@ -60,12 +58,12 @@ export default Component => (
       }
     }
 
-    constructor (props) {
+    constructor(props) {
       super(props)
       this.client = getClient(this.props.headers, this.props.initialState)
     }
 
-    render () {
+    render() {
       return (
         <ApolloProvider client={this.client}>
           <Component {...this.props} />
@@ -73,4 +71,3 @@ export default Component => (
       )
     }
   }
-)

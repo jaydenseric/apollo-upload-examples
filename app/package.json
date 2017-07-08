@@ -12,10 +12,16 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "standard": "^10.0.2"
+    "eslint": "^4.1.1",
+    "eslint-config-standard-jsx": "^4.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.0",
+    "eslint-plugin-prettier": "^2.1.2",
+    "eslint-plugin-react": "^7.1.0",
+    "prettier": "^1.5.2"
   },
   "scripts": {
-    "lint": "standard",
+    "lint": "eslint .",
     "dev": "zoo next",
     "build": "zoo next build",
     "start": "zoo next start"
@@ -32,10 +38,45 @@
       "transform-inline-environment-variables"
     ]
   },
-  "standard": {
+  "eslintConfig": {
     "parser": "babel-eslint",
-    "ignore": [
-      ".next/**"
-    ]
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2017,
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "jsx": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "node": true,
+      "browser": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/recommended",
+      "plugin:node/recommended",
+      "plugin:react/recommended"
+    ],
+    "plugins": [
+      "import",
+      "node",
+      "react",
+      "prettier"
+    ],
+    "rules": {
+      "node/no-missing-require": "off",
+      "node/no-unsupported-features": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "prettier/prettier": [
+        "error",
+        {
+          "semi": false,
+          "singleQuote": true
+        }
+      ]
+    }
   }
 }

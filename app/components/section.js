@@ -1,6 +1,8 @@
-export default ({heading, children}) => (
+const Section = ({ heading, children }) =>
   <section>
-    <h2>{heading}</h2>
+    <h2>
+      {heading}
+    </h2>
     {children}
     <style jsx>{`
       section {
@@ -8,4 +10,5 @@ export default ({heading, children}) => (
       }
     `}</style>
   </section>
-)
+
+export default Section
