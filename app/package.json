@@ -4,7 +4,7 @@
   "dependencies": {
     "apollo-upload-client": "^5.0.0",
     "babel-plugin-transform-inline-environment-variables": "^0.1.1",
-    "next": "^3.0.1-beta.10",
+    "next": "^3.0.1-beta.13",
     "react": "^15.6.1",
     "react-apollo": "^1.4.3",
     "react-dom": "^15.6.1",
@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.1.1",
+    "eslint": "^4.2.0",
     "eslint-config-standard-jsx": "^4.0.2",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.0",
