@@ -1,5 +1,6 @@
 import { ApolloClient } from 'react-apollo'
-import { createNetworkInterface } from 'apollo-upload-client'
+import { createApolloFetchUpload } from 'apollo-fetch-upload'
+import { print } from 'graphql/language/printer'
 import 'isomorphic-fetch'
 
 // Used in the browser to share a single Apollo Client instance between
@@ -11,14 +12,19 @@ let apolloClient = null
  * @param {Object} [initialState] - Apollo client Redux store initial state.
  * @returns {Object} Apollo Client instance.
  */
-const createApolloClient = initialState =>
-  new ApolloClient({
+function createApolloClient(initialState) {
+  const apolloFetchUpload = createApolloFetchUpload({
+    uri: process.env.API_URI
+  })
+
+  return new ApolloClient({
     initialState,
     ssrMode: !process.browser,
-    networkInterface: createNetworkInterface({
-      uri: process.env.API_URI
-    })
+    networkInterface: {
+      query: req => apolloFetchUpload({ ...req, query: print(req.query) })
+    }
   })
+}
 
 /**
  * Gets or creates the Apollo Client instance.

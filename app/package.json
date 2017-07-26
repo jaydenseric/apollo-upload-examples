@@ -2,8 +2,9 @@
   "name": "apollo-upload-examples-app",
   "private": true,
   "dependencies": {
-    "apollo-upload-client": "^5.1.0",
+    "apollo-fetch-upload": "^1.0.0",
     "babel-plugin-transform-inline-environment-variables": "^0.1.1",
+    "graphql": "^0.10.5",
     "next": "^3.0.1-beta.18",
     "react": "^15.6.1",
     "react-apollo": "^1.4.8",
