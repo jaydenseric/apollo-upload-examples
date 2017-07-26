@@ -1,7 +1,7 @@
 import { graphql } from 'react-apollo'
 import uploadsQuery from '../queries/uploads'
 
-const UploadList = ({ data: { uploads } }) => {
+const UploadList = ({ data: { uploads = [] } }) => {
   return (
     <div>
       <table>
