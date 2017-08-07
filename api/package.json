@@ -28,7 +28,7 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-prettier": "^2.1.2",
     "prettier": "^1.5.3",
-    "webpack-watch-server": "^1.1.0"
+    "webpack-watch-server": "^1.2.0"
   },
   "scripts": {
     "lint": "eslint .",
