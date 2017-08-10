@@ -1,7 +1,7 @@
-import { ApolloClient } from 'react-apollo'
-import { createApolloFetchUpload } from 'apollo-fetch-upload'
-import { print } from 'graphql/language/printer'
 import 'isomorphic-fetch'
+import { ApolloClient } from 'react-apollo'
+import BatchHttpLink from 'apollo-link-batch-http'
+import { createApolloFetchUpload } from 'apollo-fetch-upload'
 
 // Used in the browser to share a single Apollo Client instance between
 // decorated components.
@@ -12,19 +12,16 @@ let apolloClient = null
  * @param {Object} [initialState] - Apollo client Redux store initial state.
  * @returns {Object} Apollo Client instance.
  */
-function createApolloClient(initialState) {
-  const apolloFetchUpload = createApolloFetchUpload({
-    uri: process.env.API_URI
-  })
-
-  return new ApolloClient({
+const createApolloClient = initialState =>
+  new ApolloClient({
     initialState,
     ssrMode: !process.browser,
-    networkInterface: {
-      query: req => apolloFetchUpload({ ...req, query: print(req.query) })
-    }
+    networkInterface: new BatchHttpLink({
+      fetch: createApolloFetchUpload({
+        uri: process.env.API_URI
+      })
+    })
   })
-}
 
 /**
  * Gets or creates the Apollo Client instance.
