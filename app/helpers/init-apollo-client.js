@@ -1,4 +1,3 @@
-import 'isomorphic-fetch'
 import { ApolloClient } from 'react-apollo'
 import BatchHttpLink from 'apollo-link-batch-http'
 import { createApolloFetchUpload } from 'apollo-fetch-upload'
