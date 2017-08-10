@@ -1,8 +1,30 @@
 import { Component } from 'react'
-import { ApolloProvider, getDataFromTree } from 'react-apollo'
+import { ApolloClient, getDataFromTree, ApolloProvider } from 'react-apollo'
+import BatchHttpLink from 'apollo-link-batch-http'
+import { createApolloFetchUpload } from 'apollo-fetch-upload'
 import getDisplayName from 'react-display-name'
 import Head from 'next/head'
-import initApolloClient from './init-apollo-client'
+
+const ssrMode = !process.browser
+
+// To share an instance between pages on the client
+let apolloClient
+
+/**
+ * Creates a new Apollo Client instance.
+ * @param {Object} [initialState] - Redux initial state.
+ * @returns {Object} Apollo Client instance.
+ */
+const createApolloClient = initialState =>
+  new ApolloClient({
+    initialState,
+    ssrMode,
+    networkInterface: new BatchHttpLink({
+      fetch: createApolloFetchUpload({
+        uri: process.env.API_URI
+      })
+    })
+  })
 
 export default ComposedComponent => {
   return class WithData extends Component {
@@ -43,8 +65,8 @@ export default ComposedComponent => {
         )
       }
 
-      if (!process.browser) {
-        const apolloClient = initApolloClient()
+      if (ssrMode) {
+        const apolloClient = createApolloClient()
 
         try {
           // Recurse the component tree and prefetch all Apollo data queries to
@@ -60,6 +82,8 @@ export default ComposedComponent => {
           // Prevent Apollo Client GraphQL errors from crashing SSR.
           // Handle them in components via the data.error prop:
           // http://dev.apollodata.com/react/api-queries.html#graphql-query-data-error
+          // eslint-disable-next-line no-console
+          console.error(error)
         }
 
         // Forget Head items found during the getDataFromTree render to prevent
@@ -68,17 +92,24 @@ export default ComposedComponent => {
 
         // Set Apollo Client initial state so the client can adopt data fetched
         // on the server.
-        initialProps.initialState = {
-          apollo: apolloClient.getInitialState()
-        }
+        initialProps.initialState = { apollo: apolloClient.getInitialState() }
       }
 
+      // Return the final page component inital props
       return initialProps
     }
 
     constructor(props) {
       super(props)
-      this.apolloClient = initApolloClient(this.props.initialState)
+      if (ssrMode) {
+        // For the server an Apollo Client instance exists per request
+        this.apolloClient = createApolloClient(this.props.initialState)
+      } else {
+        // For the client an Apollo Client instance is shared between pages
+        if (!apolloClient)
+          apolloClient = createApolloClient(this.props.initialState)
+        this.apolloClient = apolloClient
+      }
     }
 
     render() {
