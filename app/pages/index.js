@@ -9,14 +9,16 @@ const HomePage = () =>
   <div>
     <Head>
       <title>Apollo upload examples</title>
-      <style>{`
-      html {
-        font-family: sans-serif;
-      }
-      body {
-        margin: 2em;
-      }
-    `}</style>
+      <style>
+        {`
+          html {
+            font-family: sans-serif;
+          }
+          body {
+            margin: 2em;
+          }
+        `}
+      </style>
     </Head>
     <h1>Apollo upload examples</h1>
     <Section heading="Single file upload">
