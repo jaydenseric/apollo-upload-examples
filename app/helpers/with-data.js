@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
+import getDisplayName from 'react-display-name'
 import Head from 'next/head'
 import initApolloClient from './init-apollo-client'
-import getDisplayName from './get-display-name'
 
 export default ComposedComponent => {
   return class WithData extends Component {
