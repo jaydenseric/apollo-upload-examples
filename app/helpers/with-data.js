@@ -26,8 +26,8 @@ const createApolloClient = initialState =>
     })
   })
 
-export default ComposedComponent => {
-  return class WithData extends Component {
+export default ComposedComponent =>
+  class WithData extends Component {
     static displayName = `WithData(${getDisplayName(ComposedComponent)})`
 
     /**
@@ -120,4 +120,3 @@ export default ComposedComponent => {
       )
     }
   }
-}
