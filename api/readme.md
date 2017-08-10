@@ -1,6 +1,10 @@
-# Apollo upload example API
+# Apollo upload example GraphQL API
 
-An example GraphQL API using [apollo-upload-server](https://github.com/jaydenseric/apollo-upload-server).
+An example GraphQL API using:
+
+- [koa](https://www.npmjs.com/package/koa)
+- [graphql-server-koa](https://www.npmjs.com/package/graphql-server-koa)
+- [apollo-upload-server](https://www.npmjs.com/package/apollo-upload-server)
 
 ## Setup
 

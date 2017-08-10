@@ -1,6 +1,11 @@
-# Apollo upload example web application
+# Apollo upload example web app
 
-An example web application using [Next.js](https://github.com/zeit/next.js), [React Apollo client](http://dev.apollodata.com/react) and [apollo-upload-client](https://github.com/jaydenseric/apollo-upload-client).
+An example SSR web app using:
+
+- [next](https://www.npmjs.com/package/next)
+- [react-apollo](https://www.npmjs.com/package/react-apollo)
+- [apollo-link-batch-http](https://www.npmjs.com/package/apollo-link-batch-http)
+- [apollo-fetch-upload](https://www.npmjs.com/package/apollo-fetch-upload)
 
 ## Setup
 

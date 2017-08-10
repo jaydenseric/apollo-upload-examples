@@ -7,8 +7,25 @@
 ![Github issues](https://img.shields.io/github/issues/jaydenseric/apollo-upload-examples.svg?style=flat-square)
 ![Github stars](https://img.shields.io/github/stars/jaydenseric/apollo-upload-examples.svg?style=flat-square)
 
-An example GraphQL API using [apollo-upload-server](https://github.com/jaydenseric/apollo-upload-server) and an example web app using [apollo-upload-client](https://github.com/jaydenseric/apollo-upload-client), [React Apollo Client](http://dev.apollodata.com/react) and [Next.js](https://github.com/zeit/next.js).
+A full stack demo of file uploads via GraphQL mutations with [Apollo](http://dev.apollodata.com).
 
-## Setup
+## GraphQL API
 
-See readmes in `/api` and `/app`.
+See [`api/readme.md`](api/readme.md).
+
+Uses:
+
+- [koa](https://www.npmjs.com/package/koa)
+- [graphql-server-koa](https://www.npmjs.com/package/graphql-server-koa)
+- [apollo-upload-server](https://www.npmjs.com/package/apollo-upload-server)
+
+## Web app
+
+See [`app/readme.md`](app/readme.md).
+
+Uses:
+
+- [next](https://www.npmjs.com/package/next)
+- [react-apollo](https://www.npmjs.com/package/react-apollo)
+- [apollo-link-batch-http](https://www.npmjs.com/package/apollo-link-batch-http)
+- [apollo-fetch-upload](https://www.npmjs.com/package/apollo-fetch-upload)
