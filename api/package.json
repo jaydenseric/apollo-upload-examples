@@ -8,7 +8,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "graphql": "^0.10.5",
-    "graphql-server-koa": "^1.0.4",
+    "graphql-server-koa": "^1.1.0",
     "graphql-tag": "^2.4.2",
     "graphql-tools": "^1.1.0",
     "kcors": "^2.2.1",
@@ -18,17 +18,17 @@
     "koa-router": "^7.2.1",
     "lowdb": "^0.16.2",
     "source-map-support": "^0.4.15",
-    "webpack": "^3.4.0",
+    "webpack": "^3.5.2",
     "zoo": "^0.1.9"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.3.0",
+    "eslint": "^4.4.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-prettier": "^2.1.2",
     "prettier": "^1.5.3",
-    "webpack-watch-server": "^1.1.0"
+    "webpack-watch-server": "^1.2.0"
   },
   "scripts": {
     "lint": "eslint .",
