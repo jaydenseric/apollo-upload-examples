@@ -8,6 +8,7 @@
     "next": "^3.0.3",
     "react": "^15.6.1",
     "react-apollo": "^1.4.11",
+    "react-display-name": "^0.2.3",
     "react-dom": "^15.6.1",
     "zoo": "^0.1.9"
   },
