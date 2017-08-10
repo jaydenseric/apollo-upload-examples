@@ -5,12 +5,12 @@
     "apollo-fetch-upload": "^1.0.0",
     "apollo-link-batch-http": "^0.1.0",
     "babel-plugin-transform-inline-environment-variables": "^0.1.1",
+    "dotenv-cli": "^1.4.0",
     "next": "^3.0.3",
     "react": "^15.6.1",
     "react-apollo": "^1.4.11",
     "react-display-name": "^0.2.3",
-    "react-dom": "^15.6.1",
-    "zoo": "^0.1.9"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -24,9 +24,9 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "dev": "zoo next",
-    "build": "zoo next build",
-    "start": "zoo next start"
+    "dev": "dotenv next",
+    "build": "dotenv next build",
+    "start": "dotenv next start"
   },
   "engines": {
     "node": ">=8.1.2",
