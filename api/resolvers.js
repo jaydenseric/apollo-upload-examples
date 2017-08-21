@@ -1,7 +1,7 @@
 import low from 'lowdb'
-import storage from 'lowdb/lib/storages/file-async'
+import FileSync from 'lowdb/adapters/FileSync'
 
-const db = low('db.json', { storage })
+const db = low(new FileSync('db.json'))
 db.defaults({ uploads: [] }).write()
 
 const saveFile = file =>

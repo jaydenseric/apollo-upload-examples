@@ -17,7 +17,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
     "koa-router": "^7.2.1",
-    "lowdb": "^0.16.2",
+    "lowdb": "^0.17.1",
     "source-map-support": "^0.4.16",
     "webpack": "^3.5.5"
   },
