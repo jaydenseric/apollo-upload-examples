@@ -6,8 +6,7 @@ const Page = ({ title, children }) =>
       <title>
         {title}
       </title>
-      <style>
-        {`
+      <style>{`
         html {
           font-family: sans-serif;
           color: white;
@@ -16,8 +15,7 @@ const Page = ({ title, children }) =>
         body {
           margin: 2em;
         }
-      `}
-      </style>
+      `}</style>
     </Head>
     {children}
   </div>
