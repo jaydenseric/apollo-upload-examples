@@ -1,1 +1,4 @@
 /dist
+/uploads
+db.json
+.env

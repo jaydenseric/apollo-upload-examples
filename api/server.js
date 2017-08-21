@@ -25,7 +25,7 @@ app
 // GraphQL API
 router.post(
   '/graphql',
-  apolloUploadKoa({ uploadDir: '/tmp/apollo-upload-examples' }),
+  apolloUploadKoa({ uploadDir: './uploads' }),
   graphqlKoa({ schema })
 )
 
