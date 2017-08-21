@@ -7,6 +7,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
+    "dotenv-cli": "^1.4.0",
     "graphql": "^0.10.5",
     "graphql-server-koa": "^1.1.0",
     "graphql-tag": "^2.4.2",
@@ -18,8 +19,7 @@
     "koa-router": "^7.2.1",
     "lowdb": "^0.16.2",
     "source-map-support": "^0.4.16",
-    "webpack": "^3.5.5",
-    "zoo": "^0.1.9"
+    "webpack": "^3.5.5"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
@@ -32,9 +32,9 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "dev": "zoo webpack-watch-server",
-    "build": "zoo webpack",
-    "start": "zoo node dist"
+    "dev": "dotenv webpack-watch-server",
+    "build": "dotenv webpack",
+    "start": "dotenv node dist"
   },
   "engines": {
     "node": ">=8.1.2",
