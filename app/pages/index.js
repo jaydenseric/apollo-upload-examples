@@ -1,29 +1,14 @@
-import Head from 'next/head'
-import withData from '../helpers/with-data'
+import Page from '../components/page'
 import SingleUploader from '../components/single-uploader'
 import MultipleUploader from '../components/multiple-uploader'
 import UploadList from '../components/upload-list'
+import withData from '../helpers/with-data'
 
 const HomePage = () =>
-  <div>
-    <Head>
-      <title>Apollo upload examples</title>
-      <style>
-        {`
-          html {
-            font-family: sans-serif;
-            color: white;
-            background-color: #22a699;
-          }
-          body {
-            margin: 2em;
-          }
-        `}
-      </style>
-    </Head>
+  <Page title="Apollo upload examples">
     <SingleUploader />
     <MultipleUploader />
     <UploadList />
-  </div>
+  </Page>
 
 export default withData(HomePage)
