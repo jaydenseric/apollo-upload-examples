@@ -13,6 +13,8 @@ const HomePage = () =>
         {`
           html {
             font-family: sans-serif;
+            color: white;
+            background-color: #22a699;
           }
           body {
             margin: 2em;
@@ -21,14 +23,11 @@ const HomePage = () =>
       </style>
     </Head>
     <h1>Apollo upload examples</h1>
-    <Section heading="Single file upload">
-      <p>Select a file to upload and view the response in the console.</p>
+    <p>Select files to upload and view the responses in the console.</p>
+    <Section heading="Single file">
       <SingleUploader />
     </Section>
-    <Section heading="Multiple file upload">
-      <p>
-        Select multiple files to upload and view the response in the console.
-      </p>
+    <Section heading="Multiple files">
       <MultipleUploader />
     </Section>
     <Section heading="Uploaded files">
