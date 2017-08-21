@@ -1,60 +1,33 @@
 import { graphql } from 'react-apollo'
+import { Table, Head, Cell } from './table'
 import uploadsQuery from '../queries/uploads'
 
-const UploadList = ({ data: { uploads = [] } }) => {
-  return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Size</th>
-            <th>Path</th>
-          </tr>
-        </thead>
-        <tbody>
-          {uploads.map(({ id, name, type, size, path }) =>
-            <tr key={id}>
-              <td>
-                {name}
-              </td>
-              <td>
-                {type}
-              </td>
-              <td>
-                {size}
-              </td>
-              <td>
-                {path}
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-      <style jsx>{`
-        div {
-          overflow-x: auto;
-          -webkit-overflow-scrolling: touch;
-          -ms-overflow-style: -ms-autohiding-scrollbar;
-        }
-        table {
-          border-spacing: 0;
-          padding: 1em 0;
-          text-align: left;
-          font-size: 90%;
-        }
-        th,
-        td {
-          padding: 0.3em 0.5em;
-        }
-        td {
-          vertical-align: top;
-          white-space: nowrap;
-        }
-      `}</style>
-    </div>
-  )
-}
+const UploadList = ({ data: { uploads = [] } }) =>
+  <Table
+    thead={
+      <tr>
+        <Head>Name</Head>
+        <Head>Type</Head>
+        <Head>Size</Head>
+        <Head>Path</Head>
+      </tr>
+    }
+    tbody={uploads.map(({ id, name, type, size, path }) =>
+      <tr key={id}>
+        <Cell>
+          {name}
+        </Cell>
+        <Cell>
+          {type}
+        </Cell>
+        <Cell>
+          {size}
+        </Cell>
+        <Cell>
+          {path}
+        </Cell>
+      </tr>
+    )}
+  />
 
 export default graphql(uploadsQuery)(UploadList)

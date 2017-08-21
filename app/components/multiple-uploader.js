@@ -1,4 +1,5 @@
 import { graphql, gql } from 'react-apollo'
+import FileInput from './file-input'
 import uploadsQuery from '../queries/uploads'
 
 const MultipleUploader = ({ mutate }) => {
@@ -15,7 +16,7 @@ const MultipleUploader = ({ mutate }) => {
       ]
     })
 
-  return <input type="file" multiple required onChange={handleChange} />
+  return <FileInput multiple required onChange={handleChange} />
 }
 
 export default graphql(gql`
