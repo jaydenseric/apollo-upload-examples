@@ -2,7 +2,7 @@
   "name": "apollo-upload-examples-app",
   "private": true,
   "dependencies": {
-    "apollo-fetch-upload": "^1.0.0",
+    "apollo-fetch-upload": "^1.0.1",
     "apollo-link-batch-http": "^0.1.0",
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "dotenv-cli": "^1.4.0",
@@ -19,7 +19,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-prettier": "^2.2.0",
-    "eslint-plugin-react": "^7.2.1",
+    "eslint-plugin-react": "^7.3.0",
     "prettier": "^1.5.3"
   },
   "scripts": {
