@@ -2,7 +2,7 @@
   "name": "apollo-upload-examples-app",
   "private": true,
   "dependencies": {
-    "apollo-fetch-upload": "^1.0.1",
+    "apollo-fetch-upload": "^1.1.0",
     "apollo-link-batch-http": "^0.1.0",
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "dotenv-cli": "^1.4.0",
