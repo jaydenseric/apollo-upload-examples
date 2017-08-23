@@ -10,11 +10,11 @@ import { apolloUploadKoa } from 'apollo-upload-server'
 import typeDefs from './schema.graphql'
 import resolvers from './resolvers'
 
-const app = new Koa()
+const server = new Koa()
 const router = new KoaRouter()
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 
-app
+server
   // Enable Cross-Origin Resource Sharing (CORS)
   .use(cors())
   // Enable gzip
@@ -29,12 +29,14 @@ router.post(
   graphqlKoa({ schema })
 )
 
-app.use(router.routes()).use(router.allowedMethods())
+server.use(router.routes()).use(router.allowedMethods())
 
-app.listen(process.env.PORT)
+server.listen(process.env.PORT, error => {
+  if (error) throw new Error(error)
 
-// eslint-disable-next-line no-console
-console.info(
-  `Serving at http://localhost:${process.env.PORT} in ${process.env
-    .NODE_ENV} mode.`
-)
+  // eslint-disable-next-line no-console
+  console.info(
+    `Serving at http://localhost:${process.env.PORT} in ${process.env
+      .NODE_ENV} mode.`
+  )
+})
