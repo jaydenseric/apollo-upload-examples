@@ -5,7 +5,11 @@ const db = low(new FileSync('db.json'))
 db.defaults({ uploads: [] }).write()
 
 const saveFile = file =>
-  db.get('uploads').push({ id: file.path, ...file }).last().write()
+  db
+    .get('uploads')
+    .push({ id: file.path, ...file })
+    .last()
+    .write()
 
 export default {
   Query: {

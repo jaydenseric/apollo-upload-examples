@@ -11,13 +11,12 @@ An example GraphQL API using:
 ## Setup
 
 1. Install the latest [Node.js](https://nodejs.org) and [npm](https://npmjs.com).
-2. Run `npm install` within the `api` directory in Terminal.
-3. Copy `.env.example`, rename it `.env` and customize.
+2. Duplicate `.env.example` as `.env` and customize.
+3. With Terminal in the `api` directory run `npm install`.
+4. Run `npm run dev` for development, or `npm run start` for production.
 
-For development run `npm run dev`.
 
-For production run `npm run build && npm run start`.
 
 ## Support
 
-See `engines` in `package.json`.
+See `package.json` `engines`.

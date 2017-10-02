@@ -1,60 +1,38 @@
 {
   "name": "apollo-upload-examples-api",
   "private": true,
+  "engines": {
+    "node": ">=8.6",
+    "npm": ">=5.4"
+  },
   "dependencies": {
+    "@std/esm": "^0.11.0",
     "apollo-upload-server": "^2.0.4",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-0": "^6.24.1",
-    "dotenv-cli": "^1.4.0",
+    "dotenv": "^4.0.0",
     "graphql": "^0.10.5",
     "graphql-server-koa": "^1.1.2",
-    "graphql-tag": "^2.4.2",
     "graphql-tools": "^1.2.3",
     "kcors": "^2.2.1",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
     "koa-router": "^7.2.1",
-    "lowdb": "^0.17.2",
-    "source-map-support": "^0.4.18",
-    "webpack": "^3.6.0"
+    "lowdb": "^0.17.2"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
     "eslint": "^4.8.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-prettier": "^2.3.1",
-    "prettier": "^1.7.3",
-    "webpack-watch-server": "^1.2.1"
+    "nodemon": "^1.12.1",
+    "prettier": "^1.7.3"
   },
   "scripts": {
-    "lint": "eslint .",
-    "dev": "dotenv webpack-watch-server",
-    "build": "dotenv webpack",
-    "start": "dotenv node dist"
-  },
-  "engines": {
-    "node": ">=8.1.2",
-    "npm": ">=5"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "8"
-          }
-        }
-      ],
-      "stage-0"
-    ]
+    "lint": "eslint . --ext mjs",
+    "dev": "nodemon --ext mjs",
+    "start": "node --require @std/esm --require dotenv/config server.mjs"
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
     "parserOptions": {
       "sourceType": "module",
       "ecmaVersion": 2017,
@@ -77,17 +55,21 @@
       "prettier"
     ],
     "rules": {
-      "node/no-unsupported-features": "off",
-      "prettier/prettier": [
+      "curly": [
+        "error",
+        "multi"
+      ],
+      "node/no-unsupported-features": [
         "error",
         {
-          "semi": false,
-          "singleQuote": true
+          "ignores": ["modules"]
         }
-      ]
+      ],
+      "prettier/prettier": "error"
     }
   },
-  "eslintIgnore": [
-    "dist"
-  ]
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
 }

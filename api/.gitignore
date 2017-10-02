@@ -1,4 +1,4 @@
-/dist
-/uploads
-db.json
+.esm-cache
 .env
+db.json
+/uploads
