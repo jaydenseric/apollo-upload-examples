@@ -14,7 +14,7 @@ An example SSR web app using:
 1. Install the latest [Node.js](https://nodejs.org) and [npm](https://npmjs.com).
 2. Duplicate `.env.example` as `.env` and customize.
 3. With Terminal in the `api` directory run `npm install`.
-4. Run `npm run dev` for development, or `npm run build && npm run start` for production.
+4. Run `npm run dev` for development, or `npm run build && npm start` for production.
 
 Ensure your editor supports:
 
