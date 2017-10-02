@@ -7,20 +7,20 @@
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "dotenv-cli": "^1.4.0",
     "next": "^3.0.6",
-    "react": "^15.6.1",
-    "react-apollo": "^1.4.14",
+    "react": "^15.6.2",
+    "react-apollo": "^1.4.16",
     "react-display-name": "^0.2.3",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "eslint": "^4.5.0",
+    "eslint": "^4.8.0",
     "eslint-config-standard-jsx": "^4.0.2",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-prettier": "^2.2.0",
-    "eslint-plugin-react": "^7.3.0",
-    "prettier": "^1.5.3"
+    "eslint-plugin-node": "^5.2.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
+    "prettier": "^1.7.3"
   },
   "scripts": {
     "lint": "eslint .",
@@ -29,8 +29,8 @@
     "start": "dotenv next start"
   },
   "engines": {
-    "node": ">=8.1.2",
-    "npm": ">=5"
+    "node": ">=8.6",
+    "npm": ">=5.4"
   },
   "babel": {
     "presets": [
@@ -68,17 +68,18 @@
       "prettier"
     ],
     "rules": {
-      "node/no-missing-require": "off",
+      "curly": [
+        "error",
+        "multi"
+      ],
       "node/no-unsupported-features": "off",
       "react/react-in-jsx-scope": "off",
       "react/prop-types": "off",
-      "prettier/prettier": [
-        "error",
-        {
-          "semi": false,
-          "singleQuote": true
-        }
-      ]
+      "prettier/prettier": "error"
     }
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
