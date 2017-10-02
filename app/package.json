@@ -1,6 +1,10 @@
 {
   "name": "apollo-upload-examples-app",
   "private": true,
+  "engines": {
+    "node": ">=8.6",
+    "npm": ">=5.4"
+  },
   "dependencies": {
     "apollo-fetch-upload": "^1.1.0",
     "apollo-link-batch-http": "^0.1.0",
@@ -26,10 +30,6 @@
     "dev": "dotenv next",
     "build": "dotenv next build",
     "start": "dotenv next start"
-  },
-  "engines": {
-    "node": ">=8.6",
-    "npm": ">=5.4"
   },
   "babel": {
     "presets": [
