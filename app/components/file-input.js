@@ -1,4 +1,4 @@
-const FileInput = props =>
+const FileInput = props => (
   <div>
     <input type="file" {...props} />
     <style jsx>{`
@@ -7,5 +7,6 @@ const FileInput = props =>
       }
     `}</style>
   </div>
+)
 
 export default FileInput

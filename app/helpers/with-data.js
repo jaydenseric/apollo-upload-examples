@@ -58,12 +58,11 @@ export default ComposedComponent =>
       }
 
       // If the page component has initial props, merge them in.
-      if (ComposedComponent.getInitialProps) {
+      if (ComposedComponent.getInitialProps)
         Object.assign(
           initialProps.composedComponentProps,
           await ComposedComponent.getInitialProps(context)
         )
-      }
 
       if (ssrMode) {
         const apolloClient = createApolloClient()
@@ -101,10 +100,10 @@ export default ComposedComponent =>
 
     constructor(props) {
       super(props)
-      if (ssrMode) {
+      if (ssrMode)
         // For the server an Apollo Client instance exists per request
         this.apolloClient = createApolloClient(this.props.initialState)
-      } else {
+      else {
         // For the client an Apollo Client instance is shared between pages
         if (!apolloClient)
           apolloClient = createApolloClient(this.props.initialState)

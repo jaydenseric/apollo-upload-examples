@@ -1,12 +1,8 @@
-export const Table = ({ thead, tbody }) =>
+export const Table = ({ thead, tbody }) => (
   <div>
     <table>
-      <thead>
-        {thead}
-      </thead>
-      <tbody>
-        {tbody}
-      </tbody>
+      <thead>{thead}</thead>
+      <tbody>{tbody}</tbody>
     </table>
     <style jsx>{`
       div {
@@ -21,8 +17,9 @@ export const Table = ({ thead, tbody }) =>
       }
     `}</style>
   </div>
+)
 
-export const Head = ({ children }) =>
+export const Head = ({ children }) => (
   <th>
     {children}
     <style jsx>{`
@@ -31,8 +28,9 @@ export const Head = ({ children }) =>
       }
     `}</style>
   </th>
+)
 
-export const Cell = ({ children }) =>
+export const Cell = ({ children }) => (
   <td>
     {children}
     <style jsx>{`
@@ -43,3 +41,4 @@ export const Cell = ({ children }) =>
       }
     `}</style>
   </td>
+)

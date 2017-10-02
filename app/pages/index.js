@@ -4,11 +4,12 @@ import MultipleUploader from '../components/multiple-uploader'
 import UploadList from '../components/upload-list'
 import withData from '../helpers/with-data'
 
-const HomePage = () =>
+const HomePage = () => (
   <Page title="Apollo upload examples">
     <SingleUploader />
     <MultipleUploader />
     <UploadList />
   </Page>
+)
 
 export default withData(HomePage)

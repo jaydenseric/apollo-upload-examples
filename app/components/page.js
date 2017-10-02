@@ -1,11 +1,9 @@
 import Head from 'next/head'
 
-const Page = ({ title, children }) =>
+const Page = ({ title, children }) => (
   <div>
     <Head>
-      <title>
-        {title}
-      </title>
+      <title>{title}</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta name="theme-color" content="#22a699" />
       <link rel="manifest" href="/static/manifest.json" />
@@ -24,5 +22,6 @@ const Page = ({ title, children }) =>
     </Head>
     {children}
   </div>
+)
 
 export default Page
