@@ -6,15 +6,18 @@
     "npm": ">=5.4"
   },
   "dependencies": {
+    "apollo-cache-inmemory": "^0.2.0-beta.3",
+    "apollo-client": "^2.0.0-beta.3",
     "apollo-fetch-upload": "^1.1.0",
     "apollo-link-batch-http": "^0.1.0",
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "dotenv-cli": "^1.4.0",
-    "next": "^3.0.6",
-    "react": "^15.6.2",
-    "react-apollo": "^1.4.16",
+    "graphql-tag": "^2.4.2",
+    "next": "^4.0.0-beta.2",
+    "react": "^16.0.0",
+    "react-apollo": "^2.0.0-beta.0",
     "react-display-name": "^0.2.3",
-    "react-dom": "^15.6.2"
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",

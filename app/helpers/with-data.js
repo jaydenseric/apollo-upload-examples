@@ -1,6 +1,8 @@
 import { Component } from 'react'
-import { ApolloClient, getDataFromTree, ApolloProvider } from 'react-apollo'
+import { ApolloClient } from 'apollo-client'
 import BatchHttpLink from 'apollo-link-batch-http'
+import InMemoryCache from 'apollo-cache-inmemory'
+import { getDataFromTree, ApolloProvider } from 'react-apollo'
 import { createApolloFetchUpload } from 'apollo-fetch-upload'
 import getDisplayName from 'react-display-name'
 import Head from 'next/head'
@@ -15,16 +17,15 @@ let apolloClient
  * @param {Object} [initialState] - Redux initial state.
  * @returns {Object} Apollo Client instance.
  */
-const createApolloClient = initialState =>
-  new ApolloClient({
-    initialState,
-    ssrMode,
-    networkInterface: new BatchHttpLink({
-      fetch: createApolloFetchUpload({
-        uri: process.env.API_URI
-      })
-    })
+const createApolloClient = (initialState = {}) => {
+  const link = new BatchHttpLink({
+    fetch: createApolloFetchUpload({ uri: process.env.API_URI })
   })
+
+  const cache = new InMemoryCache().restore(initialState)
+
+  return new ApolloClient({ link, cache, ssrMode })
+}
 
 export default ComposedComponent =>
   class WithData extends Component {
@@ -91,7 +92,9 @@ export default ComposedComponent =>
 
         // Set Apollo Client initial state so the client can adopt data fetched
         // on the server.
-        initialProps.initialState = { apollo: apolloClient.getInitialState() }
+        initialProps.initialState = apolloClient.queryManager.dataStore
+          .getCache()
+          .extract()
       }
 
       // Return the final page component inital props
