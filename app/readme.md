@@ -1,3 +1,5 @@
+![Apollo upload logo](../apollo-upload-logo.svg)
+
 # Apollo upload example web app
 
 An example SSR web app using:
