@@ -12,13 +12,15 @@ An example SSR web app using:
 ## Setup
 
 1. Install the latest [Node.js](https://nodejs.org) and [npm](https://npmjs.com).
-2. Run `npm install` within the `app` directory in Terminal.
-3. Copy `.env.example`, rename it `.env` and customize.
+2. Duplicate `.env.example` as `.env` and customize.
+3. With Terminal in the `api` directory run `npm install`.
+4. Run `npm run dev` for development, or `npm run build && npm run start` for production.
 
-For development run `npm run dev`.
+Ensure your editor supports:
 
-For production run `npm run build && npm run start`.
+- [EditorConfig](http://editorconfig.org).
+- [ESLint](http://eslint.org), respecting `package.json` config. [Atom](https://atom.io) users install [`linter-eslint`](https://atom.io/packages/linter-eslint) and enable `Fix errors on save`.
 
 ## Support
 
-See `engines` in `package.json`.
+See `package.json` `engines`.

@@ -15,7 +15,10 @@ An example GraphQL API using:
 3. With Terminal in the `api` directory run `npm install`.
 4. Run `npm run dev` for development, or `npm run start` for production.
 
+Ensure your editor supports:
 
+- [EditorConfig](http://editorconfig.org).
+- [ESLint](http://eslint.org), respecting `package.json` config. [Atom](https://atom.io) users install [`linter-eslint`](https://atom.io/packages/linter-eslint) and enable `Fix errors on save`.
 
 ## Support
 
