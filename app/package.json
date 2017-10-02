@@ -15,7 +15,6 @@
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^4.8.0",
-    "eslint-config-standard-jsx": "^4.0.2",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.2.0",
     "eslint-plugin-prettier": "^2.3.1",
