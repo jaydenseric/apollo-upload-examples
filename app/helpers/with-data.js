@@ -72,16 +72,16 @@ export default ComposedComponent =>
           // Recurse the component tree and prefetch all Apollo data queries to
           // populate the Apollo Client Redux store. This allows an instant
           // server side render.
-          // See: http://dev.apollodata.com/react/server-side-rendering.html#getDataFromTree
+          // See: https://www.apollographql.com/docs/react/recipes/server-side-rendering.html#getDataFromTree
           await getDataFromTree(
             <ApolloProvider client={apolloClient}>
               <ComposedComponent {...initialProps.composedComponentProps} />
             </ApolloProvider>
           )
         } catch (error) {
-          // Prevent Apollo Client GraphQL errors from crashing SSR.
-          // Handle them in components via the data.error prop:
-          // http://dev.apollodata.com/react/api-queries.html#graphql-query-data-error
+          // Prevent Apollo Client GraphQL errors from crashing SSR. Handle them
+          // in components via the data.error prop.
+          // See: https://www.apollographql.com/docs/react/basics/queries.html#graphql-query-data-error
           // eslint-disable-next-line no-console
           console.error(error)
         }
