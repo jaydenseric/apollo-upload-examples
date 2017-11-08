@@ -6,26 +6,26 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "@std/esm": "^0.11.2",
+    "@std/esm": "^0.11.3",
     "apollo-upload-server": "^2.0.4",
     "dotenv": "^4.0.0",
-    "graphql": "^0.10.5",
-    "graphql-server-koa": "^1.1.2",
-    "graphql-tools": "^2.0.0",
+    "graphql": "^0.11.7",
+    "graphql-server-koa": "^1.2.0",
+    "graphql-tools": "^2.7.2",
     "kcors": "^2.2.1",
-    "koa": "^2.3.0",
+    "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
     "koa-router": "^7.2.1",
     "lowdb": "^1.0.0"
   },
   "devDependencies": {
-    "eslint": "^4.8.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.2.0",
+    "eslint": "^4.10.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-prettier": "^2.3.1",
     "nodemon": "^1.12.1",
-    "prettier": "^1.7.4"
+    "prettier": "^1.8.1"
   },
   "scripts": {
     "lint": "eslint . --ext mjs",
