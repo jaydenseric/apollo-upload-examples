@@ -37,10 +37,10 @@ export default ComposedComponent =>
      * when navigating to a different route via the Link component or using the
      * routing APIs. For either environment the initial props returned must be
      * serializable to JSON.
-     * @see https://github.com/zeit/next.js/issues/978
      * @see https://github.com/zeit/next.js/#fetching-data-and-component-lifecycle
      * @param {Object} context
-     * @param {String} context.pathname - Path section of the page URL.
+     * @param {String} context.pathname - Page URL path.
+     * @param {String} context.asPath - Page URL path and query as shown in browser.
      * @param {Object} context.query - Query string section of the page URL parsed as an object.
      * @param {Object} context.req - HTTP request (server only).
      * @param {Object} context.res - HTTP response (server only).
@@ -52,8 +52,9 @@ export default ComposedComponent =>
       const initialProps = {
         composedComponentProps: {
           url: {
-            query: context.query,
-            pathname: context.pathname
+            pathname: context.pathname,
+            asPath: context.asPath,
+            query: context.query
           }
         }
       }
