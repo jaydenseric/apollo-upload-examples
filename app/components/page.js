@@ -9,18 +9,18 @@ const Page = ({ title, children }) => (
       <link rel="manifest" href="/static/manifest.json" />
       <link rel="icon" sizes="192x192" href="/static/apollo-icon.png" />
       <link rel="apple-touch-icon" href="/static/apollo-launcher-icon.png" />
-      <style>{`
-        html {
-          font-family: sans-serif;
-          color: white;
-          background-color: #22a699;
-        }
-        body {
-          margin: 2em;
-        }
-      `}</style>
     </Head>
     {children}
+    <style jsx global>{`
+      html {
+        font-family: sans-serif;
+        color: white;
+        background-color: #22a699;
+      }
+      body {
+        margin: 2em;
+      }
+    `}</style>
   </div>
 )
 
