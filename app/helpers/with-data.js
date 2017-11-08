@@ -1,9 +1,9 @@
+import 'isomorphic-unfetch'
 import { Component } from 'react'
 import { ApolloClient } from 'apollo-client'
-import BatchHttpLink from 'apollo-link-batch-http'
-import InMemoryCache from 'apollo-cache-inmemory'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import { createUploadLink } from 'apollo-upload-client'
 import { getDataFromTree, ApolloProvider } from 'react-apollo'
-import { createApolloFetchUpload } from 'apollo-fetch-upload'
 import getDisplayName from 'react-display-name'
 import Head from 'next/head'
 
@@ -17,15 +17,12 @@ let apolloClient
  * @param {Object} [initialState] - Redux initial state.
  * @returns {Object} Apollo Client instance.
  */
-const createApolloClient = (initialState = {}) => {
-  const link = new BatchHttpLink({
-    fetch: createApolloFetchUpload({ uri: process.env.API_URI })
+const createApolloClient = (initialState = {}) =>
+  new ApolloClient({
+    ssrMode,
+    cache: new InMemoryCache().restore(initialState),
+    link: createUploadLink({ uri: process.env.API_URI })
   })
-
-  const cache = new InMemoryCache().restore(initialState)
-
-  return new ApolloClient({ link, cache, ssrMode })
-}
 
 export default ComposedComponent =>
   class WithData extends Component {
