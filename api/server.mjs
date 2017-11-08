@@ -36,7 +36,8 @@ server.listen(process.env.PORT, error => {
 
   // eslint-disable-next-line no-console
   console.info(
-    `Serving at http://localhost:${process.env.PORT} in ${process.env
-      .NODE_ENV} mode.`
+    `Serving at http://localhost:${process.env.PORT} in ${
+      process.env.NODE_ENV
+    } mode.`
   )
 })
