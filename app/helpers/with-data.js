@@ -90,9 +90,7 @@ export default ComposedComponent =>
 
         // Set Apollo Client initial state so the client can adopt data fetched
         // on the server.
-        initialProps.initialState = apolloClient.queryManager.dataStore
-          .getCache()
-          .extract()
+        initialProps.initialState = apolloClient.cache.extract()
       }
 
       // Return the final page component inital props
