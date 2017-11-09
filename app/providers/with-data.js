@@ -81,7 +81,7 @@ export default ComposedComponent =>
           // in components via the data.error prop.
           // See: https://www.apollographql.com/docs/react/basics/queries.html#graphql-query-data-error
           // eslint-disable-next-line no-console
-          console.error(error)
+          console.error(error.message)
         }
 
         // Forget Head items found during the getDataFromTree render to prevent
