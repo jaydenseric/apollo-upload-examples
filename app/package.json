@@ -33,7 +33,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "fix": "npm run lint -- --fix && prettier --write readme.md",
+    "fix": "npm run lint -- --fix && prettier --write '**/*.md'",
     "dev": "dotenv next",
     "build": "dotenv next build",
     "start": "dotenv next start"

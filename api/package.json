@@ -29,7 +29,7 @@
   },
   "scripts": {
     "lint": "eslint . --ext mjs",
-    "fix": "npm run lint -- --fix && prettier --write readme.md",
+    "fix": "npm run lint -- --fix && prettier --write '**/*.md'",
     "dev": "nodemon --ext mjs",
     "start": "node --require @std/esm --require dotenv/config server.mjs"
   },
