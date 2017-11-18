@@ -6,8 +6,7 @@
 [![Github issues](https://img.shields.io/github/issues/jaydenseric/apollo-upload-examples.svg)](https://github.com/jaydenseric/apollo-upload-examples/issues)
 [![Github stars](https://img.shields.io/github/stars/jaydenseric/apollo-upload-examples.svg)](https://github.com/jaydenseric/apollo-upload-examples/stargazers)
 
-A full stack demo of file uploads via GraphQL mutations with
-[Apollo](https://apollographql.com).
+A full stack demo of file uploads via GraphQL mutations with [Apollo](https://apollographql.com).
 
 ## GraphQL API
 
