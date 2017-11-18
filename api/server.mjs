@@ -17,12 +17,11 @@ server
   .use(cors())
   // Enable gzip
   .use(compress())
-  // Parse body
-  .use(koaBody())
 
 // GraphQL API
 router.post(
   '/graphql',
+  koaBody(),
   apolloUploadServer.apolloUploadKoa({ uploadDir: './uploads' }),
   graphqlServerKoa.graphqlKoa({
     schema: graphqlTools.makeExecutableSchema({ typeDefs: [types], resolvers })
