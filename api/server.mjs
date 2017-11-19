@@ -3,9 +3,9 @@ import cors from 'kcors'
 import compress from 'koa-compress'
 import KoaRouter from 'koa-router'
 import koaBody from 'koa-bodyparser'
-import graphqlTools from 'graphql-tools'
-import graphqlServerKoa from 'graphql-server-koa'
-import apolloUploadServer from 'apollo-upload-server'
+import { makeExecutableSchema } from 'graphql-tools'
+import { graphqlKoa } from 'graphql-server-koa'
+import { apolloUploadKoa } from 'apollo-upload-server'
 import types from './schema.mjs'
 import resolvers from './resolvers.mjs'
 
@@ -22,9 +22,9 @@ server
 router.post(
   '/graphql',
   koaBody(),
-  apolloUploadServer.apolloUploadKoa({ uploadDir: './uploads' }),
-  graphqlServerKoa.graphqlKoa({
-    schema: graphqlTools.makeExecutableSchema({ typeDefs: [types], resolvers })
+  apolloUploadKoa(),
+  graphqlKoa({
+    schema: makeExecutableSchema({ typeDefs: [types], resolvers })
   })
 )
 

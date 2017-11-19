@@ -22,9 +22,9 @@ export default graphql(gql`
   mutation($file: Upload!) {
     singleUpload(file: $file) {
       id
-      name
-      type
-      size
+      filename
+      encoding
+      mimetype
       path
     }
   }

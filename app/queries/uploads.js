@@ -4,9 +4,9 @@ export default gql`
   query uploads {
     uploads {
       id
-      name
-      type
-      size
+      filename
+      encoding
+      mimetype
       path
     }
   }

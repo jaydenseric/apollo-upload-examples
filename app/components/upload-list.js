@@ -6,17 +6,17 @@ const UploadList = ({ data: { uploads = [] } }) => (
   <Table
     thead={
       <tr>
-        <Head>Name</Head>
-        <Head>Type</Head>
-        <Head>Size</Head>
+        <Head>Filename</Head>
+        <Head>MIME type</Head>
+        <Head>Encoding</Head>
         <Head>Path</Head>
       </tr>
     }
-    tbody={uploads.map(({ id, name, type, size, path }) => (
+    tbody={uploads.map(({ id, filename, mimetype, encoding, path }) => (
       <tr key={id}>
-        <Cell>{name}</Cell>
-        <Cell>{type}</Cell>
-        <Cell>{size}</Cell>
+        <Cell>{filename}</Cell>
+        <Cell>{mimetype}</Cell>
+        <Cell>{encoding}</Cell>
         <Cell>{path}</Cell>
       </tr>
     ))}

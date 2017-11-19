@@ -22,9 +22,9 @@ export default graphql(gql`
   mutation($files: [Upload!]!) {
     multipleUpload(files: $files) {
       id
-      name
-      type
-      size
+      filename
+      encoding
+      mimetype
       path
     }
   }

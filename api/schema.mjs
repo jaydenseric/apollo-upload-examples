@@ -1,17 +1,12 @@
 export default /* GraphQL */ `
-  type File {
-    id: String!
-    name: String!
-    type: String!
-    size: Int!
-    path: String!
-  }
+  scalar Upload
 
-  input Upload {
-    name: String!
-    type: String!
-    size: Int!
+  type File {
+    id: ID!
     path: String!
+    filename: String!
+    mimetype: String!
+    encoding: String!
   }
 
   type Query {
