@@ -13,7 +13,8 @@ const Page = ({ title, children }) => (
     {children}
     <style jsx global>{`
       html {
-        font-family: sans-serif;
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial,
+          sans-serif;
         color: white;
         background-color: #22a699;
       }
