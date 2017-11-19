@@ -1,4 +1,4 @@
-![Apollo upload logo](apollo-upload-logo.svg)
+![Apollo upload logo](app/static/apollo-upload-logo.svg)
 
 # Apollo upload examples
 

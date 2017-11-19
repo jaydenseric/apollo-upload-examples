@@ -6,6 +6,12 @@ import withData from '../providers/with-data'
 
 const HomePage = () => (
   <Page title="Apollo upload examples">
+    <img
+      src="/static/apollo-upload-logo.svg"
+      width="170"
+      height="128"
+      alt="Apollo upload logo"
+    />
     <SingleUploader />
     <MultipleUploader />
     <UploadList />
