@@ -7,14 +7,12 @@ const MultipleUploader = ({ mutate }) => {
   const handleChange = ({ target }) =>
     target.validity.valid &&
     mutate({
-      variables: {
-        files: target.files
-      },
-      refetchQueries: [
-        {
-          query: uploadsQuery
-        }
-      ]
+      variables: { files: target.files },
+      update: (proxy, { data: { multipleUpload } }) => {
+        const data = proxy.readQuery({ query: uploadsQuery })
+        data.uploads.push(...multipleUpload)
+        proxy.writeQuery({ query: uploadsQuery, data })
+      }
     })
 
   return <FileInput multiple required onChange={handleChange} />
