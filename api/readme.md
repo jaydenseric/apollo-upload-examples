@@ -1,5 +1,3 @@
-![Apollo upload logo](../apollo-upload-logo.svg)
-
 # Apollo upload example API
 
 An example GraphQL API using:
