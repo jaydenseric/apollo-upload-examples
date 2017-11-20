@@ -18,12 +18,12 @@ const storeUpload = async ({ stream, filename }) => {
   const id = shortid.generate()
   const path = `${uploadDir}/${id}-${filename}`
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) =>
     stream
       .pipe(createWriteStream(path))
       .on('finish', () => resolve({ id, path }))
       .on('error', reject)
-  })
+  )
 }
 
 const recordFile = file =>
