@@ -6,30 +6,30 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "apollo-cache-inmemory": "1.0.0",
-    "apollo-client": "^2.0.3",
-    "apollo-link": "^1.0.3",
+    "apollo-cache-inmemory": "^1.1.4",
+    "apollo-client": "^2.1.0",
+    "apollo-link": "^1.0.7",
     "apollo-upload-client": "^7.0.0-alpha.1",
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "dotenv-cli": "^1.4.0",
     "graphql": "^0.11.7",
-    "graphql-tag": "^2.5.0",
+    "graphql-tag": "^2.6.1",
     "isomorphic-unfetch": "^2.0.0",
-    "next": "^4.1.4",
-    "react": "^16.1.1",
-    "react-apollo": "^2.0.1",
+    "next": "^4.3.0-canary.1",
+    "react": "^16.2.0",
+    "react-apollo": "^2.0.4",
     "react-display-name": "^0.2.3",
-    "react-dom": "^16.1.1",
+    "react-dom": "^16.2.0",
     "webpack-bundle-analyzer": "^2.9.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.0.2",
-    "eslint": "^4.11.0",
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.13.1",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-prettier": "^2.3.1",
-    "eslint-plugin-react": "^7.5.0",
-    "prettier": "^1.8.2"
+    "eslint-plugin-prettier": "^2.4.0",
+    "eslint-plugin-react": "^7.5.1",
+    "prettier": "^1.9.2"
   },
   "scripts": {
     "lint": "eslint .",
@@ -85,8 +85,8 @@
     }
   },
   "prettier": {
-    "semi": false,
+    "proseWrap": "never",
     "singleQuote": true,
-    "proseWrap": false
+    "semi": false
   }
 }
