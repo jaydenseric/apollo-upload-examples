@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@std/esm": "^0.18.0",
-    "apollo-upload-server": "^4.0.0-alpha.1",
+    "apollo-upload-server": "^4.0.0-alpha.2",
     "dotenv": "^4.0.0",
     "graphql": "^0.11.7",
     "graphql-server-koa": "^1.3.2",
@@ -19,6 +19,7 @@
     "koa-router": "^7.3.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
+    "promises-all": "^1.0.0",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
