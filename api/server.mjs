@@ -3,6 +3,7 @@ import cors from 'kcors'
 import compress from 'koa-compress'
 import KoaRouter from 'koa-router'
 import koaBody from 'koa-bodyparser'
+import koaStatic from 'koa-static'
 import { makeExecutableSchema } from 'graphql-tools'
 import { graphqlKoa } from 'graphql-server-koa'
 import { apolloUploadKoa } from 'apollo-upload-server'
@@ -17,6 +18,7 @@ server
   .use(cors())
   // Enable gzip
   .use(compress())
+  .use(koaStatic('.'))
 
 // GraphQL API
 router.post(
