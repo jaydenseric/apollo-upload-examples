@@ -17,7 +17,7 @@
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
     "koa-router": "^7.3.0",
-    "koa-static": "4.0.2",
+    "koa-static": "^4.0.2",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
     "promises-all": "^1.0.0",
