@@ -1,0 +1,63 @@
+{
+  "name": "mobile",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "eslint-config-universe": "1.0.6",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "jest-expo": "23.0.0",
+    "prettier": "^1.9.2",
+    "react-native-scripts": "1.8.1",
+    "react-test-renderer": "16.0.0"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
+  "scripts": {
+    "android": "react-native-scripts android",
+    "eject": "react-native-scripts eject",
+    "fix": "npm run lint -- --fix && prettier --write '**/*.md'",
+    "ios": "react-native-scripts ios",
+    "lint": "eslint .",
+    "start": "react-native-scripts start",
+    "test": "node node_modules/jest/bin/jest.js --watch"
+  },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.1.5",
+    "apollo-client": "^2.2.0",
+    "apollo-link": "^1.0.7",
+    "apollo-upload-client": "^7.0.0-alpha.1",
+    "babel-plugin-transform-inline-environment-variables": "^0.2.0",
+    "expo": "^23.0.4",
+    "graphql": "0.12.3",
+    "graphql-tag": "2.6.1",
+    "react": "16.0.0",
+    "react-apollo": "2.0.4",
+    "react-native": "0.50.3"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "universe/native"
+    ],
+    "rules": {
+      "curly": [
+        "error",
+        "multi"
+      ],
+      "node/no-unsupported-features": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "prettier/prettier": "error"
+    }
+  },
+  "prettier": {
+    "proseWrap": "never",
+    "singleQuote": true,
+    "semi": false
+  }
+}

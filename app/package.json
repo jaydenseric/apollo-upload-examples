@@ -6,13 +6,13 @@
     "npm": ">=5.4"
   },
   "dependencies": {
-    "apollo-cache-inmemory": "^1.1.4",
-    "apollo-client": "^2.1.0",
+    "apollo-cache-inmemory": "^1.1.5",
+    "apollo-client": "^2.2.0",
     "apollo-link": "^1.0.7",
     "apollo-upload-client": "^7.0.0-alpha.1",
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "dotenv-cli": "^1.4.0",
-    "graphql": "^0.11.7",
+    "graphql": "^0.12.3",
     "graphql-tag": "^2.6.1",
     "isomorphic-unfetch": "^2.0.0",
     "next": "^4.3.0-canary.1",
@@ -20,11 +20,11 @@
     "react-apollo": "^2.0.4",
     "react-display-name": "^0.2.3",
     "react-dom": "^16.2.0",
-    "webpack-bundle-analyzer": "^2.9.1"
+    "webpack-bundle-analyzer": "^2.9.2"
   },
   "devDependencies": {
-    "babel-eslint": "^8.1.2",
-    "eslint": "^4.14.0",
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-prettier": "^2.4.0",

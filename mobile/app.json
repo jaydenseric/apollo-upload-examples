@@ -1,0 +1,8 @@
+{
+  "expo": {
+    "sdkVersion": "23.0.0"
+  },
+  "extra": {
+    "API_URI": "https://localhost:8080"
+  }
+}

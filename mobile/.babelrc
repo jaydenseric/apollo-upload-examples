@@ -1,0 +1,11 @@
+{
+  "presets": ["babel-preset-expo"],
+  "plugins": [
+    "transform-inline-environment-variables"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["transform-react-jsx-source"]
+    }
+  }
+}
