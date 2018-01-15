@@ -16,7 +16,9 @@ An example SSR web app using:
 Ensure your editor supports:
 
 * [EditorConfig](http://editorconfig.org).
-* [ESLint](http://eslint.org), respecting `package.json` config. [Atom](https://atom.io) users install [`linter-eslint`](https://atom.io/packages/linter-eslint) and enable `Fix errors on save`.
+* [ESLint](http://eslint.org), respecting `package.json` config.
+  * [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
+  * [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 ## Support
 
