@@ -15,7 +15,7 @@ const MultipleUploader = ({ mutate }) => {
       }
     })
 
-  return <FileInput multiple required onChange={handleChange} />
+  return <FileInput multiple required onChange={handleChange} title={'Multiple files upload'} />
 }
 
 export default graphql(gql`

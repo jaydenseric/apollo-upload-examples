@@ -1,5 +1,6 @@
 const FileInput = props => (
   <div>
+    <h3>{props.title}</h3>
     <input type="file" {...props} />
     <style jsx>{`
       div {

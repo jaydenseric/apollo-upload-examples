@@ -15,7 +15,7 @@ const SingleUploader = ({ mutate }) => {
       }
     })
 
-  return <FileInput required onChange={handleChange} />
+  return <FileInput required onChange={handleChange} title={'Single file upload'} />
 }
 
 export default graphql(gql`
