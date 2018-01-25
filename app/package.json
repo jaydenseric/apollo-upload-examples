@@ -9,7 +9,7 @@
     "apollo-cache-inmemory": "^1.1.5",
     "apollo-client": "^2.2.0",
     "apollo-link": "^1.0.7",
-    "apollo-upload-client": "^7.0.0-alpha.3",
+    "apollo-upload-client": "^7.0.0-alpha.4",
     "babel-plugin-transform-inline-environment-variables": "^0.2.0",
     "dotenv-cli": "^1.4.0",
     "graphql": "^0.12.3",
