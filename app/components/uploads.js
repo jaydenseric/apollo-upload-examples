@@ -2,7 +2,7 @@ import { graphql } from 'react-apollo'
 import { Table, Head, Cell } from './table'
 import uploadsQuery from '../queries/uploads'
 
-const UploadList = ({ data: { uploads = [] } }) => (
+const Uploads = ({ data: { uploads = [] } }) => (
   <Table
     thead={
       <tr>
@@ -23,4 +23,4 @@ const UploadList = ({ data: { uploads = [] } }) => (
   />
 )
 
-export default graphql(uploadsQuery)(UploadList)
+export default graphql(uploadsQuery)(Uploads)

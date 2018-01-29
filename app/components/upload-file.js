@@ -1,13 +1,12 @@
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import FileInput from './file-input'
 import uploadsQuery from '../queries/uploads'
 
-const SingleUploader = ({ mutate }) => {
-  const handleChange = ({ target }) =>
-    target.validity.valid &&
+const UploadFile = ({ mutate }) => {
+  const handleChange = ({ target: { validity, files: [file] } }) =>
+    validity.valid &&
     mutate({
-      variables: { file: target.files[0] },
+      variables: { file },
       update: (proxy, { data: { singleUpload } }) => {
         const data = proxy.readQuery({ query: uploadsQuery })
         data.uploads.push(singleUpload)
@@ -15,7 +14,7 @@ const SingleUploader = ({ mutate }) => {
       }
     })
 
-  return <FileInput required onChange={handleChange} />
+  return <input type="file" required onChange={handleChange} />
 }
 
 export default graphql(gql`
@@ -28,4 +27,4 @@ export default graphql(gql`
       path
     }
   }
-`)(SingleUploader)
+`)(UploadFile)
