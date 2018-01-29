@@ -4,16 +4,21 @@ import compress from 'koa-compress'
 import KoaRouter from 'koa-router'
 import koaBody from 'koa-bodyparser'
 import { apolloUploadKoa } from 'apollo-upload-server'
-import { graphqlKoa } from 'graphql-server-koa'
-import { makeExecutableSchema } from 'graphql-tools'
+import graphqlServerKoa from 'graphql-server-koa'
+import graphqlTools from 'graphql-tools'
 import typeDefs from './schema.mjs'
 import resolvers from './resolvers.mjs'
 
 const app = new Koa()
 const router = new KoaRouter()
-const schema = makeExecutableSchema({ typeDefs, resolvers })
+const schema = graphqlTools.makeExecutableSchema({ typeDefs, resolvers })
 
-router.post('/graphql', koaBody(), apolloUploadKoa(), graphqlKoa({ schema }))
+router.post(
+  '/graphql',
+  koaBody(),
+  apolloUploadKoa(),
+  graphqlServerKoa.graphqlKoa({ schema })
+)
 
 app
   .use(cors())

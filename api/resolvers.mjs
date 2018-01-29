@@ -1,5 +1,5 @@
-import { createWriteStream, unlinkSync } from 'fs'
-import { all } from 'promises-all'
+import fs from 'fs'
+import promisesAll from 'promises-all'
 import mkdirp from 'mkdirp'
 import shortid from 'shortid'
 import lowdb from 'lowdb'
@@ -23,11 +23,11 @@ const storeFS = ({ stream, filename }) => {
       .on('error', error => {
         if (stream.truncated)
           // Delete the truncated file
-          unlinkSync(path)
+          fs.unlinkSync(path)
         reject(error)
       })
       .on('end', () => resolve({ id, path }))
-      .pipe(createWriteStream(path))
+      .pipe(fs.createWriteStream(path))
   )
 }
 
@@ -52,12 +52,16 @@ export default {
   Mutation: {
     singleUpload: (obj, { file }) => processUpload(file),
     multipleUpload: async (obj, { files }) => {
-      const { resolve, reject } = await all(files.map(processUpload))
+      const { resolve, reject } = await promisesAll.all(
+        files.map(processUpload)
+      )
+
       if (reject.length)
         reject.forEach(({ name, message }) =>
           // eslint-disable-next-line no-console
           console.error(`${name}: ${message}`)
         )
+
       return resolve
     }
   }
