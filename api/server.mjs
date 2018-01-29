@@ -11,13 +11,9 @@ import resolvers from './resolvers.mjs'
 
 const app = new Koa()
 const router = new KoaRouter()
+const schema = makeExecutableSchema({ typeDefs, resolvers })
 
-router.post(
-  '/graphql',
-  koaBody(),
-  apolloUploadKoa(),
-  graphqlKoa({ schema: makeExecutableSchema({ typeDefs, resolvers }) })
-)
+router.post('/graphql', koaBody(), apolloUploadKoa(), graphqlKoa({ schema }))
 
 app
   .use(cors())
