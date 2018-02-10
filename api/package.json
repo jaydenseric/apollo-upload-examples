@@ -10,7 +10,7 @@
     "apollo-upload-server": "^4.0.2",
     "dotenv": "^5.0.0",
     "graphql": "^0.12.3",
-    "graphql-tools": "^2.20.0",
+    "graphql-tools": "^2.20.2",
     "kcors": "^2.2.1",
     "koa": "^2.4.1",
     "koa-bodyparser": "^4.2.0",
