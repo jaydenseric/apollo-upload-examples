@@ -26,8 +26,9 @@ const storeFS = ({ stream, filename }) => {
           fs.unlinkSync(path)
         reject(error)
       })
-      .on('end', () => resolve({ id, path }))
       .pipe(fs.createWriteStream(path))
+      .on('error', error => reject(error))
+      .on('finish', () => resolve({ id, path }))
   )
 }
 
