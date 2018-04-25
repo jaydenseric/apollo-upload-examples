@@ -18,7 +18,7 @@ const createApolloClient = (cache = {}) =>
     link: createUploadLink({ uri: process.env.API_URI })
   })
 
-export const withData = Composed =>
+export default Composed =>
   class WithData extends Component {
     constructor(props) {
       super(props)
