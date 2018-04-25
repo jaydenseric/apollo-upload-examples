@@ -1,11 +1,18 @@
 /* eslint-disable import/unambiguous */
 
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
 
-module.exports = {
-  webpack: config => {
-    if (process.env.ANALYZE === 'true')
-      config.plugins.push(new BundleAnalyzerPlugin())
-    return config
+module.exports = withBundleAnalyzer({
+  analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  bundleAnalyzerConfig: {
+    server: {
+      analyzerMode: 'static',
+      reportFilename: 'bundle-analysis-server.html'
+    },
+    browser: {
+      analyzerMode: 'static',
+      reportFilename: 'bundle-analysis-browser.html'
+    }
   }
-}
+})

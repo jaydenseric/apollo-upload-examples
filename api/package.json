@@ -2,19 +2,18 @@
   "name": "apollo-upload-examples-api",
   "private": true,
   "engines": {
-    "node": ">=8.6",
-    "npm": ">=5.4"
+    "node": ">=8.6"
   },
   "dependencies": {
-    "apollo-server-koa": "^1.3.2",
+    "apollo-server-koa": "^1.3.6",
     "apollo-upload-server": "^5.0.0",
     "dotenv": "^5.0.1",
-    "graphql": "^0.13.1",
-    "graphql-tools": "^2.21.0",
+    "graphql": "^0.13.2",
+    "graphql-tools": "^2.24.0",
     "kcors": "^2.2.1",
     "koa": "^2.5.0",
     "koa-bodyparser": "^4.2.0",
-    "koa-compress": "^2.0.0",
+    "koa-compress": "^3.0.0",
     "koa-router": "^7.4.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
@@ -22,26 +21,22 @@
     "shortid": "^2.2.8"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
-    "eslint-plugin-import": "^2.9.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-prettier": "^2.6.0",
-    "nodemon": "^1.17.1",
-    "prettier": "^1.11.1"
+    "nodemon": "^1.17.3",
+    "prettier": "^1.12.1"
   },
   "scripts": {
-    "lint": "eslint . --ext mjs",
-    "fix": "npm run lint -- --fix && prettier --write '**/*.md'",
+    "lint": "eslint . --ext mjs --fix && prettier '**/*.{json,md}' --write",
     "dev": "nodemon --ext mjs",
-    "start": "node --experimental-modules --require dotenv/config server.mjs"
+    "start": "node --experimental-modules -r dotenv/config server.mjs"
   },
   "eslintConfig": {
     "parserOptions": {
       "sourceType": "module",
-      "ecmaVersion": 2017,
-      "ecmaFeatures": {
-        "experimentalObjectRestSpread": true
-      }
+      "ecmaVersion": 2018
     },
     "env": {
       "es6": true,
@@ -58,6 +53,11 @@
       "prettier"
     ],
     "rules": {
+      "require-await": "error",
+      "no-return-await": "error",
+      "arrow-body-style": "error",
+      "prefer-destructuring": "error",
+      "prefer-arrow-callback": "error",
       "curly": [
         "error",
         "multi"

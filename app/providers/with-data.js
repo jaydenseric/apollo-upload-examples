@@ -1,4 +1,4 @@
-import 'isomorphic-unfetch'
+import 'cross-fetch/polyfill'
 import { Component } from 'react'
 import { ApolloClient } from 'apollo-client'
 import { InMemoryCache } from 'apollo-cache-inmemory'
@@ -93,7 +93,7 @@ export default ComposedComponent =>
         initialProps.initialState = apolloClient.cache.extract()
       }
 
-      // Return the final page component inital props
+      // Return the final page component initial props
       return initialProps
     }
 

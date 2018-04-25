@@ -3,7 +3,12 @@ import gql from 'graphql-tag'
 import uploadsQuery from '../queries/uploads'
 
 const UploadFile = ({ mutate }) => {
-  const handleChange = ({ target: { validity, files: [file] } }) =>
+  const handleChange = ({
+    target: {
+      validity,
+      files: [file]
+    }
+  }) =>
     validity.valid &&
     mutate({
       variables: { file },
