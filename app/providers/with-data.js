@@ -48,7 +48,7 @@ export default ComposedComponent =>
     static async getInitialProps(context) {
       const initialProps = {
         composedComponentProps: {
-          url: {
+          router: {
             pathname: context.pathname,
             asPath: context.asPath,
             query: context.query
