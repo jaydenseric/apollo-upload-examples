@@ -6,24 +6,7 @@
 [![Github issues](https://img.shields.io/github/issues/jaydenseric/apollo-upload-examples.svg)](https://github.com/jaydenseric/apollo-upload-examples/issues)
 [![Github stars](https://img.shields.io/github/stars/jaydenseric/apollo-upload-examples.svg)](https://github.com/jaydenseric/apollo-upload-examples/stargazers)
 
-A full stack demo of file uploads via GraphQL mutations with [Apollo](https://apollographql.com).
+A full stack demo of file uploads via GraphQL mutations using [Apollo](https://apollographql.com) [GraphQL multipart request spec](https://github.com/jaydenseric/graphql-multipart-request-spec) implementations:
 
-## GraphQL API
-
-See [`api/readme.md`](api/readme.md).
-
-Uses:
-
-* [koa](https://npm.im/koa)
-* [graphql-server-koa](https://npm.im/graphql-server-koa)
-* [apollo-upload-server](https://npm.im/apollo-upload-server)
-
-## Web app
-
-See [`app/readme.md`](app/readme.md).
-
-Uses:
-
-* [next](https://npm.im/next)
-* [react-apollo](https://npm.im/react-apollo)
-* [apollo-upload-client](https://npm.im/apollo-upload-client)
+* [Example GraphQL API](api) using [apollo-upload-server](https://github.com/jaydenseric/apollo-upload-server).
+* [Example web app](app) using [apollo-upload-client](https://github.com/jaydenseric/apollo-upload-client).
