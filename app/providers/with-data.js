@@ -45,13 +45,17 @@ export default Composed =>
       if (ctx.req) {
         const apolloClient = createApolloClient()
 
-        await getDataFromTree(
-          <App
-            router={new Router(ctx.pathname, ctx.query, ctx.asPath)}
-            pageProps={{ apolloClient, pageProps: props }}
-            Component={this.renderPage}
-          />
-        )
+        try {
+          await getDataFromTree(
+            <App
+              router={new Router(ctx.pathname, ctx.query, ctx.asPath)}
+              pageProps={{ apolloClient, pageProps: props }}
+              Component={this.renderPage}
+            />
+          )
+        } catch (error) {
+          // Prevent crash from GraphQL errors.
+        }
 
         props.cache = apolloClient.cache.extract()
       }
