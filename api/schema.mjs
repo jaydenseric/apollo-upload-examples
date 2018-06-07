@@ -14,7 +14,7 @@ export default /* GraphQL */ `
   }
 
   type Mutation {
-    singleUpload (file: Upload!): File!
-    multipleUpload (files: [Upload!]!): [File!]!
+    singleUpload(file: Upload!): File!
+    multipleUpload(files: [Upload!]!): [File!]!
   }
 `

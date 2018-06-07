@@ -2,9 +2,9 @@
 
 An example GraphQL API using:
 
-* [koa](https://npm.im/koa)
-* [graphql-server-koa](https://npm.im/graphql-server-koa)
-* [apollo-upload-server](https://npm.im/apollo-upload-server)
+- [koa](https://npm.im/koa)
+- [graphql-server-koa](https://npm.im/graphql-server-koa)
+- [apollo-upload-server](https://npm.im/apollo-upload-server)
 
 ## Setup
 
@@ -15,10 +15,10 @@ An example GraphQL API using:
 
 Ensure your editor supports:
 
-* [EditorConfig](http://editorconfig.org).
-* [ESLint](http://eslint.org), respecting `package.json` config.
-  * [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
-  * [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+- [EditorConfig](http://editorconfig.org).
+- [ESLint](http://eslint.org), respecting `package.json` config.
+  - [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
+  - [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 ## Support
 

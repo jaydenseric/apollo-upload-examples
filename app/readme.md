@@ -2,9 +2,9 @@
 
 An example SSR web app using:
 
-* [next](https://npm.im/next)
-* [react-apollo](https://npm.im/react-apollo)
-* [apollo-upload-client](https://npm.im/apollo-upload-client)
+- [next](https://npm.im/next)
+- [react-apollo](https://npm.im/react-apollo)
+- [apollo-upload-client](https://npm.im/apollo-upload-client)
 
 ## Setup
 
@@ -15,10 +15,10 @@ An example SSR web app using:
 
 Ensure your editor supports:
 
-* [EditorConfig](http://editorconfig.org).
-* [ESLint](http://eslint.org), respecting `package.json` config.
-  * [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
-  * [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+- [EditorConfig](http://editorconfig.org).
+- [ESLint](http://eslint.org), respecting `package.json` config.
+  - [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
+  - [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 ## Support
 
