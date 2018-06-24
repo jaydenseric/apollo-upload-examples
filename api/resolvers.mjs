@@ -52,7 +52,7 @@ export default {
   },
   Mutation: {
     singleUpload: (obj, { file }) => processUpload(file),
-    multipleUpload: async (obj, { files }) => {
+    async multipleUpload(obj, { files }) {
       const { resolve, reject } = await promisesAll.all(
         files.map(processUpload)
       )

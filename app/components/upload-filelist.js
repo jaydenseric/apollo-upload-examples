@@ -7,7 +7,12 @@ const UploadFileList = ({ mutate }) => {
     validity.valid &&
     mutate({
       variables: { files },
-      update: (proxy, { data: { multipleUpload } }) => {
+      update(
+        proxy,
+        {
+          data: { multipleUpload }
+        }
+      ) {
         const data = proxy.readQuery({ query: uploadsQuery })
         data.uploads.push(...multipleUpload)
         proxy.writeQuery({ query: uploadsQuery, data })

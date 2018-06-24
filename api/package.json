@@ -22,11 +22,13 @@
   },
   "devDependencies": {
     "eslint": "^4.19.1",
+    "eslint-config-env": "^0.2.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "^2.6.1",
     "nodemon": "^1.17.5",
-    "prettier": "^1.13.4"
+    "prettier": "^1.13.5"
   },
   "scripts": {
     "lint": "eslint . --ext mjs --fix && prettier '**/*.{json,md}' --write",
@@ -34,43 +36,11 @@
     "start": "node --experimental-modules -r dotenv/config server.mjs"
   },
   "eslintConfig": {
-    "parserOptions": {
-      "sourceType": "module",
-      "ecmaVersion": 2018
-    },
-    "env": {
-      "es6": true,
-      "node": true
-    },
     "extends": [
-      "eslint:recommended",
-      "plugin:import/recommended",
-      "plugin:node/recommended"
-    ],
-    "plugins": [
-      "import",
-      "node",
-      "prettier"
+      "env"
     ],
     "rules": {
-      "require-await": "error",
-      "no-return-await": "error",
-      "arrow-body-style": "error",
-      "prefer-destructuring": "error",
-      "prefer-arrow-callback": "error",
-      "curly": [
-        "error",
-        "multi"
-      ],
-      "node/no-unsupported-features": [
-        "error",
-        {
-          "ignores": [
-            "modules"
-          ]
-        }
-      ],
-      "prettier/prettier": "error"
+      "require-jsdoc": "off"
     }
   },
   "prettier": {

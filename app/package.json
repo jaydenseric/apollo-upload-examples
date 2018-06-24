@@ -6,8 +6,8 @@
   },
   "dependencies": {
     "@zeit/next-bundle-analyzer": "^0.1.1",
-    "apollo-cache-inmemory": "^1.2.2",
-    "apollo-client": "^2.3.2",
+    "apollo-cache-inmemory": "^1.2.5",
+    "apollo-client": "^2.3.5",
     "apollo-link": "^1.2.2",
     "apollo-upload-client": "^8.0.0",
     "babel-plugin-graphql-tag": "^1.6.0",
@@ -17,19 +17,21 @@
     "graphql": "^0.13.2",
     "graphql-tag": "^2.9.2",
     "next": "^6.0.3",
-    "react": "^16.4.0",
-    "react-apollo": "^2.1.4",
+    "react": "^16.4.1",
+    "react-apollo": "^2.1.6",
     "react-display-name": "^0.2.4",
-    "react-dom": "^16.4.0"
+    "react-dom": "^16.4.1"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.3",
+    "babel-eslint": "^8.2.5",
     "eslint": "^4.19.1",
+    "eslint-config-env": "^0.2.0",
+    "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "^2.6.1",
     "eslint-plugin-react": "^7.9.1",
-    "prettier": "^1.13.4"
+    "prettier": "^1.13.5"
   },
   "scripts": {
     "lint": "eslint . --fix && prettier '**/*.{json,md}' --write",
@@ -40,43 +42,19 @@
   "eslintConfig": {
     "parser": "babel-eslint",
     "parserOptions": {
-      "sourceType": "module",
-      "ecmaVersion": 2018,
-      "ecmaFeatures": {
-        "jsx": true
-      }
+      "sourceType": "module"
     },
     "env": {
-      "es6": true,
-      "node": true,
       "browser": true
     },
     "extends": [
-      "eslint:recommended",
-      "plugin:import/recommended",
-      "plugin:node/recommended",
-      "plugin:react/recommended"
-    ],
-    "plugins": [
-      "import",
-      "node",
-      "react",
-      "prettier"
+      "env"
     ],
     "rules": {
-      "require-await": "error",
-      "no-return-await": "error",
-      "arrow-body-style": "error",
-      "prefer-destructuring": "error",
-      "prefer-arrow-callback": "error",
-      "curly": [
-        "error",
-        "multi"
-      ],
+      "require-jsdoc": "off",
       "node/no-unsupported-features": "off",
       "react/react-in-jsx-scope": "off",
-      "react/prop-types": "off",
-      "prettier/prettier": "error"
+      "react/prop-types": "off"
     }
   },
   "prettier": {

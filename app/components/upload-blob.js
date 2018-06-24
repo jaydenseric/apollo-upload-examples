@@ -1,8 +1,8 @@
 import { Component } from 'react'
 import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import Field from './field'
 import uploadsQuery from '../queries/uploads'
+import Field from './field'
 
 class UploadBlob extends Component {
   state = {
@@ -21,7 +21,12 @@ class UploadBlob extends Component {
 
     this.props.mutate({
       variables: { file },
-      update: (proxy, { data: { singleUpload } }) => {
+      update(
+        proxy,
+        {
+          data: { singleUpload }
+        }
+      ) {
         const data = proxy.readQuery({ query: uploadsQuery })
         data.uploads.push(singleUpload)
         proxy.writeQuery({ query: uploadsQuery, data })

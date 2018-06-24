@@ -12,7 +12,12 @@ const UploadFile = ({ mutate }) => {
     validity.valid &&
     mutate({
       variables: { file },
-      update: (proxy, { data: { singleUpload } }) => {
+      update(
+        proxy,
+        {
+          data: { singleUpload }
+        }
+      ) {
         const data = proxy.readQuery({ query: uploadsQuery })
         data.uploads.push(singleUpload)
         proxy.writeQuery({ query: uploadsQuery, data })

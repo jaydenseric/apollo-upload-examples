@@ -1,6 +1,6 @@
 import { graphql } from 'react-apollo'
-import { Table, Head, Cell } from './table'
 import uploadsQuery from '../queries/uploads'
+import { Table, Head, Cell } from './table'
 
 const Uploads = ({ data: { uploads = [] } }) => (
   <Table
