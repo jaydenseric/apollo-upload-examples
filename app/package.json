@@ -9,7 +9,7 @@
     "apollo-cache-inmemory": "^1.2.5",
     "apollo-client": "^2.3.5",
     "apollo-link": "^1.2.2",
-    "apollo-upload-client": "^8.0.0",
+    "apollo-upload-client": "^8.1.0",
     "babel-plugin-graphql-tag": "^1.6.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "cross-fetch": "^2.2.1",
