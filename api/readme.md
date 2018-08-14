@@ -4,7 +4,6 @@ An example GraphQL API using:
 
 - [koa](https://npm.im/koa)
 - [graphql-server-koa](https://npm.im/graphql-server-koa)
-- [apollo-upload-server](https://npm.im/apollo-upload-server)
 
 ## Setup
 
