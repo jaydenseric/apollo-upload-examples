@@ -40,20 +40,11 @@
     "start": "dotenv next start"
   },
   "eslintConfig": {
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "sourceType": "module"
-    },
-    "env": {
-      "browser": true
-    },
     "extends": [
       "env"
     ],
     "rules": {
       "require-jsdoc": "off",
-      "node/no-unsupported-features": "off",
-      "react/react-in-jsx-scope": "off",
       "react/prop-types": "off"
     }
   },
