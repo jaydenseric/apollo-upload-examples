@@ -4,7 +4,6 @@ import UploadFile from '../components/UploadFile'
 import UploadFileList from '../components/UploadFileList'
 import UploadBlob from '../components/UploadBlob'
 import Uploads from '../components/Uploads'
-import withData from '../providers/with-data'
 
 const IndexPage = () => (
   <Page title="Apollo upload examples">
@@ -29,4 +28,4 @@ const IndexPage = () => (
   </Page>
 )
 
-export default withData(IndexPage)
+export default IndexPage
