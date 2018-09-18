@@ -32,7 +32,6 @@ export default graphql(gql`
     singleUpload(file: $file) {
       id
       filename
-      encoding
       mimetype
       path
     }

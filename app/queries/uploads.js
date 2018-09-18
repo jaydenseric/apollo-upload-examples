@@ -5,7 +5,6 @@ export default gql`
     uploads {
       id
       filename
-      encoding
       mimetype
       path
     }

@@ -4,7 +4,6 @@ export default /* GraphQL */ `
     path: String!
     filename: String!
     mimetype: String!
-    encoding: String!
   }
 
   type Query {

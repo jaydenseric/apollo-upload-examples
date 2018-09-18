@@ -27,7 +27,6 @@ export default graphql(gql`
     multipleUpload(files: $files) {
       id
       filename
-      encoding
       mimetype
       path
     }

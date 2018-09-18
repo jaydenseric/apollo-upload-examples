@@ -39,9 +39,9 @@ const storeDB = file =>
     .write()
 
 const processUpload = async upload => {
-  const { stream, filename, mimetype, encoding } = await upload
+  const { stream, filename, mimetype } = await upload
   const { id, path } = await storeFS({ stream, filename })
-  return storeDB({ id, filename, mimetype, encoding, path })
+  return storeDB({ id, filename, mimetype, path })
 }
 
 export default {
