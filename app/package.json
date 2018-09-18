@@ -16,7 +16,7 @@
     "dotenv-cli": "^1.4.0",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.9.2",
-    "next": "7.0.0-canary.20",
+    "next": "^7.0.0-canary.20",
     "react": "^16.5.1",
     "react-apollo": "^2.1.11",
     "react-display-name": "^0.2.4",
