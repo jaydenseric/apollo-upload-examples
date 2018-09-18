@@ -2,8 +2,8 @@
 
 An example GraphQL API using:
 
-- [koa](https://npm.im/koa)
-- [graphql-server-koa](https://npm.im/graphql-server-koa)
+- [`koa`](https://npm.im/koa)
+- [`apollo-server-koa`](https://npm.im/apollo-server-koa)
 
 ## Setup
 
