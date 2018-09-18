@@ -25,9 +25,9 @@
     "prettier": "^1.14.2"
   },
   "scripts": {
-    "lint": "eslint . --ext mjs --fix && prettier '**/*.{json,md}' --write",
-    "dev": "nodemon --ext mjs",
-    "start": "node --experimental-modules -r dotenv/config server.mjs"
+    "dev": "nodemon -i db.json",
+    "start": "node --experimental-modules -r dotenv/config server",
+    "test": "eslint . --ext mjs,js && prettier '**/*.{json,yml,md}' -l"
   },
   "eslintConfig": {
     "extends": [

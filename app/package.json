@@ -34,10 +34,10 @@
     "prettier": "^1.14.2"
   },
   "scripts": {
-    "lint": "eslint . --fix && prettier '**/*.{json,md}' --write",
     "dev": "dotenv next",
     "build": "dotenv next build",
-    "start": "dotenv next start"
+    "start": "dotenv next start",
+    "test": "eslint . && prettier '**/*.{json,yml,md}' -l"
   },
   "eslintConfig": {
     "extends": [
