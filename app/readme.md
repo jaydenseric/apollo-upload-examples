@@ -1,4 +1,4 @@
-# Apollo upload example web app
+# Example web app
 
 An example SSR web app using:
 

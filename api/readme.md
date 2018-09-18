@@ -1,4 +1,4 @@
-# Apollo upload example API
+# Example GraphQL API
 
 An example GraphQL API using:
 
