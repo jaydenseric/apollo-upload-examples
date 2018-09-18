@@ -1,12 +1,12 @@
-import Page from '../components/page'
-import Section from '../components/section'
-import UploadFile from '../components/upload-file'
-import UploadFileList from '../components/upload-filelist'
-import UploadBlob from '../components/upload-blob'
-import Uploads from '../components/uploads'
+import Page from '../components/Page'
+import Section from '../components/Section'
+import UploadFile from '../components/UploadFile'
+import UploadFileList from '../components/UploadFileList'
+import UploadBlob from '../components/UploadBlob'
+import Uploads from '../components/Uploads'
 import withData from '../providers/with-data'
 
-const HomePage = () => (
+const IndexPage = () => (
   <Page title="Apollo upload examples">
     <img
       src="/static/apollo-upload-logo.svg"
@@ -29,4 +29,4 @@ const HomePage = () => (
   </Page>
 )
 
-export default withData(HomePage)
+export default withData(IndexPage)
