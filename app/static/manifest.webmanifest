@@ -3,11 +3,11 @@
   "short_name": "Uploads",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#22a699",
-  "background_color": "#22a699",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "icons": [
     {
-      "src": "apollo-launcher-icon.png",
+      "src": "launcher-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
