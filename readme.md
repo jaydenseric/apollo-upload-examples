@@ -1,4 +1,4 @@
-![Apollo upload logo](app/static/apollo-upload-logo.svg)
+![Apollo upload logo](https://cdn.rawgit.com/jaydenseric/apollo-upload-client/27b1f20/apollo-upload-logo.svg)
 
 # Apollo upload examples
 

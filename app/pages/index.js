@@ -7,12 +7,6 @@ import Uploads from '../components/Uploads'
 
 const IndexPage = () => (
   <Page title="Apollo upload examples">
-    <img
-      src="/static/apollo-upload-logo.svg"
-      width="170"
-      height="128"
-      alt="Apollo upload logo"
-    />
     <Section heading="Upload FileList">
       <UploadFileList />
     </Section>
