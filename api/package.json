@@ -1,6 +1,12 @@
 {
   "name": "apollo-upload-examples-api",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Jayden Seric",
+    "email": "me@jaydenseric.com",
+    "url": "https://jaydenseric.com"
+  },
   "engines": {
     "node": ">=8.6"
   },
