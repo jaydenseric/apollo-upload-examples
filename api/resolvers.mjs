@@ -4,7 +4,6 @@ import mkdirp from 'mkdirp'
 import shortid from 'shortid'
 import lowdb from 'lowdb'
 import FileSync from 'lowdb/adapters/FileSync'
-import { GraphQLUpload } from 'apollo-upload-server'
 
 const uploadDir = './uploads'
 const db = lowdb(new FileSync('db.json'))
@@ -46,7 +45,6 @@ const processUpload = async upload => {
 }
 
 export default {
-  Upload: GraphQLUpload,
   Query: {
     uploads: () => db.get('uploads').value()
   },
