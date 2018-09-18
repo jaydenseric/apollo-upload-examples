@@ -5,18 +5,18 @@ import shortid from 'shortid'
 import lowdb from 'lowdb'
 import FileSync from 'lowdb/adapters/FileSync'
 
-const uploadDir = './uploads'
+const UPLOAD_DIR = './uploads'
 const db = lowdb(new FileSync('db.json'))
 
 // Seed an empty DB
 db.defaults({ uploads: [] }).write()
 
 // Ensure upload directory exists
-mkdirp.sync(uploadDir)
+mkdirp.sync(UPLOAD_DIR)
 
 const storeFS = ({ stream, filename }) => {
   const id = shortid.generate()
-  const path = `${uploadDir}/${id}-${filename}`
+  const path = `${UPLOAD_DIR}/${id}-${filename}`
   return new Promise((resolve, reject) =>
     stream
       .on('error', error => {
