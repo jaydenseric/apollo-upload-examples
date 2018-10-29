@@ -1,4 +1,5 @@
 import fs from 'fs'
+import { GraphQLUpload } from 'graphql-upload'
 import promisesAll from 'promises-all'
 import mkdirp from 'mkdirp'
 import shortid from 'shortid'
@@ -39,12 +40,14 @@ const storeDB = file =>
     .write()
 
 const processUpload = async upload => {
-  const { stream, filename, mimetype } = await upload
+  const { createReadStream, filename, mimetype } = await upload
+  const stream = createReadStream()
   const { id, path } = await storeFS({ stream, filename })
   return storeDB({ id, filename, mimetype, path })
 }
 
 export default {
+  Upload: GraphQLUpload,
   Query: {
     uploads: () => db.get('uploads').value()
   },
