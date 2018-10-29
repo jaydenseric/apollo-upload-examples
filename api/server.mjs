@@ -1,8 +1,8 @@
 import Koa from 'koa'
 import apolloServerKoa from 'apollo-server-koa'
-import typeDefs from './types.mjs'
-import resolvers from './resolvers.mjs'
 import { graphqlUploadKoa } from 'graphql-upload'
+import typeDefs from './types'
+import resolvers from './resolvers'
 
 const app = new Koa().use(
   graphqlUploadKoa({
