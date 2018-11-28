@@ -22,4 +22,4 @@ Ensure your editor supports:
 
 ## Support
 
-See `package.json` `engines`.
+See `package.json` `engines` and `browserslist`.
