@@ -1,10 +1,10 @@
 import fs from 'fs'
 import { GraphQLUpload } from 'graphql-upload'
-import promisesAll from 'promises-all'
-import mkdirp from 'mkdirp'
-import shortid from 'shortid'
 import lowdb from 'lowdb'
 import FileSync from 'lowdb/adapters/FileSync'
+import mkdirp from 'mkdirp'
+import promisesAll from 'promises-all'
+import shortid from 'shortid'
 
 const UPLOAD_DIR = './uploads'
 const db = lowdb(new FileSync('db.json'))
