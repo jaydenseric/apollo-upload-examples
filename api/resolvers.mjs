@@ -1,5 +1,5 @@
 import fs from 'fs'
-import { GraphQLUpload } from 'graphql-upload'
+import apolloServerKoa from 'apollo-server-koa'
 import lowdb from 'lowdb'
 import FileSync from 'lowdb/adapters/FileSync'
 import mkdirp from 'mkdirp'
@@ -9,10 +9,10 @@ import shortid from 'shortid'
 const UPLOAD_DIR = './uploads'
 const db = lowdb(new FileSync('db.json'))
 
-// Seed an empty DB
+// Seed an empty DB.
 db.defaults({ uploads: [] }).write()
 
-// Ensure upload directory exists
+// Ensure upload directory exists.
 mkdirp.sync(UPLOAD_DIR)
 
 const storeFS = ({ stream, filename }) => {
@@ -22,7 +22,7 @@ const storeFS = ({ stream, filename }) => {
     stream
       .on('error', error => {
         if (stream.truncated)
-          // Delete the truncated file
+          // Delete the truncated file.
           fs.unlinkSync(path)
         reject(error)
       })
@@ -47,7 +47,7 @@ const processUpload = async upload => {
 }
 
 export default {
-  Upload: GraphQLUpload,
+  Upload: apolloServerKoa.GraphQLUpload,
   Query: {
     uploads: () => db.get('uploads').value()
   },

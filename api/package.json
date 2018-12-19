@@ -11,10 +11,9 @@
     "node": ">=8.6"
   },
   "dependencies": {
-    "apollo-server-koa": "^2.2.4",
-    "dotenv": "^6.1.0",
+    "apollo-server-koa": "^2.3.1",
+    "dotenv": "^6.2.0",
     "graphql": "^14.0.2",
-    "graphql-upload": "^8.0.2",
     "koa": "^2.6.2",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
@@ -22,15 +21,15 @@
     "shortid": "^2.2.14"
   },
   "devDependencies": {
-    "eslint": "^5.9.0",
+    "eslint": "^5.10.0",
     "eslint-config-env": "^2.0.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-import-order-alphabetical": "0.0.1",
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "nodemon": "^1.18.7",
-    "prettier": "^1.15.2"
+    "nodemon": "^1.18.9",
+    "prettier": "^1.15.3"
   },
   "scripts": {
     "dev": "nodemon -i db.json",

@@ -1,22 +1,20 @@
 import apolloServerKoa from 'apollo-server-koa'
-import { graphqlUploadKoa } from 'graphql-upload'
 import Koa from 'koa'
 import resolvers from './resolvers'
 import typeDefs from './types'
 
-const app = new Koa().use(
-  graphqlUploadKoa({
-    maxFileSize: 10000000, // 10 MB
-    maxFiles: 20
-  })
-)
-
+const app = new Koa()
 const server = new apolloServerKoa.ApolloServer({
   typeDefs,
   resolvers,
-
-  // Disable outdated built in uploads, to setup graphql-upload instead.
-  uploads: false
+  uploads: {
+    // Limits here should be stricter than config for surrounding
+    // infrastructure such as Nginx so errors can be handled elegantly by
+    // graphql-upload:
+    // https://github.com/jaydenseric/graphql-upload#type-uploadoptions
+    maxFileSize: 10000000, // 10 MB
+    maxFiles: 20
+  }
 })
 
 server.applyMiddleware({ app })
