@@ -1,39 +1,56 @@
 import gql from 'graphql-tag'
 import { graphql } from 'react-apollo'
-import uploadsQuery from '../queries/uploads'
 
-const UploadFile = ({ mutate }) => {
+const S3_DOCUMENT_STORE_BUCKET = 'my-bucket'
+const S3_DOCUMENT_STORE_KEY = 'reqs'
+
+let s3Location = {}
+s3Location = {
+  bucket: S3_DOCUMENT_STORE_BUCKET,
+  key: S3_DOCUMENT_STORE_KEY
+}
+
+const UPLOAD_FILE = gql`
+  mutation singleUpload($input: DocumentInput!) {
+    singleUpload(input: $input) {
+      id
+      fileName
+      uploadedBy
+      uploadedAt
+    }
+  }
+`
+
+const uploadOneFile = ({ mutate }) => {
   const handleChange = ({
     target: {
       validity,
       files: [file]
     }
-  }) =>
-    validity.valid &&
-    mutate({
-      variables: { file },
-      update(
-        proxy,
-        {
-          data: { singleUpload }
-        }
-      ) {
-        const data = proxy.readQuery({ query: uploadsQuery })
-        data.uploads.push(singleUpload)
-        proxy.writeQuery({ query: uploadsQuery, data })
-      }
-    })
+  }) => {
+    //eslint-disable-next-line
+    console.log('iupload: ', file)
+    const input = {
+      config: {
+        AMPLICON: 'amplicon',
+        EMAILS: 'al@rc.com'
+      },
+      file,
+      s3Location
+    }
+
+    return (
+      validity.valid &&
+      mutate({
+        variables: { input }
+      })
+    )
+  }
 
   return <input type="file" required onChange={handleChange} />
 }
 
-export default graphql(gql`
-  mutation($file: Upload!) {
-    singleUpload(file: $file) {
-      id
-      filename
-      mimetype
-      path
-    }
-  }
-`)(UploadFile)
+const enhancedUploadOneFile = graphql(UPLOAD_FILE)
+const uploadFile = enhancedUploadOneFile(uploadOneFile)
+
+export default uploadFile
