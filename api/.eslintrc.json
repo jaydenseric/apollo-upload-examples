@@ -1,0 +1,6 @@
+{
+  "extends": ["env"],
+  "rules": {
+    "require-jsdoc": "off"
+  }
+}

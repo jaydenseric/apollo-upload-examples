@@ -46,28 +46,5 @@
     "build": "dotenv next build",
     "start": "dotenv next start",
     "test": "eslint . && prettier '**/*.{json,yml,md}' -l"
-  },
-  "eslintConfig": {
-    "extends": [
-      "env"
-    ],
-    "rules": {
-      "require-jsdoc": "off",
-      "react/prop-types": "off"
-    }
-  },
-  "prettier": {
-    "proseWrap": "never",
-    "singleQuote": true,
-    "semi": false
-  },
-  "babel": {
-    "presets": [
-      "next/babel"
-    ],
-    "plugins": [
-      "transform-inline-environment-variables",
-      "graphql-tag"
-    ]
   }
 }

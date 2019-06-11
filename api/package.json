@@ -35,18 +35,5 @@
     "dev": "nodemon -i db.json",
     "start": "node --experimental-modules -r dotenv/config server",
     "test": "eslint . --ext mjs,js && prettier '**/*.{json,yml,md}' -l"
-  },
-  "eslintConfig": {
-    "extends": [
-      "env"
-    ],
-    "rules": {
-      "require-jsdoc": "off"
-    }
-  },
-  "prettier": {
-    "proseWrap": "never",
-    "singleQuote": true,
-    "semi": false
   }
 }
