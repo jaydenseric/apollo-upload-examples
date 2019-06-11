@@ -10,7 +10,7 @@
   "engines": {
     "node": ">=8.6"
   },
-  "browserslist": "> 0.5%, not dead, node 8.6",
+  "browserslist": "> 0.5%, not dead, node >= 8.6",
   "dependencies": {
     "apollo-cache-inmemory": "^1.6.2",
     "apollo-client": "^2.6.2",
