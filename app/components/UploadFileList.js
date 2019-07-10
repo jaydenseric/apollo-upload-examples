@@ -14,8 +14,13 @@ const UploadFileList = ({ mutate }) => {
         }
       ) {
         const data = proxy.readQuery({ query: uploadsQuery })
-        data.uploads.push(...multipleUpload)
-        proxy.writeQuery({ query: uploadsQuery, data })
+        proxy.writeQuery({
+          query: uploadsQuery,
+          data: {
+            ...data,
+            uploads: [...data.uploads, ...multipleUpload]
+          }
+        })
       }
     })
 

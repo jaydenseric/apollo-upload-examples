@@ -28,8 +28,13 @@ class UploadBlob extends Component {
         }
       ) {
         const data = proxy.readQuery({ query: uploadsQuery })
-        data.uploads.push(singleUpload)
-        proxy.writeQuery({ query: uploadsQuery, data })
+        proxy.writeQuery({
+          query: uploadsQuery,
+          data: {
+            ...data,
+            uploads: [...data.uploads, singleUpload]
+          }
+        })
       }
     })
   }
