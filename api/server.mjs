@@ -22,7 +22,6 @@ server.applyMiddleware({ app })
 app.listen(process.env.PORT, error => {
   if (error) throw error
 
-  // eslint-disable-next-line no-console
   console.info(
     `Serving http://localhost:${process.env.PORT} for ${process.env.NODE_ENV}.`
   )

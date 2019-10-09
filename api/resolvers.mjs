@@ -60,7 +60,6 @@ export default {
 
       if (reject.length)
         reject.forEach(({ name, message }) =>
-          // eslint-disable-next-line no-console
           console.error(`${name}: ${message}`)
         )
 

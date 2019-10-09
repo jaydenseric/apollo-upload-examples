@@ -33,7 +33,6 @@ export default class CustomApp extends App {
         )
       } catch (error) {
         // Prevent crash from GraphQL errors.
-        // eslint-disable-next-line no-console
         console.error(error)
       }
       Head.rewind()
