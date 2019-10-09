@@ -1,10 +1,10 @@
 import 'cross-fetch/polyfill'
+import { ApolloProvider } from '@apollo/react-hooks'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import { createUploadLink } from 'apollo-upload-client'
 import App from 'next/app'
 import Head from 'next/head'
-import { ApolloProvider, getDataFromTree } from 'react-apollo'
 
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
@@ -23,6 +23,7 @@ export default class CustomApp extends App {
     if (ctx.req) {
       const apolloClient = createApolloClient()
       try {
+        const { getDataFromTree } = await import('@apollo/react-ssr')
         await getDataFromTree(
           <CustomApp
             {...props}

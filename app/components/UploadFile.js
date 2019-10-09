@@ -1,44 +1,28 @@
+import { useApolloClient, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
-import uploadsQuery from '../queries/uploads'
 
-const UploadFile = ({ mutate }) => {
-  const handleChange = ({
+const SINGLE_UPLOAD_MUTATION = gql`
+  mutation($file: Upload!) {
+    singleUpload(file: $file) {
+      id
+    }
+  }
+`
+
+export const UploadFile = () => {
+  const [uploadFileMutation] = useMutation(SINGLE_UPLOAD_MUTATION)
+  const apolloClient = useApolloClient()
+
+  const onChange = ({
     target: {
       validity,
       files: [file]
     }
   }) =>
     validity.valid &&
-    mutate({
-      variables: { file },
-      update(
-        proxy,
-        {
-          data: { singleUpload }
-        }
-      ) {
-        const data = proxy.readQuery({ query: uploadsQuery })
-        proxy.writeQuery({
-          query: uploadsQuery,
-          data: {
-            ...data,
-            uploads: [...data.uploads, singleUpload]
-          }
-        })
-      }
+    uploadFileMutation({ variables: { file } }).then(() => {
+      apolloClient.resetStore()
     })
 
-  return <input type="file" required onChange={handleChange} />
+  return <input type="file" required onChange={onChange} />
 }
-
-export default graphql(gql`
-  mutation($file: Upload!) {
-    singleUpload(file: $file) {
-      id
-      filename
-      mimetype
-      path
-    }
-  }
-`)(UploadFile)

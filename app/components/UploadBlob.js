@@ -1,79 +1,55 @@
+import { useApolloClient, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import { Component } from 'react'
-import { graphql } from 'react-apollo'
-import uploadsQuery from '../queries/uploads'
+import React from 'react'
 import Field from './Field'
 
-class UploadBlob extends Component {
-  state = {
-    name: '',
-    content: ''
+const SINGLE_UPLOAD_MUTATION = gql`
+  mutation singleUpload($file: Upload!) {
+    singleUpload(file: $file) {
+      id
+    }
   }
+`
 
-  handleChange = ({ target: { name, value } }) =>
-    this.setState({ [name]: value })
+export const UploadBlob = () => {
+  const [name, setName] = React.useState('')
+  const [content, setContent] = React.useState('')
+  const [singleUploadMutation] = useMutation(SINGLE_UPLOAD_MUTATION)
+  const apolloClient = useApolloClient()
 
-  handleSubmit = event => {
+  const onNameChange = ({ target: { value } }) => setName(value)
+  const onContentChange = ({ target: { value } }) => setContent(value)
+  const onSubmit = event => {
     event.preventDefault()
 
-    const file = new Blob([this.state.content], { type: 'text/plain' })
-    file.name = `${this.state.name}.txt`
+    const file = new Blob([content], { type: 'text/plain' })
+    file.name = `${name}.txt`
 
-    this.props.mutate({
-      variables: { file },
-      update(
-        proxy,
-        {
-          data: { singleUpload }
-        }
-      ) {
-        const data = proxy.readQuery({ query: uploadsQuery })
-        proxy.writeQuery({
-          query: uploadsQuery,
-          data: {
-            ...data,
-            uploads: [...data.uploads, singleUpload]
-          }
-        })
-      }
+    singleUploadMutation({ variables: { file } }).then(() => {
+      apolloClient.resetStore()
     })
   }
 
-  render() {
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <Field>
-          <input
-            name="name"
-            placeholder="Name"
-            required
-            value={this.state.name}
-            onChange={this.handleChange}
-          />{' '}
-          .txt
-        </Field>
-        <Field>
-          <textarea
-            name="content"
-            placeholder="Content"
-            required
-            value={this.state.content}
-            onChange={this.handleChange}
-          />
-        </Field>
-        <button>Upload</button>
-      </form>
-    )
-  }
+  return (
+    <form onSubmit={onSubmit}>
+      <Field>
+        <input
+          placeholder="Name"
+          required
+          value={name}
+          onChange={onNameChange}
+        />{' '}
+        .txt
+      </Field>
+      <Field>
+        <textarea
+          placeholder="Content"
+          required
+          value={content}
+          onChange={onContentChange}
+        />
+      </Field>
+      <button>Upload</button>
+    </form>
+  )
 }
-
-export default graphql(gql`
-  mutation($file: Upload!) {
-    singleUpload(file: $file) {
-      id
-      filename
-      mimetype
-      path
-    }
-  }
-`)(UploadBlob)

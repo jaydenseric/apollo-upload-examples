@@ -1,39 +1,23 @@
+import { useApolloClient, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
-import { graphql } from 'react-apollo'
-import uploadsQuery from '../queries/uploads'
 
-const UploadFileList = ({ mutate }) => {
-  const handleChange = ({ target: { validity, files } }) =>
-    validity.valid &&
-    mutate({
-      variables: { files },
-      update(
-        proxy,
-        {
-          data: { multipleUpload }
-        }
-      ) {
-        const data = proxy.readQuery({ query: uploadsQuery })
-        proxy.writeQuery({
-          query: uploadsQuery,
-          data: {
-            ...data,
-            uploads: [...data.uploads, ...multipleUpload]
-          }
-        })
-      }
-    })
-
-  return <input type="file" multiple required onChange={handleChange} />
-}
-
-export default graphql(gql`
-  mutation($files: [Upload!]!) {
+const MULTIPLE_UPLOAD_MUTATION = gql`
+  mutation multipleUpload($files: [Upload!]!) {
     multipleUpload(files: $files) {
       id
-      filename
-      mimetype
-      path
     }
   }
-`)(UploadFileList)
+`
+
+export const UploadFileList = () => {
+  const [multipleUploadMutation] = useMutation(MULTIPLE_UPLOAD_MUTATION)
+  const apolloClient = useApolloClient()
+
+  const onChange = ({ target: { validity, files } }) =>
+    validity.valid &&
+    multipleUploadMutation({ variables: { files } }).then(() => {
+      apolloClient.resetStore()
+    })
+
+  return <input type="file" multiple required onChange={onChange} />
+}
