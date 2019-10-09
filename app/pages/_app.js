@@ -3,6 +3,7 @@ import { ApolloProvider } from '@apollo/react-hooks'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import { createUploadLink } from 'apollo-upload-client'
+import { stylesGlobal, stylesGlobalTheme } from 'device-agnostic-ui'
 import App from 'next/app'
 import Head from 'next/head'
 
@@ -50,7 +51,20 @@ export default class CustomApp extends App {
     const { Component, pageProps = {} } = this.props
     return (
       <ApolloProvider client={this.apolloClient}>
+        <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="color-scheme" content="light dark" />
+          <meta name="theme-color" content="white" />
+          <link rel="manifest" href="/manifest.webmanifest" />
+          <link rel="icon" sizes="192x192" href="/icon.png" />
+        </Head>
         <Component {...pageProps} />
+        <style jsx global>
+          {stylesGlobalTheme}
+        </style>
+        <style jsx global>
+          {stylesGlobal}
+        </style>
       </ApolloProvider>
     )
   }

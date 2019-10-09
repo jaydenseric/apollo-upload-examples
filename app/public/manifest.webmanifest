@@ -3,8 +3,8 @@
   "short_name": "Uploads",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "white",
+  "background_color": "white",
   "icons": [
     {
       "src": "launcher-icon.png",

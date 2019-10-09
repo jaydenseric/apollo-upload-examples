@@ -2,7 +2,7 @@ import { useApolloClient, useMutation } from '@apollo/react-hooks'
 import gql from 'graphql-tag'
 
 const SINGLE_UPLOAD_MUTATION = gql`
-  mutation($file: Upload!) {
+  mutation singleUpload($file: Upload!) {
     singleUpload(file: $file) {
       id
     }

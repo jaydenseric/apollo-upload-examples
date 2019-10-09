@@ -20,6 +20,7 @@
     "babel-plugin-graphql-tag": "^2.5.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "cross-fetch": "^3.0.4",
+    "device-agnostic-ui": "^1.0.1",
     "dotenv-cli": "^2.0.1",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",

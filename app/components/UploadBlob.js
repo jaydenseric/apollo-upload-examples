@@ -1,7 +1,7 @@
 import { useApolloClient, useMutation } from '@apollo/react-hooks'
+import { Button, Code, Fieldset, Textbox } from 'device-agnostic-ui'
 import gql from 'graphql-tag'
 import React from 'react'
-import Field from './Field'
 
 const SINGLE_UPLOAD_MUTATION = gql`
   mutation singleUpload($file: Upload!) {
@@ -14,7 +14,9 @@ const SINGLE_UPLOAD_MUTATION = gql`
 export const UploadBlob = () => {
   const [name, setName] = React.useState('')
   const [content, setContent] = React.useState('')
-  const [singleUploadMutation] = useMutation(SINGLE_UPLOAD_MUTATION)
+  const [singleUploadMutation, { loading }] = useMutation(
+    SINGLE_UPLOAD_MUTATION
+  )
   const apolloClient = useApolloClient()
 
   const onNameChange = ({ target: { value } }) => setName(value)
@@ -32,24 +34,30 @@ export const UploadBlob = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <Field>
-        <input
+      <Fieldset
+        legend={
+          <>
+            File name (without <Code>.txt</Code>)
+          </>
+        }
+      >
+        <Textbox
           placeholder="Name"
           required
           value={name}
           onChange={onNameChange}
-        />{' '}
-        .txt
-      </Field>
-      <Field>
-        <textarea
+        />
+      </Fieldset>
+      <Fieldset legend="File content">
+        <Textbox
+          type="textarea"
           placeholder="Content"
           required
           value={content}
           onChange={onContentChange}
         />
-      </Field>
-      <button>Upload</button>
+      </Fieldset>
+      <Button disabled={loading}>Upload</Button>
     </form>
   )
 }
