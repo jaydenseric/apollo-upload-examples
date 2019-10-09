@@ -3,7 +3,7 @@
 An example SSR web app using:
 
 - [`next`](https://npm.im/next)
-- [`react-apollo`](https://npm.im/react-apollo)
+- [`@apollo/react-hooks`](https://npm.im/@apollo/react-hooks)
 - [`apollo-upload-client`](https://npm.im/apollo-upload-client)
 
 ## Setup
