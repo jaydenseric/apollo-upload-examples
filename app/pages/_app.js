@@ -2,7 +2,7 @@ import 'cross-fetch/polyfill'
 import { InMemoryCache } from 'apollo-cache-inmemory'
 import { ApolloClient } from 'apollo-client'
 import { createUploadLink } from 'apollo-upload-client'
-import App, { Container } from 'next/app'
+import App from 'next/app'
 import Head from 'next/head'
 import { ApolloProvider, getDataFromTree } from 'react-apollo'
 
@@ -46,13 +46,11 @@ export default class CustomApp extends App {
     this.props.apolloClient || createApolloClient(this.props.apolloCache)
 
   render() {
-    const { Component, pageProps } = this.props
+    const { Component, pageProps = {} } = this.props
     return (
-      <Container>
-        <ApolloProvider client={this.apolloClient}>
-          <Component {...pageProps} />
-        </ApolloProvider>
-      </Container>
+      <ApolloProvider client={this.apolloClient}>
+        <Component {...pageProps} />
+      </ApolloProvider>
     )
   }
 }
