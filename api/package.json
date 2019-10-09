@@ -34,7 +34,7 @@
   },
   "scripts": {
     "dev": "nodemon -i db.json",
-    "start": "node --experimental-modules -r dotenv/config server",
-    "test": "eslint . --ext mjs,js && prettier '**/*.{json,yml,md}' -l"
+    "start": "node -r dotenv/config server",
+    "test": "eslint . && prettier '**/*.{json,yml,md}' -l"
   }
 }
