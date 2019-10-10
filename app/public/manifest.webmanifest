@@ -2,12 +2,12 @@
   "name": "Apollo upload examples",
   "short_name": "Uploads",
   "start_url": "/",
-  "display": "standalone",
+  "display": "minimal-ui",
   "theme_color": "white",
   "background_color": "white",
   "icons": [
     {
-      "src": "launcher-icon.png",
+      "src": "apple-touch-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }

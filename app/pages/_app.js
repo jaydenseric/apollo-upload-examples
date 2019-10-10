@@ -56,7 +56,6 @@ export default class CustomApp extends App {
           <meta name="color-scheme" content="light dark" />
           <meta name="theme-color" content="white" />
           <link rel="manifest" href="/manifest.webmanifest" />
-          <link rel="icon" sizes="192x192" href="/icon.png" />
         </Head>
         <Component {...pageProps} />
         <style jsx global>
