@@ -8,29 +8,29 @@
     "url": "https://jaydenseric.com"
   },
   "engines": {
-    "node": ">=8.6"
+    "node": ">=8.10"
   },
   "dependencies": {
-    "apollo-server-koa": "^2.9.5",
-    "dotenv": "^8.1.0",
+    "apollo-server-koa": "^2.9.12",
+    "dotenv": "^8.2.0",
     "graphql": "^14.5.8",
-    "koa": "^2.8.2",
+    "koa": "^2.11.0",
     "lowdb": "^1.0.0",
     "mkdirp": "^0.5.1",
     "promises-all": "^1.0.0",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-env": "^9.1.0",
-    "eslint-config-prettier": "^6.4.0",
+    "eslint": "^6.7.2",
+    "eslint-config-env": "^11.0.1",
+    "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-import-order-alphabetical": "^1.0.0",
-    "eslint-plugin-jsdoc": "^15.10.0",
+    "eslint-plugin-jsdoc": "^18.4.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-prettier": "^3.1.1",
-    "nodemon": "^1.19.3",
-    "prettier": "^1.18.2"
+    "nodemon": "^2.0.1",
+    "prettier": "^1.19.1"
   },
   "scripts": {
     "dev": "nodemon -i db.json",
