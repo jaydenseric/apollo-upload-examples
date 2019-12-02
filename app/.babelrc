@@ -9,5 +9,5 @@
       }
     ]
   ],
-  "plugins": ["transform-inline-environment-variables", "graphql-tag"]
+  "plugins": ["graphql-tag"]
 }

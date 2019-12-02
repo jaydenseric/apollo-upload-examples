@@ -18,7 +18,6 @@
     "apollo-client": "^2.6.4",
     "apollo-upload-client": "^11.0.0",
     "babel-plugin-graphql-tag": "^2.5.0",
-    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "cross-fetch": "^3.0.4",
     "device-agnostic-ui": "^5.1.1",
     "dotenv-cli": "^3.1.0",
