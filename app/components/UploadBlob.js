@@ -1,5 +1,5 @@
 import { useApolloClient, useMutation } from '@apollo/react-hooks'
-import { Button, Code, Fieldset, Textbox } from 'device-agnostic-ui'
+import { ButtonSubmit, Code, Fieldset, Textbox } from 'device-agnostic-ui'
 import gql from 'graphql-tag'
 import React from 'react'
 
@@ -57,7 +57,7 @@ export const UploadBlob = () => {
           onChange={onContentChange}
         />
       </Fieldset>
-      <Button disabled={loading}>Upload</Button>
+      <ButtonSubmit loading={loading}>Upload</ButtonSubmit>
     </form>
   )
 }
