@@ -73,3 +73,12 @@ app.listen(process.env.PORT, error => {
     `Serving http://localhost:${process.env.PORT} for ${process.env.NODE_ENV}.`
   )
 })
+
+// See https://github.com/mike-marcacci/fs-capacitor#ensuring-cleanup-on-termination-by-process-signal
+function shutdown() {
+  process.exit(0);
+}
+
+process.on("SIGINT", shutdown);
+process.on("SIGTERM", shutdown);
+process.on("SIGHUP", shutdown);
