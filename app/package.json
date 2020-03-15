@@ -8,9 +8,9 @@
     "url": "https://jaydenseric.com"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10"
   },
-  "browserslist": "Node >= 8.10, > 0.5%, not OperaMini all, not dead",
+  "browserslist": "Node >= 10, > 0.5%, not OperaMini all, not dead",
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
     "@apollo/react-ssr": "^3.1.3",

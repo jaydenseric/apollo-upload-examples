@@ -8,7 +8,7 @@
     "url": "https://jaydenseric.com"
   },
   "engines": {
-    "node": ">=8.10"
+    "node": ">=10"
   },
   "dependencies": {
     "apollo-server-koa": "^2.9.12",
