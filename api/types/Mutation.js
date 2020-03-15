@@ -1,3 +1,5 @@
+'use strict'
+
 const { GraphQLUpload } = require('apollo-server-koa')
 const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql')
 const promisesAll = require('promises-all')

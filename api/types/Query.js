@@ -1,3 +1,5 @@
+'use strict'
+
 const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql')
 const { FileType } = require('./File')
 

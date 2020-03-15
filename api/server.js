@@ -1,3 +1,5 @@
+'use strict'
+
 const { createWriteStream, unlink } = require('fs')
 const { ApolloServer } = require('apollo-server-koa')
 const Koa = require('koa')
