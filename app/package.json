@@ -43,7 +43,7 @@
   "scripts": {
     "test": "npm run test:eslint && npm run test:prettier",
     "test:eslint": "eslint .",
-    "test:prettier": "prettier '**/*.{json,yml,md}' -l",
+    "test:prettier": "prettier . -c",
     "dev": "dotenv next",
     "build": "dotenv next build",
     "start": "dotenv next start"
