@@ -1,17 +1,17 @@
-import 'cross-fetch/polyfill'
-import { ApolloProvider } from '@apollo/react-hooks'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import { ApolloClient } from 'apollo-client'
-import { createUploadLink } from 'apollo-upload-client'
-import { stylesGlobal, stylesGlobalTheme } from 'device-agnostic-ui'
-import Head from 'next/head'
+import 'cross-fetch/polyfill';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
+import { createUploadLink } from 'apollo-upload-client';
+import { stylesGlobal, stylesGlobalTheme } from 'device-agnostic-ui';
+import Head from 'next/head';
 
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
     ssrMode: typeof window !== 'undefined',
     cache: new InMemoryCache().restore(cache),
     link: createUploadLink({ uri: process.env.API_URI }),
-  })
+  });
 
 const App = ({
   Component,
@@ -34,19 +34,19 @@ const App = ({
       {stylesGlobal}
     </style>
   </ApolloProvider>
-)
+);
 
 App.getInitialProps = async (context) => {
   const props = {
     pageProps: context.Component.getInitialProps
       ? await context.Component.getInitialProps(context)
       : {},
-  }
+  };
 
   if (context.ctx.req) {
-    const apolloClient = createApolloClient()
+    const apolloClient = createApolloClient();
     try {
-      const { getDataFromTree } = await import('@apollo/react-ssr')
+      const { getDataFromTree } = await import('@apollo/react-ssr');
       await getDataFromTree(
         <App
           {...props}
@@ -54,18 +54,18 @@ App.getInitialProps = async (context) => {
           router={context.router}
           Component={context.Component}
         />
-      )
+      );
     } catch (error) {
       // Prevent crash from GraphQL errors.
-      console.error(error)
+      console.error(error);
     }
 
-    Head.rewind()
+    Head.rewind();
 
-    props.apolloCache = apolloClient.cache.extract()
+    props.apolloCache = apolloClient.cache.extract();
   }
 
-  return props
-}
+  return props;
+};
 
-export default App
+export default App;

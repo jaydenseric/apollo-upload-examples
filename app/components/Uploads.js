@@ -1,6 +1,6 @@
-import { useQuery } from '@apollo/react-hooks'
-import { Scroll, Table } from 'device-agnostic-ui'
-import gql from 'graphql-tag'
+import { useQuery } from '@apollo/react-hooks';
+import { Scroll, Table } from 'device-agnostic-ui';
+import gql from 'graphql-tag';
 
 const UPLOADS_QUERY = gql`
   query uploads {
@@ -11,10 +11,10 @@ const UPLOADS_QUERY = gql`
       path
     }
   }
-`
+`;
 
 export const Uploads = () => {
-  const { data: { uploads = [] } = {} } = useQuery(UPLOADS_QUERY)
+  const { data: { uploads = [] } = {} } = useQuery(UPLOADS_QUERY);
 
   return (
     <Scroll>
@@ -37,5 +37,5 @@ export const Uploads = () => {
         </tbody>
       </Table>
     </Scroll>
-  )
-}
+  );
+};

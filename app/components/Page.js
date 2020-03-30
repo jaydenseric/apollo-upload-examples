@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head';
 
 export const Page = ({ title, children }) => (
   <>
@@ -7,4 +7,4 @@ export const Page = ({ title, children }) => (
     </Head>
     {children}
   </>
-)
+);

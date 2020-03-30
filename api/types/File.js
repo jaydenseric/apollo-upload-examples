@@ -1,11 +1,11 @@
-'use strict'
+'use strict';
 
 const {
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLString,
   GraphQLID,
-} = require('graphql')
+} = require('graphql');
 
 exports.FileType = new GraphQLObjectType({
   name: 'File',
@@ -28,4 +28,4 @@ exports.FileType = new GraphQLObjectType({
       type: GraphQLNonNull(GraphQLString),
     },
   }),
-})
+});

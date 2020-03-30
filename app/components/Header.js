@@ -7,4 +7,4 @@ export const Header = (props) => (
       }
     `}</style>
   </>
-)
+);

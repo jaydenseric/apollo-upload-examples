@@ -7,4 +7,4 @@ export const Section = (props) => (
       }
     `}</style>
   </>
-)
+);

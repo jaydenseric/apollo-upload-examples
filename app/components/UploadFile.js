@@ -1,5 +1,5 @@
-import { useApolloClient, useMutation } from '@apollo/react-hooks'
-import gql from 'graphql-tag'
+import { useApolloClient, useMutation } from '@apollo/react-hooks';
+import gql from 'graphql-tag';
 
 const SINGLE_UPLOAD_MUTATION = gql`
   mutation singleUpload($file: Upload!) {
@@ -7,11 +7,11 @@ const SINGLE_UPLOAD_MUTATION = gql`
       id
     }
   }
-`
+`;
 
 export const UploadFile = () => {
-  const [uploadFileMutation] = useMutation(SINGLE_UPLOAD_MUTATION)
-  const apolloClient = useApolloClient()
+  const [uploadFileMutation] = useMutation(SINGLE_UPLOAD_MUTATION);
+  const apolloClient = useApolloClient();
 
   const onChange = ({
     target: {
@@ -21,8 +21,8 @@ export const UploadFile = () => {
   }) =>
     validity.valid &&
     uploadFileMutation({ variables: { file } }).then(() => {
-      apolloClient.resetStore()
-    })
+      apolloClient.resetStore();
+    });
 
-  return <input type="file" required onChange={onChange} />
-}
+  return <input type="file" required onChange={onChange} />;
+};

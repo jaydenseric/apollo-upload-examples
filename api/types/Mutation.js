@@ -1,9 +1,9 @@
-'use strict'
+'use strict';
 
-const { GraphQLUpload } = require('apollo-server-koa')
-const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql')
-const promisesAll = require('promises-all')
-const { FileType } = require('./File')
+const { GraphQLUpload } = require('apollo-server-koa');
+const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql');
+const promisesAll = require('promises-all');
+const { FileType } = require('./File');
 
 exports.MutationType = new GraphQLObjectType({
   name: 'Mutation',
@@ -31,15 +31,15 @@ exports.MutationType = new GraphQLObjectType({
       async resolve(parent, { files }, { storeUpload }) {
         const { resolve, reject } = await promisesAll.all(
           files.map(storeUpload)
-        )
+        );
 
         if (reject.length)
           reject.forEach(({ name, message }) =>
             console.error(`${name}: ${message}`)
-          )
+          );
 
-        return resolve
+        return resolve;
       },
     },
   }),
-})
+});
