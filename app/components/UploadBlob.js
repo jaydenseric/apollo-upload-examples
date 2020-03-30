@@ -21,7 +21,7 @@ export const UploadBlob = () => {
 
   const onNameChange = ({ target: { value } }) => setName(value)
   const onContentChange = ({ target: { value } }) => setContent(value)
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault()
 
     const file = new Blob([content], { type: 'text/plain' })

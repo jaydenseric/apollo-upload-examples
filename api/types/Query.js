@@ -9,7 +9,7 @@ exports.QueryType = new GraphQLObjectType({
     uploads: {
       description: 'All stored files.',
       type: GraphQLNonNull(GraphQLList(GraphQLNonNull(FileType))),
-      resolve: (source, args, { db }) => db.get('uploads').value()
-    }
-  })
+      resolve: (source, args, { db }) => db.get('uploads').value(),
+    },
+  }),
 })

@@ -1,4 +1,4 @@
-export const Header = props => (
+export const Header = (props) => (
   <>
     <header {...props} />
     <style jsx>{`

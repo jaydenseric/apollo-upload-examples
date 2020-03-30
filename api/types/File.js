@@ -4,7 +4,7 @@ const {
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
 } = require('graphql')
 
 exports.FileType = new GraphQLObjectType({
@@ -13,19 +13,19 @@ exports.FileType = new GraphQLObjectType({
   fields: () => ({
     id: {
       description: 'Unique ID.',
-      type: GraphQLNonNull(GraphQLID)
+      type: GraphQLNonNull(GraphQLID),
     },
     path: {
       description: 'Where it’s stored in the filesystem.',
-      type: GraphQLNonNull(GraphQLString)
+      type: GraphQLNonNull(GraphQLString),
     },
     filename: {
       description: 'Filename, including extension.',
-      type: GraphQLNonNull(GraphQLString)
+      type: GraphQLNonNull(GraphQLString),
     },
     mimetype: {
       description: 'MIME type.',
-      type: GraphQLNonNull(GraphQLString)
-    }
-  })
+      type: GraphQLNonNull(GraphQLString),
+    },
+  }),
 })

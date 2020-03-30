@@ -10,14 +10,14 @@ const createApolloClient = (cache = {}) =>
   new ApolloClient({
     ssrMode: typeof window !== 'undefined',
     cache: new InMemoryCache().restore(cache),
-    link: createUploadLink({ uri: process.env.API_URI })
+    link: createUploadLink({ uri: process.env.API_URI }),
   })
 
 const App = ({
   Component,
   pageProps,
   apolloCache,
-  apolloClient = createApolloClient(apolloCache)
+  apolloClient = createApolloClient(apolloCache),
 }) => (
   <ApolloProvider client={apolloClient}>
     <Head>
@@ -36,11 +36,11 @@ const App = ({
   </ApolloProvider>
 )
 
-App.getInitialProps = async context => {
+App.getInitialProps = async (context) => {
   const props = {
     pageProps: context.Component.getInitialProps
       ? await context.Component.getInitialProps(context)
-      : {}
+      : {},
   }
 
   if (context.ctx.req) {

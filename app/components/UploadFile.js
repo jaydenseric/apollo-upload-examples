@@ -16,8 +16,8 @@ export const UploadFile = () => {
   const onChange = ({
     target: {
       validity,
-      files: [file]
-    }
+      files: [file],
+    },
   }) =>
     validity.valid &&
     uploadFileMutation({ variables: { file } }).then(() => {

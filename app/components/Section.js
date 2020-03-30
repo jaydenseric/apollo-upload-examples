@@ -1,4 +1,4 @@
-export const Section = props => (
+export const Section = (props) => (
   <>
     <section {...props} />
     <style jsx>{`

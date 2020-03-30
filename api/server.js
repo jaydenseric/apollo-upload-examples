@@ -24,7 +24,7 @@ mkdirp.sync(UPLOAD_DIR)
  * @param {GraphQLUpload} upload GraphQL file upload.
  * @returns {object} File metadata.
  */
-const storeUpload = async upload => {
+const storeUpload = async (upload) => {
   const { createReadStream, filename, mimetype } = await upload
   const stream = createReadStream()
   const id = shortid.generate()
@@ -41,7 +41,7 @@ const storeUpload = async upload => {
 
     // If there's an error writing the file, remove the partially written file
     // and reject the promise.
-    writeStream.on('error', error => {
+    writeStream.on('error', (error) => {
       unlink(path, () => {
         reject(error)
       })
@@ -50,16 +50,14 @@ const storeUpload = async upload => {
     // In node <= 13, errors are not automatically propagated between piped
     // streams. If there is an error receiving the upload, destroy the write
     // stream with the corresponding error.
-    stream.on('error', error => writeStream.destroy(error))
+    stream.on('error', (error) => writeStream.destroy(error))
 
     // Pipe the upload into the write stream.
     stream.pipe(writeStream)
   })
 
   // Record the file metadata in the DB.
-  db.get('uploads')
-    .push(file)
-    .write()
+  db.get('uploads').push(file).write()
 
   return file
 }
@@ -72,15 +70,15 @@ const server = new ApolloServer({
     // graphql-upload:
     // https://github.com/jaydenseric/graphql-upload#type-processrequestoptions
     maxFileSize: 10000000, // 10 MB
-    maxFiles: 20
+    maxFiles: 20,
   },
   schema,
-  context: { db, storeUpload }
+  context: { db, storeUpload },
 })
 
 server.applyMiddleware({ app })
 
-app.listen(process.env.PORT, error => {
+app.listen(process.env.PORT, (error) => {
   if (error) throw error
 
   console.info(
