@@ -32,8 +32,10 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
+    "test": "npm run test:eslint && npm run test:prettier",
+    "test:eslint": "eslint .",
+    "test:prettier": "prettier '**/*.{json,yml,md}' -l",
     "dev": "nodemon -i db.json",
-    "start": "node -r dotenv/config server",
-    "test": "eslint . && prettier '**/*.{json,yml,md}' -l"
+    "start": "node -r dotenv/config server"
   }
 }

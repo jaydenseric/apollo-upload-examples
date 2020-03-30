@@ -41,9 +41,11 @@
     "prettier": "^1.19.1"
   },
   "scripts": {
+    "test": "npm run test:eslint && npm run test:prettier",
+    "test:eslint": "eslint .",
+    "test:prettier": "prettier '**/*.{json,yml,md}' -l",
     "dev": "dotenv next",
     "build": "dotenv next build",
-    "start": "dotenv next start",
-    "test": "eslint . && prettier '**/*.{json,yml,md}' -l"
+    "start": "dotenv next start"
   }
 }
