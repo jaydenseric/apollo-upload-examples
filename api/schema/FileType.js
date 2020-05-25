@@ -7,7 +7,7 @@ const {
   GraphQLID,
 } = require('graphql');
 
-exports.FileType = new GraphQLObjectType({
+module.exports = new GraphQLObjectType({
   name: 'File',
   description: 'A stored file.',
   fields: () => ({

@@ -7,7 +7,7 @@ const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const mkdirp = require('mkdirp');
 const shortid = require('shortid');
-const { schema } = require('./schema');
+const schema = require('./schema');
 
 const UPLOAD_DIR = './uploads';
 const db = lowdb(new FileSync('db.json'));

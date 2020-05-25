@@ -3,9 +3,9 @@
 const { GraphQLUpload } = require('apollo-server-koa');
 const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql');
 const promisesAll = require('promises-all');
-const { FileType } = require('./File');
+const FileType = require('./FileType');
 
-exports.MutationType = new GraphQLObjectType({
+module.exports = new GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
     singleUpload: {

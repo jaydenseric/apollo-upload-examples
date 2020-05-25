@@ -1,9 +1,9 @@
 'use strict';
 
 const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql');
-const { FileType } = require('./File');
+const FileType = require('./FileType');
 
-exports.QueryType = new GraphQLObjectType({
+module.exports = new GraphQLObjectType({
   name: 'Query',
   fields: () => ({
     uploads: {
