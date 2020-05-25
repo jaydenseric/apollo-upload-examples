@@ -20,7 +20,6 @@
     "babel-plugin-graphql-tag": "^2.5.0",
     "cross-fetch": "^3.0.4",
     "device-agnostic-ui": "^5.1.1",
-    "dotenv-cli": "^3.1.0",
     "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "next": "^9.4.2",
@@ -44,8 +43,8 @@
     "test": "npm run test:eslint && npm run test:prettier",
     "test:eslint": "eslint .",
     "test:prettier": "prettier -c .",
-    "dev": "dotenv next",
-    "build": "dotenv next build",
-    "start": "dotenv next start"
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
   }
 }
