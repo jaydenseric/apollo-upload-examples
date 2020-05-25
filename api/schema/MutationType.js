@@ -2,7 +2,6 @@
 
 const { GraphQLUpload } = require('apollo-server-koa');
 const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql');
-const promisesAll = require('promises-all');
 const FileType = require('./FileType');
 
 module.exports = new GraphQLObjectType({
@@ -29,16 +28,14 @@ module.exports = new GraphQLObjectType({
         },
       },
       async resolve(parent, { files }, { storeUpload }) {
-        const { resolve, reject } = await promisesAll.all(
-          files.map(storeUpload)
-        );
-
-        if (reject.length)
-          reject.forEach(({ name, message }) =>
-            console.error(`${name}: ${message}`)
-          );
-
-        return resolve;
+        // Ensure an error storing one upload doesn’t prevent storing the rest.
+        const results = await Promise.allSettled(files.map(storeUpload));
+        return results.reduce((storedFiles, { value, reason }) => {
+          if (value) storedFiles.push(value);
+          // Realistically you would do more than just log an error.
+          else console.error(`Failed to store upload: ${reason}`);
+          return storedFiles;
+        }, []);
       },
     },
   }),
