@@ -1,4 +1,5 @@
 {
+  "plugins": ["graphql-tag"],
   "presets": [
     [
       "next/babel",
@@ -8,6 +9,5 @@
         }
       }
     ]
-  ],
-  "plugins": ["graphql-tag"]
+  ]
 }
