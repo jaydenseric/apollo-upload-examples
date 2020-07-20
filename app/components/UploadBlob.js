@@ -1,5 +1,6 @@
-import { gql, useApolloClient, useMutation } from '@apollo/client';
+import { useApolloClient, useMutation } from '@apollo/client';
 import { ButtonSubmit, Code, Fieldset, Textbox } from 'device-agnostic-ui';
+import gql from 'graphql-tag';
 import React from 'react';
 
 const SINGLE_UPLOAD_MUTATION = gql`

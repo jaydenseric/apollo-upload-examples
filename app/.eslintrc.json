@@ -1,6 +1,12 @@
 {
   "extends": ["env"],
   "rules": {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "node/no-unpublished-import": [
+      "error",
+      {
+        "allowModules": ["graphql-tag"]
+      }
+    ]
   }
 }

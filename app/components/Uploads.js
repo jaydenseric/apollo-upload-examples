@@ -1,5 +1,6 @@
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Scroll, Table } from 'device-agnostic-ui';
+import gql from 'graphql-tag';
 
 const UPLOADS_QUERY = gql`
   query uploads {
