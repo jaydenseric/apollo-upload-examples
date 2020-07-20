@@ -1,5 +1,4 @@
-import { useApolloClient, useMutation } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { gql, useApolloClient, useMutation } from '@apollo/client';
 
 const SINGLE_UPLOAD_MUTATION = gql`
   mutation singleUpload($file: Upload!) {

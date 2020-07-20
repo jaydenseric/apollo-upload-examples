@@ -1,6 +1,4 @@
-import { ApolloProvider } from '@apollo/react-hooks';
-import { InMemoryCache } from 'apollo-cache-inmemory';
-import { ApolloClient } from 'apollo-client';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { createUploadLink } from 'apollo-upload-client';
 import { stylesGlobal, stylesGlobalTheme } from 'device-agnostic-ui';
 import Head from 'next/head';
@@ -45,7 +43,7 @@ App.getInitialProps = async (context) => {
   if (context.ctx.req) {
     const apolloClient = createApolloClient();
     try {
-      const { getDataFromTree } = await import('@apollo/react-ssr');
+      const { getDataFromTree } = await import('@apollo/client/react/ssr');
       await getDataFromTree(
         <App
           {...props}
