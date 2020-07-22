@@ -1,7 +1,7 @@
 'use strict';
 
-const { GraphQLUpload } = require('apollo-server-koa');
 const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql');
+const { GraphQLUpload } = require('graphql-upload');
 const FileType = require('./FileType');
 
 module.exports = new GraphQLObjectType({

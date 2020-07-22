@@ -2,6 +2,7 @@
 
 const { createWriteStream, unlink } = require('fs');
 const { ApolloServer } = require('apollo-server-koa');
+const { graphqlUploadKoa } = require('graphql-upload');
 const Koa = require('koa');
 const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
@@ -62,17 +63,22 @@ const storeUpload = async (upload) => {
   return file;
 };
 
-const app = new Koa();
-
-new ApolloServer({
-  uploads: {
+const app = new Koa().use(
+  graphqlUploadKoa({
     // Limits here should be stricter than config for surrounding
     // infrastructure such as Nginx so errors can be handled elegantly by
     // `graphql-upload`:
     // https://github.com/jaydenseric/graphql-upload#type-processrequestoptions
     maxFileSize: 10000000, // 10 MB
     maxFiles: 20,
-  },
+  })
+);
+
+new ApolloServer({
+  // Disable the built in file upload implementation that uses an outdated
+  // `graphql-upload` version, see:
+  // https://github.com/apollographql/apollo-server/issues/3508#issuecomment-662371289
+  uploads: false,
   schema,
   context: { db, storeUpload },
 }).applyMiddleware({ app });
