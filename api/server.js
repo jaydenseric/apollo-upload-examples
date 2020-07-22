@@ -47,7 +47,7 @@ const storeUpload = async (upload) => {
       });
     });
 
-    // In node <= 13, errors are not automatically propagated between piped
+    // In Node.js <= v13, errors are not automatically propagated between piped
     // streams. If there is an error receiving the upload, destroy the write
     // stream with the corresponding error.
     stream.on('error', (error) => writeStream.destroy(error));
@@ -67,7 +67,7 @@ const server = new ApolloServer({
   uploads: {
     // Limits here should be stricter than config for surrounding
     // infrastructure such as Nginx so errors can be handled elegantly by
-    // graphql-upload:
+    // `graphql-upload`:
     // https://github.com/jaydenseric/graphql-upload#type-processrequestoptions
     maxFileSize: 10000000, // 10 MB
     maxFiles: 20,
