@@ -63,7 +63,8 @@ const storeUpload = async (upload) => {
 };
 
 const app = new Koa();
-const server = new ApolloServer({
+
+new ApolloServer({
   uploads: {
     // Limits here should be stricter than config for surrounding
     // infrastructure such as Nginx so errors can be handled elegantly by
@@ -74,9 +75,7 @@ const server = new ApolloServer({
   },
   schema,
   context: { db, storeUpload },
-});
-
-server.applyMiddleware({ app });
+}).applyMiddleware({ app });
 
 app.listen(process.env.PORT, (error) => {
   if (error) throw error;
