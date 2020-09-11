@@ -5,7 +5,7 @@ import Head from 'next/head';
 
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
-    ssrMode: typeof window !== 'undefined',
+    ssrMode: typeof window === 'undefined',
     cache: new InMemoryCache().restore(cache),
     link: createUploadLink({ uri: process.env.API_URI }),
   });
