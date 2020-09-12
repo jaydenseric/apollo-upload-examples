@@ -1,5 +1,4 @@
-import { useApolloClient, useMutation } from '@apollo/client';
-import gql from 'graphql-tag';
+import { gql, useApolloClient, useMutation } from '@apollo/client';
 
 const MULTIPLE_UPLOAD_MUTATION = gql`
   mutation multipleUpload($files: [Upload!]!) {
