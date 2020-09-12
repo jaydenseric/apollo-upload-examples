@@ -13,7 +13,7 @@
   "browserslist": "Node 12 - 13 and Node < 13, Node >= 13.7.0, > 0.5%, not OperaMini all, not dead",
   "dependencies": {
     "@apollo/client": "^3.1.5",
-    "apollo-upload-client": "^14.1.1",
+    "apollo-upload-client": "^14.1.2",
     "device-agnostic-ui": "^5.1.1",
     "graphql": "^15.3.0",
     "next": "^9.5.3",
@@ -27,11 +27,11 @@
     "eslint-config-env": "^15.0.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsdoc": "^30.4.0",
+    "eslint-plugin-jsdoc": "^30.4.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.1",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "prettier": "^2.1.1"
   },
   "scripts": {
