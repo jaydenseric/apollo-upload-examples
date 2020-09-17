@@ -4,5 +4,5 @@
 
 A full stack demo of file uploads via GraphQL mutations using [GraphQL multipart request spec](https://github.com/jaydenseric/graphql-multipart-request-spec) implementations:
 
-- [Example GraphQL API](api) using [Apollo Server](https://apollographql.com/server).
-- [Example web app](app) using [apollo-upload-client](https://github.com/jaydenseric/apollo-upload-client).
+- [Example GraphQL API](api) using [`graphql-upload`](https://npm.im/graphql-upload).
+- [Example web app](app) using [`apollo-upload-client`](https://npm.im/apollo-upload-client).
