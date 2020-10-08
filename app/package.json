@@ -16,7 +16,7 @@
     "apollo-upload-client": "^14.1.2",
     "device-agnostic-ui": "^5.1.1",
     "graphql": "^15.3.0",
-    "next": "^9.5.3",
+    "next": "^9.5.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
