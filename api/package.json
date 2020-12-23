@@ -20,7 +20,7 @@
     "npm": ">= 7"
   },
   "dependencies": {
-    "apollo-server-koa": "^2.19.0",
+    "apollo-server-koa": "^2.19.1",
     "dotenv": "^8.2.0",
     "graphql": "^15.4.0",
     "graphql-upload": "^11.0.0",
@@ -30,11 +30,11 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "eslint": "^7.15.0",
+    "eslint": "^7.16.0",
     "eslint-config-env": "^15.0.1",
-    "eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^30.7.8",
+    "eslint-plugin-jsdoc": "^30.7.9",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.3.0",
     "nodemon": "^2.0.6",
