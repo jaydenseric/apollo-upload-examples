@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 export const Page = ({ title, children }) => (
   <>
@@ -8,3 +9,8 @@ export const Page = ({ title, children }) => (
     {children}
   </>
 );
+
+Page.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired
+}

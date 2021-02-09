@@ -1,6 +1,11 @@
 {
   "extends": ["env"],
-  "rules": {
-    "react/prop-types": "off"
-  }
+  "overrides": [
+    {
+      "files": ["components/**/*.js", "pages/**/*.js"],
+      "rules": {
+        "jsdoc/require-jsdoc": "off"
+      }
+    }
+  ]
 }
