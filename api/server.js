@@ -22,10 +22,10 @@ mkdirp.sync(UPLOAD_DIR);
 /**
  * Stores a GraphQL file upload. The file is stored in the filesystem and its
  * metadata is recorded in the DB.
- * @param {GraphQLUpload} upload GraphQL file upload.
- * @returns {object} File metadata.
+ * @param {Promise<object>} upload GraphQL file upload.
+ * @returns {Promise<object>} File metadata.
  */
-const storeUpload = async (upload) => {
+async function storeUpload(upload) {
   const { createReadStream, filename, mimetype } = await upload;
   const stream = createReadStream();
   const id = shortid.generate();
@@ -61,7 +61,7 @@ const storeUpload = async (upload) => {
   db.get('uploads').push(file).write();
 
   return file;
-};
+}
 
 const app = new Koa().use(
   graphqlUploadKoa({
