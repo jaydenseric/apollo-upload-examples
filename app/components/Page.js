@@ -12,5 +12,5 @@ export const Page = ({ title, children }) => (
 
 Page.propTypes = {
   title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
-}
+  children: PropTypes.node.isRequired,
+};

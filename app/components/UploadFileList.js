@@ -8,7 +8,7 @@ const MULTIPLE_UPLOAD_MUTATION = gql`
   }
 `;
 
-export const UploadFileList = () => {
+export function UploadFileList() {
   const [multipleUploadMutation] = useMutation(MULTIPLE_UPLOAD_MUTATION);
   const apolloClient = useApolloClient();
 
@@ -19,4 +19,4 @@ export const UploadFileList = () => {
     });
 
   return <input type="file" multiple required onChange={onChange} />;
-};
+}

@@ -8,7 +8,7 @@ const SINGLE_UPLOAD_MUTATION = gql`
   }
 `;
 
-export const UploadFile = () => {
+export function UploadFile() {
   const [uploadFileMutation] = useMutation(SINGLE_UPLOAD_MUTATION);
   const apolloClient = useApolloClient();
 
@@ -24,4 +24,4 @@ export const UploadFile = () => {
     });
 
   return <input type="file" required onChange={onChange} />;
-};
+}

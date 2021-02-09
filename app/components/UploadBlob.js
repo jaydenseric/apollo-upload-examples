@@ -10,7 +10,7 @@ const SINGLE_UPLOAD_MUTATION = gql`
   }
 `;
 
-export const UploadBlob = () => {
+export function UploadBlob() {
   const [name, setName] = React.useState('');
   const [content, setContent] = React.useState('');
   const [singleUploadMutation, { loading }] = useMutation(
@@ -59,4 +59,4 @@ export const UploadBlob = () => {
       <ButtonSubmit loading={loading}>Upload</ButtonSubmit>
     </form>
   );
-};
+}

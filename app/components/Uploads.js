@@ -12,7 +12,7 @@ const UPLOADS_QUERY = gql`
   }
 `;
 
-export const Uploads = () => {
+export function Uploads() {
   const { data: { uploads = [] } = {} } = useQuery(UPLOADS_QUERY);
 
   return (
@@ -37,4 +37,4 @@ export const Uploads = () => {
       </Table>
     </Scroll>
   );
-};
+}
