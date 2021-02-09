@@ -13,6 +13,7 @@ import 'device-agnostic-ui/public/components/Textbox.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { createUploadLink } from 'apollo-upload-client';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
@@ -68,6 +69,13 @@ App.getInitialProps = async (context) => {
   }
 
   return props;
+};
+
+App.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  pageProps: PropTypes.object,
+  apolloCache: PropTypes.object,
+  apolloClient: PropTypes.instanceOf(ApolloClient),
 };
 
 export default App;
