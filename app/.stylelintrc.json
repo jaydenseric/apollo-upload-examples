@@ -1,0 +1,12 @@
+{
+  "extends": ["stylelint-config-recommended", "stylelint-prettier/recommended"],
+  "rules": {
+    "max-nesting-depth": 0,
+    "rule-empty-line-before": [
+      "always",
+      {
+        "except": ["after-single-line-comment", "first-nested"]
+      }
+    ]
+  }
+}

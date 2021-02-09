@@ -1,6 +1,17 @@
+import 'device-agnostic-ui/public/theme.css';
+import 'device-agnostic-ui/public/global.css';
+import 'device-agnostic-ui/public/components/Button.css';
+import 'device-agnostic-ui/public/components/ButtonSubmit.css';
+import 'device-agnostic-ui/public/components/Code.css';
+import 'device-agnostic-ui/public/components/Fieldset.css';
+import 'device-agnostic-ui/public/components/Heading.css';
+import 'device-agnostic-ui/public/components/Loading.css';
+import 'device-agnostic-ui/public/components/Margin.css';
+import 'device-agnostic-ui/public/components/Scroll.css';
+import 'device-agnostic-ui/public/components/Table.css';
+import 'device-agnostic-ui/public/components/Textbox.css';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { createUploadLink } from 'apollo-upload-client';
-import { stylesGlobal, stylesGlobalTheme } from 'device-agnostic-ui';
 import Head from 'next/head';
 
 const createApolloClient = (cache = {}) =>
@@ -24,12 +35,6 @@ const App = ({
       <link rel="manifest" href="/manifest.webmanifest" />
     </Head>
     <Component {...pageProps} />
-    <style jsx global>
-      {stylesGlobalTheme}
-    </style>
-    <style jsx global>
-      {stylesGlobal}
-    </style>
   </ApolloProvider>
 );
 

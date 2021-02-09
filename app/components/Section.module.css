@@ -1,0 +1,3 @@
+.section {
+  margin: calc(var(--daui-spacing) * 2) 0;
+}
