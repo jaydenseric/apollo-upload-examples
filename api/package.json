@@ -45,6 +45,6 @@
     "test:eslint": "eslint .",
     "test:prettier": "prettier -c .",
     "dev": "nodemon -i db.json",
-    "start": "node -r dotenv/config server"
+    "start": "node -r dotenv/config server.mjs"
   }
 }

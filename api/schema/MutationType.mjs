@@ -1,10 +1,8 @@
-'use strict';
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from 'graphql';
+import { GraphQLUpload } from 'graphql-upload';
+import FileType from './FileType.mjs';
 
-const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql');
-const { GraphQLUpload } = require('graphql-upload');
-const FileType = require('./FileType');
-
-module.exports = new GraphQLObjectType({
+export default new GraphQLObjectType({
   name: 'Mutation',
   fields: () => ({
     singleUpload: {

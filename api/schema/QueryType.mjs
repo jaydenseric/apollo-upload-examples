@@ -1,9 +1,7 @@
-'use strict';
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from 'graphql';
+import FileType from './FileType.mjs';
 
-const { GraphQLList, GraphQLObjectType, GraphQLNonNull } = require('graphql');
-const FileType = require('./FileType');
-
-module.exports = new GraphQLObjectType({
+export default new GraphQLObjectType({
   name: 'Query',
   fields: () => ({
     uploads: {

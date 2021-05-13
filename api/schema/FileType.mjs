@@ -1,13 +1,11 @@
-'use strict';
-
-const {
+import {
+  GraphQLID,
   GraphQLNonNull,
   GraphQLObjectType,
   GraphQLString,
-  GraphQLID,
-} = require('graphql');
+} from 'graphql';
 
-module.exports = new GraphQLObjectType({
+export default new GraphQLObjectType({
   name: 'File',
   description: 'A stored file.',
   fields: () => ({

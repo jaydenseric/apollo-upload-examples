@@ -1,14 +1,12 @@
-'use strict';
-
-const { createWriteStream, unlink } = require('fs');
-const { ApolloServer } = require('apollo-server-koa');
-const { graphqlUploadKoa } = require('graphql-upload');
-const Koa = require('koa');
-const lowdb = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const mkdirp = require('mkdirp');
-const shortid = require('shortid');
-const schema = require('./schema');
+import { createWriteStream, unlink } from 'fs';
+import { ApolloServer } from 'apollo-server-koa';
+import { graphqlUploadKoa } from 'graphql-upload';
+import Koa from 'koa';
+import lowdb from 'lowdb';
+import FileSync from 'lowdb/adapters/FileSync.js';
+import mkdirp from 'mkdirp';
+import shortid from 'shortid';
+import schema from './schema/index.mjs';
 
 const UPLOAD_DIR = './uploads';
 const db = lowdb(new FileSync('db.json'));
