@@ -22,7 +22,7 @@
   "browserslist": "Node 12.20 - 13 and Node < 13, Node >= 14.13, > 0.5%, not OperaMini all, not IE > 0, not dead",
   "dependencies": {
     "@apollo/client": "^3.3.17",
-    "apollo-upload-client": "^14.1.3",
+    "apollo-upload-client": "^15.0.0",
     "device-agnostic-ui": "^7.0.1",
     "graphql": "^15.5.0",
     "next": "^10.2.0",
