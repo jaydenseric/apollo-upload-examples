@@ -16,29 +16,29 @@
   "bugs": "https://github.com/jaydenseric/apollo-upload-examples/issues",
   "funding": "https://github.com/sponsors/jaydenseric",
   "engines": {
-    "node": "^12.9.0 || >= 13.7.0",
+    "node": "^12.20 || >= 14.13",
     "npm": ">= 7"
   },
   "dependencies": {
-    "apollo-server-koa": "^2.19.2",
-    "dotenv": "^8.2.0",
+    "apollo-server-koa": "^2.24.0",
+    "dotenv": "^9.0.2",
     "graphql": "^15.5.0",
-    "graphql-upload": "^11.0.0",
+    "graphql-upload": "^12.0.0",
     "koa": "^2.13.1",
     "lowdb": "^1.0.0",
     "mkdirp": "^1.0.4",
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "eslint": "^7.19.0",
-    "eslint-config-env": "^18.0.1",
-    "eslint-config-prettier": "^7.2.0",
+    "eslint": "^7.26.0",
+    "eslint-config-env": "^20.0.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsdoc": "^31.6.1",
+    "eslint-plugin-jsdoc": "^34.0.2",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "nodemon": "^2.0.7",
-    "prettier": "^2.2.1"
+    "prettier": "^2.3.0"
   },
   "scripts": {
     "test": "npm run test:eslint && npm run test:prettier",
