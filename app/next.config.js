@@ -6,4 +6,8 @@ module.exports = {
     locales: ['en-US'],
     defaultLocale: 'en-US',
   },
+  reactStrictMode: true,
+  future: {
+    webpack5: true,
+  },
 };
