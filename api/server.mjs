@@ -1,21 +1,18 @@
 import { createWriteStream, unlink } from 'fs';
+import { fileURLToPath } from 'url';
 import { ApolloServer } from 'apollo-server-koa';
 import { graphqlUploadKoa } from 'graphql-upload';
 import Koa from 'koa';
-import lowdb from 'lowdb';
-import FileSync from 'lowdb/adapters/FileSync.js';
-import mkdirp from 'mkdirp';
-import shortid from 'shortid';
+// `eslint-plugin-node` doesn’t support the package `exports` field, see:
+// https://github.com/mysticatea/eslint-plugin-node/issues/255
+// eslint-disable-next-line node/no-missing-import
+import { JSONFile, Low } from 'lowdb';
+import makeDir from 'make-dir';
+import shortId from 'shortid';
 import schema from './schema/index.mjs';
 
-const UPLOAD_DIR = './uploads';
-const db = lowdb(new FileSync('db.json'));
-
-// Seed an empty DB.
-db.defaults({ uploads: [] }).write();
-
-// Ensure upload directory exists.
-mkdirp.sync(UPLOAD_DIR);
+const UPLOAD_DIR = new URL('uploads/', import.meta.url);
+const db = new Low(new JSONFile('db.json'));
 
 /**
  * Stores a GraphQL file upload. The file is stored in the filesystem and its
@@ -26,8 +23,8 @@ mkdirp.sync(UPLOAD_DIR);
 async function storeUpload(upload) {
   const { createReadStream, filename, mimetype } = await upload;
   const stream = createReadStream();
-  const id = shortid.generate();
-  const path = `${UPLOAD_DIR}/${id}-${filename}`;
+  const id = shortId.generate();
+  const path = new URL(`${id}-${filename}`, UPLOAD_DIR);
   const file = { id, filename, mimetype, path };
 
   // Store the file in the filesystem.
@@ -56,7 +53,9 @@ async function storeUpload(upload) {
   });
 
   // Record the file metadata in the DB.
-  db.get('uploads').push(file).write();
+  await db.read();
+  db.data.uploads.push(file);
+  await db.write();
 
   return file;
 }
@@ -81,10 +80,29 @@ new ApolloServer({
   context: { db, storeUpload },
 }).applyMiddleware({ app });
 
-app.listen(process.env.PORT, (error) => {
-  if (error) throw error;
+/**
+ * Starts the API server.
+ */
+async function startServer() {
+  await db.read();
 
-  console.info(
-    `Serving http://localhost:${process.env.PORT} for ${process.env.NODE_ENV}.`
-  );
-});
+  // Seed an empty DB.
+  if (!db.data) {
+    db.data = { uploads: [] };
+
+    await db.write();
+  }
+
+  // Ensure upload directory exists.
+  await makeDir(fileURLToPath(UPLOAD_DIR));
+
+  app.listen(process.env.PORT, (error) => {
+    if (error) throw error;
+
+    console.info(
+      `Serving http://localhost:${process.env.PORT} for ${process.env.NODE_ENV}.`
+    );
+  });
+}
+
+startServer();
