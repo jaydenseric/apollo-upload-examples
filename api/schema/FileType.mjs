@@ -1,9 +1,5 @@
-import {
-  GraphQLID,
-  GraphQLNonNull,
-  GraphQLObjectType,
-  GraphQLString,
-} from 'graphql';
+import { GraphQLNonNull, GraphQLObjectType, GraphQLString } from 'graphql';
+import UPLOAD_DIRECTORY_URL from '../config/UPLOAD_DIRECTORY_URL.mjs';
 
 export default new GraphQLObjectType({
   name: 'File',
@@ -11,19 +7,19 @@ export default new GraphQLObjectType({
   fields: () => ({
     id: {
       description: 'Unique ID.',
-      type: GraphQLNonNull(GraphQLID),
-    },
-    path: {
-      description: 'Where it’s stored in the filesystem.',
       type: GraphQLNonNull(GraphQLString),
+      resolve: (storedFileName) => storedFileName,
     },
-    filename: {
-      description: 'Filename, including extension.',
+    name: {
+      description: 'File name.',
       type: GraphQLNonNull(GraphQLString),
+      resolve: (storedFileName) => storedFileName,
     },
-    mimetype: {
-      description: 'MIME type.',
+    url: {
+      description: 'File URL.',
       type: GraphQLNonNull(GraphQLString),
+      resolve: (storedFileName) =>
+        new URL(storedFileName, UPLOAD_DIRECTORY_URL),
     },
   }),
 });

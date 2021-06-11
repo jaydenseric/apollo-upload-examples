@@ -1,4 +1,6 @@
+import fs from 'fs';
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from 'graphql';
+import UPLOAD_DIRECTORY_URL from '../config/UPLOAD_DIRECTORY_URL.mjs';
 import FileType from './FileType.mjs';
 
 export default new GraphQLObjectType({
@@ -7,10 +9,7 @@ export default new GraphQLObjectType({
     uploads: {
       description: 'All stored files.',
       type: GraphQLNonNull(GraphQLList(GraphQLNonNull(FileType))),
-      async resolve(source, args, { db }) {
-        await db.read();
-        return db.data.uploads;
-      },
+      resolve: () => fs.promises.readdir(UPLOAD_DIRECTORY_URL),
     },
   }),
 });

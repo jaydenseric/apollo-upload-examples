@@ -1,5 +1,6 @@
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from 'graphql';
 import { GraphQLUpload } from 'graphql-upload';
+import storeUpload from '../storeUpload.mjs';
 import FileType from './FileType.mjs';
 
 export default new GraphQLObjectType({
@@ -14,7 +15,7 @@ export default new GraphQLObjectType({
           type: GraphQLNonNull(GraphQLUpload),
         },
       },
-      resolve: (parent, { file }, { storeUpload }) => storeUpload(file),
+      resolve: (parent, { file }) => storeUpload(file),
     },
     multipleUpload: {
       description: 'Stores multiple files.',
@@ -25,7 +26,7 @@ export default new GraphQLObjectType({
           type: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLUpload))),
         },
       },
-      async resolve(parent, { files }, { storeUpload }) {
+      async resolve(parent, { files }) {
         // Ensure an error storing one upload doesn’t prevent storing the rest.
         const results = await Promise.allSettled(files.map(storeUpload));
         return results.reduce((storedFiles, { value, reason }) => {

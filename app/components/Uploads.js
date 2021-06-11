@@ -6,9 +6,7 @@ const UPLOADS_QUERY = gql`
   query uploads {
     uploads {
       id
-      filename
-      mimetype
-      path
+      url
     }
   }
 `;
@@ -21,17 +19,13 @@ export function Uploads() {
       <Table>
         <thead>
           <tr>
-            <th>Filename</th>
-            <th>MIME type</th>
-            <th>Path</th>
+            <th>Stored file URL</th>
           </tr>
         </thead>
         <tbody>
-          {uploads.map(({ id, filename, mimetype, path }) => (
+          {uploads.map(({ id, url }) => (
             <tr key={id}>
-              <td>{filename}</td>
-              <td>{mimetype}</td>
-              <td>{path}</td>
+              <td>{url}</td>
             </tr>
           ))}
         </tbody>
