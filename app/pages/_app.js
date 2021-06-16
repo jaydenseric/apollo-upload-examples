@@ -63,8 +63,6 @@ App.getInitialProps = async (context) => {
       console.error(error);
     }
 
-    Head.rewind();
-
     props.apolloCache = apolloClient.cache.extract();
   }
 
