@@ -1,23 +1,23 @@
-import 'device-agnostic-ui/theme.css';
-import 'device-agnostic-ui/global.css';
-import 'device-agnostic-ui/Button.css';
-import 'device-agnostic-ui/ButtonSubmit.css';
-import 'device-agnostic-ui/Code.css';
-import 'device-agnostic-ui/Fieldset.css';
-import 'device-agnostic-ui/Heading.css';
-import 'device-agnostic-ui/Loading.css';
-import 'device-agnostic-ui/Margin.css';
-import 'device-agnostic-ui/Scroll.css';
-import 'device-agnostic-ui/Table.css';
-import 'device-agnostic-ui/Textbox.css';
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import { createUploadLink } from 'apollo-upload-client';
-import Head from 'next/head';
-import PropTypes from 'prop-types';
+import "device-agnostic-ui/theme.css";
+import "device-agnostic-ui/global.css";
+import "device-agnostic-ui/Button.css";
+import "device-agnostic-ui/ButtonSubmit.css";
+import "device-agnostic-ui/Code.css";
+import "device-agnostic-ui/Fieldset.css";
+import "device-agnostic-ui/Heading.css";
+import "device-agnostic-ui/Loading.css";
+import "device-agnostic-ui/Margin.css";
+import "device-agnostic-ui/Scroll.css";
+import "device-agnostic-ui/Table.css";
+import "device-agnostic-ui/Textbox.css";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { createUploadLink } from "apollo-upload-client";
+import Head from "next/head";
+import PropTypes from "prop-types";
 
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
-    ssrMode: typeof window === 'undefined',
+    ssrMode: typeof window === "undefined",
     cache: new InMemoryCache().restore(cache),
     link: createUploadLink({ uri: process.env.API_URI }),
   });
@@ -49,7 +49,7 @@ App.getInitialProps = async (context) => {
   if (context.ctx.req) {
     const apolloClient = createApolloClient();
     try {
-      const { getDataFromTree } = await import('@apollo/client/react/ssr');
+      const { getDataFromTree } = await import("@apollo/client/react/ssr");
       await getDataFromTree(
         <App
           {...props}

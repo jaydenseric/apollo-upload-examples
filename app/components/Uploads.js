@@ -1,6 +1,6 @@
-import { gql, useQuery } from '@apollo/client';
-import Scroll from 'device-agnostic-ui/Scroll.mjs';
-import Table from 'device-agnostic-ui/Table.mjs';
+import { gql, useQuery } from "@apollo/client";
+import Scroll from "device-agnostic-ui/Scroll.mjs";
+import Table from "device-agnostic-ui/Table.mjs";
 
 const UPLOADS_QUERY = gql`
   query uploads {

@@ -1,4 +1,4 @@
-import { gql, useApolloClient, useMutation } from '@apollo/client';
+import { gql, useApolloClient, useMutation } from "@apollo/client";
 
 const SINGLE_UPLOAD_MUTATION = gql`
   mutation singleUpload($file: Upload!) {

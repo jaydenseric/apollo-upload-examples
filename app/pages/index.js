@@ -1,13 +1,13 @@
-import Code from 'device-agnostic-ui/Code.mjs';
-import Heading from 'device-agnostic-ui/Heading.mjs';
-import Margin from 'device-agnostic-ui/Margin.mjs';
-import { Header } from '../components/Header';
-import { Page } from '../components/Page';
-import { Section } from '../components/Section';
-import { UploadBlob } from '../components/UploadBlob';
-import { UploadFile } from '../components/UploadFile';
-import { UploadFileList } from '../components/UploadFileList';
-import { Uploads } from '../components/Uploads';
+import Code from "device-agnostic-ui/Code.mjs";
+import Heading from "device-agnostic-ui/Heading.mjs";
+import Margin from "device-agnostic-ui/Margin.mjs";
+import { Header } from "../components/Header";
+import { Page } from "../components/Page";
+import { Section } from "../components/Section";
+import { UploadBlob } from "../components/UploadBlob";
+import { UploadFile } from "../components/UploadFile";
+import { UploadFileList } from "../components/UploadFileList";
+import { Uploads } from "../components/Uploads";
 
 const IndexPage = () => (
   <Page title="Apollo upload examples">

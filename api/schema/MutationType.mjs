@@ -1,28 +1,28 @@
-import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from 'graphql';
-import GraphQLUpload from 'graphql-upload/public/GraphQLUpload.js';
-import storeUpload from '../storeUpload.mjs';
-import FileType from './FileType.mjs';
+import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from "graphql";
+import GraphQLUpload from "graphql-upload/public/GraphQLUpload.js";
+import storeUpload from "../storeUpload.mjs";
+import FileType from "./FileType.mjs";
 
 export default new GraphQLObjectType({
-  name: 'Mutation',
+  name: "Mutation",
   fields: () => ({
     singleUpload: {
-      description: 'Stores a single file.',
+      description: "Stores a single file.",
       type: new GraphQLNonNull(FileType),
       args: {
         file: {
-          description: 'File to store.',
+          description: "File to store.",
           type: new GraphQLNonNull(GraphQLUpload),
         },
       },
       resolve: (parent, { file }) => storeUpload(file),
     },
     multipleUpload: {
-      description: 'Stores multiple files.',
+      description: "Stores multiple files.",
       type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(FileType))),
       args: {
         files: {
-          description: 'Files to store.',
+          description: "Files to store.",
           type: new GraphQLNonNull(
             new GraphQLList(new GraphQLNonNull(GraphQLUpload))
           ),

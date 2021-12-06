@@ -1,9 +1,9 @@
-import { gql, useApolloClient, useMutation } from '@apollo/client';
-import ButtonSubmit from 'device-agnostic-ui/ButtonSubmit.mjs';
-import Code from 'device-agnostic-ui/Code.mjs';
-import Fieldset from 'device-agnostic-ui/Fieldset.mjs';
-import Textbox from 'device-agnostic-ui/Textbox.mjs';
-import React from 'react';
+import { gql, useApolloClient, useMutation } from "@apollo/client";
+import ButtonSubmit from "device-agnostic-ui/ButtonSubmit.mjs";
+import Code from "device-agnostic-ui/Code.mjs";
+import Fieldset from "device-agnostic-ui/Fieldset.mjs";
+import Textbox from "device-agnostic-ui/Textbox.mjs";
+import React from "react";
 
 const SINGLE_UPLOAD_MUTATION = gql`
   mutation singleUpload($file: Upload!) {
@@ -14,8 +14,8 @@ const SINGLE_UPLOAD_MUTATION = gql`
 `;
 
 export function UploadBlob() {
-  const [name, setName] = React.useState('');
-  const [content, setContent] = React.useState('');
+  const [name, setName] = React.useState("");
+  const [content, setContent] = React.useState("");
   const [singleUploadMutation, { loading }] = useMutation(
     SINGLE_UPLOAD_MUTATION
   );
@@ -26,7 +26,7 @@ export function UploadBlob() {
   const onSubmit = (event) => {
     event.preventDefault();
 
-    const file = new Blob([content], { type: 'text/plain' });
+    const file = new Blob([content], { type: "text/plain" });
     file.name = `${name}.txt`;
 
     singleUploadMutation({ variables: { file } }).then(() => {

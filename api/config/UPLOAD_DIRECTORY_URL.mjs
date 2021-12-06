@@ -1,1 +1,1 @@
-export default new URL('../uploads/', import.meta.url);
+export default new URL("../uploads/", import.meta.url);
