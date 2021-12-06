@@ -8,7 +8,7 @@ export default new GraphQLObjectType({
   fields: () => ({
     uploads: {
       description: 'All stored files.',
-      type: GraphQLNonNull(GraphQLList(GraphQLNonNull(FileType))),
+      type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(FileType))),
       resolve: () => fs.promises.readdir(UPLOAD_DIRECTORY_URL),
     },
   }),

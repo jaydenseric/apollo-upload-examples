@@ -1,5 +1,5 @@
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from 'graphql';
-import { GraphQLUpload } from 'graphql-upload';
+import GraphQLUpload from 'graphql-upload/public/GraphQLUpload.js';
 import storeUpload from '../storeUpload.mjs';
 import FileType from './FileType.mjs';
 
@@ -8,22 +8,24 @@ export default new GraphQLObjectType({
   fields: () => ({
     singleUpload: {
       description: 'Stores a single file.',
-      type: GraphQLNonNull(FileType),
+      type: new GraphQLNonNull(FileType),
       args: {
         file: {
           description: 'File to store.',
-          type: GraphQLNonNull(GraphQLUpload),
+          type: new GraphQLNonNull(GraphQLUpload),
         },
       },
       resolve: (parent, { file }) => storeUpload(file),
     },
     multipleUpload: {
       description: 'Stores multiple files.',
-      type: GraphQLNonNull(GraphQLList(GraphQLNonNull(FileType))),
+      type: new GraphQLNonNull(new GraphQLList(new GraphQLNonNull(FileType))),
       args: {
         files: {
           description: 'Files to store.',
-          type: GraphQLNonNull(GraphQLList(GraphQLNonNull(GraphQLUpload))),
+          type: new GraphQLNonNull(
+            new GraphQLList(new GraphQLNonNull(GraphQLUpload))
+          ),
         },
       },
       async resolve(parent, { files }) {

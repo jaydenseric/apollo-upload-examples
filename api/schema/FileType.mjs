@@ -7,17 +7,17 @@ export default new GraphQLObjectType({
   fields: () => ({
     id: {
       description: 'Unique ID.',
-      type: GraphQLNonNull(GraphQLString),
+      type: new GraphQLNonNull(GraphQLString),
       resolve: (storedFileName) => storedFileName,
     },
     name: {
       description: 'File name.',
-      type: GraphQLNonNull(GraphQLString),
+      type: new GraphQLNonNull(GraphQLString),
       resolve: (storedFileName) => storedFileName,
     },
     url: {
       description: 'File URL.',
-      type: GraphQLNonNull(GraphQLString),
+      type: new GraphQLNonNull(GraphQLString),
       resolve: (storedFileName) =>
         new URL(storedFileName, UPLOAD_DIRECTORY_URL),
     },
