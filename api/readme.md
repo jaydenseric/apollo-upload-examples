@@ -6,7 +6,7 @@ An example GraphQL API using:
 - [`apollo-server-koa`](https://npm.im/apollo-server-koa)
 - [`graphql-upload`](https://npm.im/graphql-upload)
 
-## Setup
+## Installation
 
 1.  Install the latest [Node.js and npm](https://npmjs.com/get-npm).
 2.  Duplicate `.env.example` as `.env` and configure.
@@ -20,6 +20,6 @@ Ensure your editor supports:
   - [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
   - [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-## Support
+## Requirements
 
 See `package.json` `engines`.

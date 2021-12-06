@@ -6,7 +6,7 @@ An example SSR web app using:
 - [`@apollo/client`](https://npm.im/@apollo/client)
 - [`apollo-upload-client`](https://npm.im/apollo-upload-client)
 
-## Setup
+## Installation
 
 1.  Install the latest [Node.js and npm](https://npmjs.com/get-npm).
 2.  Duplicate `.env.example` as `.env` and configure.
@@ -20,6 +20,6 @@ Ensure your editor supports:
   - [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
   - [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-## Support
+## Requirements
 
 See `package.json` `engines` and `browserslist`.
