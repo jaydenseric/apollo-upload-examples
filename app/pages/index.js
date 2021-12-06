@@ -1,6 +1,6 @@
-import Code from 'device-agnostic-ui/public/components/Code.js';
-import Heading from 'device-agnostic-ui/public/components/Heading.js';
-import Margin from 'device-agnostic-ui/public/components/Margin.js';
+import Code from 'device-agnostic-ui/Code.mjs';
+import Heading from 'device-agnostic-ui/Heading.mjs';
+import Margin from 'device-agnostic-ui/Margin.mjs';
 import { Header } from '../components/Header';
 import { Page } from '../components/Page';
 import { Section } from '../components/Section';
