@@ -29,7 +29,7 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "eslint": "^8.4.0",
+    "eslint": "^8.4.1",
     "eslint-config-env": "^23.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
