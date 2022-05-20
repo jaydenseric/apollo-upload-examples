@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   env: {
     API_URI: process.env.API_URI,
   },
@@ -6,5 +6,6 @@ module.exports = {
     locales: ["en-US"],
     defaultLocale: "en-US",
   },
+  pageExtensions: ["mjs"],
   reactStrictMode: true,
 };

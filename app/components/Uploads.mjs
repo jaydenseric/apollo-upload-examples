@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import Scroll from "device-agnostic-ui/Scroll.mjs";
 import Table from "device-agnostic-ui/Table.mjs";
+import { createElement as h } from "react";
 
 const UPLOADS_QUERY = gql`
   query uploads {
@@ -14,22 +15,18 @@ const UPLOADS_QUERY = gql`
 export function Uploads() {
   const { data: { uploads = [] } = {} } = useQuery(UPLOADS_QUERY);
 
-  return (
-    <Scroll>
-      <Table>
-        <thead>
-          <tr>
-            <th>Stored file URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          {uploads.map(({ id, url }) => (
-            <tr key={id}>
-              <td>{url}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-    </Scroll>
+  return h(
+    Scroll,
+    null,
+    h(
+      Table,
+      null,
+      h("thead", null, h("tr", null, h("th", null, "Stored file URL"))),
+      h(
+        "tbody",
+        null,
+        uploads.map(({ id, url }) => h("tr", { key: id }, h("td", null, url)))
+      )
+    )
   );
 }

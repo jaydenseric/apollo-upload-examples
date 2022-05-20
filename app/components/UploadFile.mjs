@@ -1,4 +1,5 @@
 import { gql, useApolloClient, useMutation } from "@apollo/client";
+import { createElement as h } from "react";
 
 const SINGLE_UPLOAD_MUTATION = gql`
   mutation singleUpload($file: Upload!) {
@@ -23,5 +24,5 @@ export function UploadFile() {
       apolloClient.resetStore();
     });
 
-  return <input type="file" required onChange={onChange} />;
+  return h("input", { type: "file", required: true, onChange });
 }

@@ -10,10 +10,12 @@ import "device-agnostic-ui/Margin.css";
 import "device-agnostic-ui/Scroll.css";
 import "device-agnostic-ui/Table.css";
 import "device-agnostic-ui/Textbox.css";
+
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import { createUploadLink } from "apollo-upload-client";
 import Head from "next/head";
 import PropTypes from "prop-types";
+import { createElement as h } from "react";
 
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
@@ -27,17 +29,23 @@ const App = ({
   pageProps,
   apolloCache,
   apolloClient = createApolloClient(apolloCache),
-}) => (
-  <ApolloProvider client={apolloClient}>
-    <Head>
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="color-scheme" content="light dark" />
-      <meta name="theme-color" content="white" />
-      <link rel="manifest" href="/manifest.webmanifest" />
-    </Head>
-    <Component {...pageProps} />
-  </ApolloProvider>
-);
+}) =>
+  h(
+    ApolloProvider,
+    { client: apolloClient },
+    h(
+      Head,
+      null,
+      h("meta", {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
+      }),
+      h("meta", { name: "color-scheme", content: "light dark" }),
+      h("meta", { name: "theme-color", content: "white" }),
+      h("link", { rel: "manifest", href: "/manifest.webmanifest" })
+    ),
+    h(Component, pageProps)
+  );
 
 App.getInitialProps = async (context) => {
   const props = {
@@ -51,12 +59,12 @@ App.getInitialProps = async (context) => {
     try {
       const { getDataFromTree } = await import("@apollo/client/react/ssr");
       await getDataFromTree(
-        <App
-          {...props}
-          apolloClient={apolloClient}
-          router={context.router}
-          Component={context.Component}
-        />
+        h(App, {
+          ...props,
+          apolloClient,
+          router: context.router,
+          Component: context.Component,
+        })
       );
     } catch (error) {
       // Prevent crash from GraphQL errors.

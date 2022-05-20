@@ -30,12 +30,7 @@
   },
   "devDependencies": {
     "eslint": "^8.15.0",
-    "eslint-config-env": "^23.0.2",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^37.9.7",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2"
   },

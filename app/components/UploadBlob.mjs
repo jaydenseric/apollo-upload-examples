@@ -3,7 +3,7 @@ import ButtonSubmit from "device-agnostic-ui/ButtonSubmit.mjs";
 import Code from "device-agnostic-ui/Code.mjs";
 import Fieldset from "device-agnostic-ui/Fieldset.mjs";
 import Textbox from "device-agnostic-ui/Textbox.mjs";
-import React from "react";
+import { createElement as h, Fragment, useState } from "react";
 
 const SINGLE_UPLOAD_MUTATION = gql`
   mutation singleUpload($file: Upload!) {
@@ -14,8 +14,8 @@ const SINGLE_UPLOAD_MUTATION = gql`
 `;
 
 export function UploadBlob() {
-  const [name, setName] = React.useState("");
-  const [content, setContent] = React.useState("");
+  const [name, setName] = useState("");
+  const [content, setContent] = useState("");
   const [singleUploadMutation, { loading }] = useMutation(
     SINGLE_UPLOAD_MUTATION
   );
@@ -34,32 +34,38 @@ export function UploadBlob() {
     });
   };
 
-  return (
-    <form onSubmit={onSubmit}>
-      <Fieldset
-        legend={
-          <>
-            File name (without <Code>.txt</Code>)
-          </>
-        }
-      >
-        <Textbox
-          placeholder="Name"
-          required
-          value={name}
-          onChange={onNameChange}
-        />
-      </Fieldset>
-      <Fieldset legend="File content">
-        <Textbox
-          type="textarea"
-          placeholder="Content"
-          required
-          value={content}
-          onChange={onContentChange}
-        />
-      </Fieldset>
-      <ButtonSubmit loading={loading}>Upload</ButtonSubmit>
-    </form>
+  return h(
+    "form",
+    { onSubmit },
+    h(
+      Fieldset,
+      {
+        legend: h(
+          Fragment,
+          null,
+          "File name (without ",
+          h(Code, null, ".txt"),
+          ")"
+        ),
+      },
+      h(Textbox, {
+        placeholder: "Name",
+        required: true,
+        value: name,
+        onChange: onNameChange,
+      })
+    ),
+    h(
+      Fieldset,
+      { legend: "File content" },
+      h(Textbox, {
+        type: "textarea",
+        placeholder: "Content",
+        required: true,
+        value: content,
+        onChange: onContentChange,
+      })
+    ),
+    h(ButtonSubmit, { loading }, "Upload")
   );
 }

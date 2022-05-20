@@ -1,5 +1,6 @@
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from "graphql";
 import GraphQLUpload from "graphql-upload/public/GraphQLUpload.js";
+
 import storeUpload from "../storeUpload.mjs";
 import FileType from "./FileType.mjs";
 

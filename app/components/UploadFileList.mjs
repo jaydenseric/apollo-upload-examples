@@ -1,4 +1,5 @@
 import { gql, useApolloClient, useMutation } from "@apollo/client";
+import { createElement as h } from "react";
 
 const MULTIPLE_UPLOAD_MUTATION = gql`
   mutation multipleUpload($files: [Upload!]!) {
@@ -18,5 +19,5 @@ export function UploadFileList() {
       apolloClient.resetStore();
     });
 
-  return <input type="file" multiple required onChange={onChange} />;
+  return h("input", { type: "file", multiple: true, required: true, onChange });
 }
