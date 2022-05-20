@@ -38,7 +38,6 @@
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "^2.6.2",
     "stylelint": "^14.8.2",
-    "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended": "^7.0.0",
     "stylelint-prettier": "^2.0.0"
   },
