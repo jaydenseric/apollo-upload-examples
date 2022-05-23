@@ -1,4 +1,8 @@
-import { gql, useApolloClient, useMutation } from "@apollo/client";
+// @ts-check
+
+import { gql } from "@apollo/client/core";
+import { useApolloClient } from "@apollo/client/react/hooks/useApolloClient.js";
+import { useMutation } from "@apollo/client/react/hooks/useMutation.js";
 import { createElement as h } from "react";
 
 const SINGLE_UPLOAD_MUTATION = gql`
@@ -9,20 +13,18 @@ const SINGLE_UPLOAD_MUTATION = gql`
   }
 `;
 
-export function UploadFile() {
+/** React component for a uploading a single file. */
+export default function UploadFile() {
   const [uploadFileMutation] = useMutation(SINGLE_UPLOAD_MUTATION);
   const apolloClient = useApolloClient();
 
-  const onChange = ({
-    target: {
-      validity,
-      files: [file],
-    },
-  }) =>
-    validity.valid &&
-    uploadFileMutation({ variables: { file } }).then(() => {
-      apolloClient.resetStore();
-    });
+  /** @type {import("react").ChangeEventHandler<HTMLInputElement>} */
+  function onChange({ target: { validity, files } }) {
+    if (validity.valid && files && files[0])
+      uploadFileMutation({ variables: { file: files[0] } }).then(() => {
+        apolloClient.resetStore();
+      });
+  }
 
   return h("input", { type: "file", required: true, onChange });
 }

@@ -1,3 +1,5 @@
+// @ts-check
+
 export default {
   env: {
     API_URI: process.env.API_URI,

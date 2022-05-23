@@ -1,4 +1,8 @@
-import { gql, useApolloClient, useMutation } from "@apollo/client";
+// @ts-check
+
+import { gql } from "@apollo/client/core";
+import { useApolloClient } from "@apollo/client/react/hooks/useApolloClient.js";
+import { useMutation } from "@apollo/client/react/hooks/useMutation.js";
 import ButtonSubmit from "device-agnostic-ui/ButtonSubmit.mjs";
 import Code from "device-agnostic-ui/Code.mjs";
 import Fieldset from "device-agnostic-ui/Fieldset.mjs";
@@ -13,7 +17,8 @@ const SINGLE_UPLOAD_MUTATION = gql`
   }
 `;
 
-export function UploadBlob() {
+/** React component for a uploading a blob. */
+export default function UploadBlob() {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [singleUploadMutation, { loading }] = useMutation(
@@ -21,18 +26,36 @@ export function UploadBlob() {
   );
   const apolloClient = useApolloClient();
 
-  const onNameChange = ({ target: { value } }) => setName(value);
-  const onContentChange = ({ target: { value } }) => setContent(value);
-  const onSubmit = (event) => {
+  /**
+   * @type {import("react").ChangeEventHandler<
+   *   HTMLInputElement | HTMLTextAreaElement
+   * >}
+   */
+  function onNameChange({ target: { value } }) {
+    setName(value);
+  }
+
+  /**
+   * @type {import("react").ChangeEventHandler<
+   *   HTMLInputElement | HTMLTextAreaElement
+   * >}
+   */
+  function onContentChange({ target: { value } }) {
+    setContent(value);
+  }
+
+  /** @type {import("react").FormEventHandler<HTMLFormElement>} */
+  function onSubmit(event) {
     event.preventDefault();
 
-    const file = new Blob([content], { type: "text/plain" });
-    file.name = `${name}.txt`;
-
-    singleUploadMutation({ variables: { file } }).then(() => {
+    singleUploadMutation({
+      variables: {
+        file: new File([content], `${name}.txt`, { type: "text/plain" }),
+      },
+    }).then(() => {
       apolloClient.resetStore();
     });
-  };
+  }
 
   return h(
     "form",

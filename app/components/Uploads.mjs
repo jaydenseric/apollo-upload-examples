@@ -1,4 +1,7 @@
-import { gql, useQuery } from "@apollo/client";
+// @ts-check
+
+import { gql } from "@apollo/client/core";
+import { useQuery } from "@apollo/client/react/hooks/useQuery.js";
 import Scroll from "device-agnostic-ui/Scroll.mjs";
 import Table from "device-agnostic-ui/Table.mjs";
 import { createElement as h } from "react";
@@ -12,8 +15,24 @@ const UPLOADS_QUERY = gql`
   }
 `;
 
-export function Uploads() {
-  const { data: { uploads = [] } = {} } = useQuery(UPLOADS_QUERY);
+/**
+ * @typedef {{
+ *   uploads: Array<{
+ *     id: string,
+ *     url: string
+ *   }>,
+ * }} UploadsQueryData
+ */
+
+/** React component for displaying uploads. */
+export default function Uploads() {
+  const { data: { uploads = [] } = {} } =
+    /**
+     * @type {import("@apollo/client/react/types/types.js").QueryResult<
+     *   UploadsQueryData
+     * >}
+     */
+    (useQuery(UPLOADS_QUERY));
 
   return h(
     Scroll,

@@ -1,11 +1,19 @@
-import Head from "next/head";
-import PropTypes from "prop-types";
+// @ts-check
+
+import nextHead from "next/head.js";
 import { createElement as h, Fragment } from "react";
 
-export const Page = ({ title, children }) =>
-  h(Fragment, null, h(Head, null, h("title", null, title)), children);
-
-Page.propTypes = {
-  title: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-};
+/**
+ * React component for a page.
+ * @param {object} props Props.
+ * @param {string} props.title Title.
+ * @param {import("react").ReactNode} [props.children] Children.
+ */
+export default function Page({ title, children }) {
+  return h(
+    Fragment,
+    null,
+    h(nextHead.default, null, h("title", null, title)),
+    children
+  );
+}

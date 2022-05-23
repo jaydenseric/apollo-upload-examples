@@ -1,3 +1,5 @@
+// @ts-check
+
 import "device-agnostic-ui/theme.css";
 import "device-agnostic-ui/global.css";
 import "device-agnostic-ui/Button.css";
@@ -11,12 +13,18 @@ import "device-agnostic-ui/Scroll.css";
 import "device-agnostic-ui/Table.css";
 import "device-agnostic-ui/Textbox.css";
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { InMemoryCache } from "@apollo/client/cache/inmemory/inMemoryCache.js";
+import { ApolloClient } from "@apollo/client/core/ApolloClient.js";
+import { ApolloProvider } from "@apollo/client/react/context/ApolloProvider.js";
 import { createUploadLink } from "apollo-upload-client";
-import Head from "next/head";
-import PropTypes from "prop-types";
-import { createElement as h } from "react";
+import nextApp from "next/app.js";
+import nextHead from "next/head.js";
+import { createElement as h, Fragment } from "react";
 
+/**
+ * Creates an Apollo Client instance.
+ * @param {{ [key: string]: unknown }} [cache] Apollo Client initial cache.
+ */
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
     ssrMode: typeof window === "undefined",
@@ -24,64 +32,75 @@ const createApolloClient = (cache = {}) =>
     link: createUploadLink({ uri: process.env.API_URI }),
   });
 
-const App = ({
+/**
+ * React component for the Next.js app.
+ * @param {import("next/app.js").AppProps & AppCustomProps} props Props.
+ */
+function App({
   Component,
   pageProps,
   apolloCache,
   apolloClient = createApolloClient(apolloCache),
-}) =>
-  h(
-    ApolloProvider,
-    { client: apolloClient },
-    h(
-      Head,
+}) {
+  return h(ApolloProvider, {
+    client: apolloClient,
+    children: h(
+      Fragment,
       null,
-      h("meta", {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
-      }),
-      h("meta", { name: "color-scheme", content: "light dark" }),
-      h("meta", { name: "theme-color", content: "white" }),
-      h("link", { rel: "manifest", href: "/manifest.webmanifest" })
+      h(
+        nextHead.default,
+        null,
+        h("meta", {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1",
+        }),
+        h("meta", { name: "color-scheme", content: "light dark" }),
+        h("meta", { name: "theme-color", content: "white" }),
+        h("link", { rel: "manifest", href: "/manifest.webmanifest" })
+      ),
+      h(Component, pageProps)
     ),
-    h(Component, pageProps)
-  );
+  });
+}
 
-App.getInitialProps = async (context) => {
-  const props = {
-    pageProps: context.Component.getInitialProps
-      ? await context.Component.getInitialProps(context)
-      : {},
-  };
+if (typeof window === "undefined")
+  App.getInitialProps =
+    /** @param {import("next/app.js").AppContext} context */
+    async function getInitialProps(context) {
+      const apolloClient = createApolloClient();
+      const [props, { default: ReactDOMServer }, { getMarkupFromTree }] =
+        await Promise.all([
+          nextApp.default.getInitialProps(context),
+          import("react-dom/server.js"),
+          import("@apollo/client/react/ssr/getDataFromTree.js"),
+        ]);
 
-  if (context.ctx.req) {
-    const apolloClient = createApolloClient();
-    try {
-      const { getDataFromTree } = await import("@apollo/client/react/ssr");
-      await getDataFromTree(
-        h(App, {
-          ...props,
-          apolloClient,
-          router: context.router,
-          Component: context.Component,
-        })
-      );
-    } catch (error) {
-      // Prevent crash from GraphQL errors.
-      console.error(error);
-    }
+      try {
+        await getMarkupFromTree({
+          tree: h(App, {
+            ...props,
+            apolloClient,
+            router: context.router,
+            Component: context.Component,
+          }),
+          renderFunction: ReactDOMServer.renderToStaticMarkup,
+        });
+      } catch (error) {
+        // Prevent crash from GraphQL errors.
+        console.error(error);
+      }
 
-    props.apolloCache = apolloClient.cache.extract();
-  }
-
-  return props;
-};
-
-App.propTypes = {
-  Component: PropTypes.elementType.isRequired,
-  pageProps: PropTypes.object,
-  apolloCache: PropTypes.object,
-  apolloClient: PropTypes.instanceOf(ApolloClient),
-};
+      return {
+        ...props,
+        apolloCache: apolloClient.cache.extract(),
+      };
+    };
 
 export default App;
+
+/**
+ * Next.js app custom props.
+ * @typedef {object} AppCustomProps
+ * @prop {{ [key: string]: unknown }} [apolloCache] Apollo Client initial cache.
+ * @prop {ApolloClient<any>} apolloClient Apollo Client.
+ */

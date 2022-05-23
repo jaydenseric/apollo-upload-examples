@@ -1,5 +1,7 @@
+// @ts-check
+
 import { ApolloServer } from "apollo-server-koa";
-import graphqlUploadKoa from "graphql-upload/public/graphqlUploadKoa.js";
+import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.js";
 import Koa from "koa";
 import makeDir from "make-dir";
 import { fileURLToPath } from "url";
@@ -7,9 +9,7 @@ import { fileURLToPath } from "url";
 import UPLOAD_DIRECTORY_URL from "./config/UPLOAD_DIRECTORY_URL.mjs";
 import schema from "./schema/index.mjs";
 
-/**
- * Starts the API server.
- */
+/** Starts the API server. */
 async function startServer() {
   // Ensure the upload directory exists.
   await makeDir(fileURLToPath(UPLOAD_DIRECTORY_URL));

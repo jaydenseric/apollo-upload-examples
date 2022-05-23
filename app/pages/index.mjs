@@ -1,15 +1,17 @@
+// @ts-check
+
 import Code from "device-agnostic-ui/Code.mjs";
 import Heading from "device-agnostic-ui/Heading.mjs";
 import Margin from "device-agnostic-ui/Margin.mjs";
 import { createElement as h } from "react";
 
-import { Header } from "../components/Header.mjs";
-import { Page } from "../components/Page.mjs";
-import { Section } from "../components/Section.mjs";
-import { UploadBlob } from "../components/UploadBlob.mjs";
-import { UploadFile } from "../components/UploadFile.mjs";
-import { UploadFileList } from "../components/UploadFileList.mjs";
-import { Uploads } from "../components/Uploads.mjs";
+import Header from "../components/Header.mjs";
+import Page from "../components/Page.mjs";
+import Section from "../components/Section.mjs";
+import UploadBlob from "../components/UploadBlob.mjs";
+import UploadFile from "../components/UploadFile.mjs";
+import UploadFileList from "../components/UploadFileList.mjs";
+import Uploads from "../components/Uploads.mjs";
 
 export default function IndexPage() {
   return h(

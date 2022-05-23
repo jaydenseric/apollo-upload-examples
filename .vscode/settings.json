@@ -1,0 +1,5 @@
+{
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.tsdk": "api/node_modules/typescript/lib"
+}

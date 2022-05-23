@@ -1,3 +1,5 @@
+// @ts-check
+
 import { GraphQLSchema } from "graphql";
 
 import MutationType from "./MutationType.mjs";

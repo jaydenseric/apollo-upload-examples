@@ -1,3 +1,5 @@
+// @ts-check
+
 import { createWriteStream, unlink } from "fs";
 import shortId from "shortid";
 
@@ -5,7 +7,9 @@ import UPLOAD_DIRECTORY_URL from "./config/UPLOAD_DIRECTORY_URL.mjs";
 
 /**
  * Stores a GraphQL file upload in the filesystem.
- * @param {Promise<object>} upload GraphQL file upload.
+ * @param {Promise<
+ *   import("graphql-upload/processRequest.js").FileUpload
+ * >} upload GraphQL file upload.
  * @returns {Promise<string>} Resolves the stored file name.
  */
 export default async function storeUpload(upload) {

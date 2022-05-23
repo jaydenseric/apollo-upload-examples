@@ -1,6 +1,14 @@
+// @ts-check
+
 import { createElement as h } from "react";
 
 import styles from "./Header.module.css";
 
-export const Header = (props) =>
-  h("header", { ...props, className: styles.header });
+/**
+ * React component for a header.
+ * @param {object} props Props.
+ * @param {import("react").ReactNode} [props.children] Children.
+ */
+export default function Header({ children }) {
+  return h("header", { className: styles.header }, children);
+}

@@ -1,3 +1,5 @@
+// @ts-check
+
 import fs from "fs";
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from "graphql";
 
