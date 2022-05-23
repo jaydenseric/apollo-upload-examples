@@ -30,9 +30,7 @@ async function startServer() {
       })
     )
     .use(apolloServer.getMiddleware())
-    .listen(process.env.PORT, (error) => {
-      if (error) throw error;
-
+    .listen(process.env.PORT, () => {
       console.info(
         `Serving http://localhost:${process.env.PORT} for ${process.env.NODE_ENV}.`
       );
