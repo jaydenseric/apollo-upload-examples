@@ -29,7 +29,7 @@
     "shortid": "^2.2.16"
   },
   "devDependencies": {
-    "eslint": "^8.15.0",
+    "eslint": "^8.16.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2"

@@ -33,11 +33,11 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
     "babel-plugin-graphql-tag": "^3.3.0",
-    "eslint": "^8.15.0",
+    "eslint": "^8.16.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "prettier": "^2.6.2",
-    "stylelint": "^14.8.2",
+    "stylelint": "^14.8.3",
     "stylelint-config-recommended": "^7.0.0",
     "stylelint-prettier": "^2.0.0"
   },
