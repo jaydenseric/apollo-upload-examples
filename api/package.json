@@ -23,7 +23,7 @@
     "apollo-server-koa": "^3.7.0",
     "dotenv": "^16.0.1",
     "graphql": "^16.5.0",
-    "graphql-upload": "^14.0.0",
+    "graphql-upload": "^15.0.0",
     "koa": "^2.13.4",
     "make-dir": "^3.1.0",
     "shortid": "^2.2.16"
