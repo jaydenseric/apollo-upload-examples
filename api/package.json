@@ -20,22 +20,22 @@
     "npm": ">= 7"
   },
   "dependencies": {
-    "apollo-server-koa": "^3.7.0",
+    "apollo-server-koa": "^3.9.0",
     "dotenv": "^16.0.1",
     "graphql": "^16.5.0",
-    "graphql-upload": "^15.0.1",
+    "graphql-upload": "^15.0.2",
     "koa": "^2.13.4",
     "make-dir": "^3.1.0",
     "shortid": "^2.2.16"
   },
   "devDependencies": {
     "@types/koa": "^2.13.4",
-    "@types/node": "^17.0.36",
-    "eslint": "^8.16.0",
+    "@types/node": "^18.0.1",
+    "eslint": "^8.19.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "nodemon": "^2.0.16",
-    "prettier": "^2.6.2",
-    "typescript": "^4.7.1-rc"
+    "nodemon": "^2.0.18",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
   },
   "scripts": {
     "dev": "nodemon",
