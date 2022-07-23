@@ -1,7 +1,7 @@
 // @ts-check
 
 import { ApolloServer } from "apollo-server-koa";
-import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.js";
+import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.mjs";
 import Koa from "koa";
 import makeDir from "make-dir";
 import { fileURLToPath } from "url";

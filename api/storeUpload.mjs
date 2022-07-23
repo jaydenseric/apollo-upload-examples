@@ -8,7 +8,7 @@ import UPLOAD_DIRECTORY_URL from "./config/UPLOAD_DIRECTORY_URL.mjs";
 /**
  * Stores a GraphQL file upload in the filesystem.
  * @param {Promise<
- *   import("graphql-upload/processRequest.js").FileUpload
+ *   import("graphql-upload/processRequest.mjs").FileUpload
  * >} upload GraphQL file upload.
  * @returns {Promise<string>} Resolves the stored file name.
  */

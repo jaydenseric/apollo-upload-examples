@@ -1,7 +1,7 @@
 // @ts-check
 
 import { GraphQLList, GraphQLNonNull, GraphQLObjectType } from "graphql";
-import GraphQLUpload from "graphql-upload/GraphQLUpload.js";
+import GraphQLUpload from "graphql-upload/GraphQLUpload.mjs";
 
 import storeUpload from "../storeUpload.mjs";
 import FileType from "./FileType.mjs";
@@ -35,7 +35,7 @@ export default new GraphQLObjectType({
         parent,
         /**
          * @type {{ files: Array<
-         *   Promise<import("graphql-upload/processRequest.js").FileUpload>
+         *   Promise<import("graphql-upload/processRequest.mjs").FileUpload>
          * >}}
          */
         { files }
