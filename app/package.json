@@ -19,7 +19,7 @@
     "node": "^14.17.0 || ^16.0.0 || >= 18.0.0",
     "npm": ">= 7"
   },
-  "browserslist": "Node 14.17 - 15 and Node < 15, Node 16 - 17 and Node < 17, Node >= 18, > 0.5%, not OperaMini all, not IE > 0, not dead",
+  "browserslist": "Node 14.17 - 15 and Node < 15, Node 16 - 17 and Node < 17, Node >= 18, > 0.5%, not OperaMini all, not dead",
   "dependencies": {
     "@apollo/client": "^3.6.9",
     "apollo-upload-client": "^17.0.0",
