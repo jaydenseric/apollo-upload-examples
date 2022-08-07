@@ -15,11 +15,10 @@ An example SSR web app using:
 
 Ensure your editor supports:
 
-- [EditorConfig](http://editorconfig.org).
-- [ESLint](http://eslint.org), respecting `package.json` config.
-  - [Atom](https://atom.io): [`linter-eslint`](https://atom.io/packages/linter-eslint).
-  - [VS Code](https://code.visualstudio.com): [`vscode-eslint`](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+- [EditorConfig](https://editorconfig.org)
+- [ESLint](https://eslint.org)
+- [Prettier](https://prettier.io)
 
 ## Requirements
 
-See `package.json` `engines` and `browserslist`.
+See the [`package.json`](./package.json) fields `engines` and `browserslist`.
