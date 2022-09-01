@@ -4,7 +4,7 @@ import { ApolloServer } from "apollo-server-koa";
 import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.mjs";
 import Koa from "koa";
 import makeDir from "make-dir";
-import { fileURLToPath } from "url";
+import { fileURLToPath } from "node:url";
 
 import UPLOAD_DIRECTORY_URL from "./config/UPLOAD_DIRECTORY_URL.mjs";
 import schema from "./schema/index.mjs";
