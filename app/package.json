@@ -21,27 +21,32 @@
   },
   "browserslist": "Node 14.17 - 15 and Node < 15, Node 16 - 17 and Node < 17, Node >= 18, > 0.5%, not OperaMini all, not dead",
   "dependencies": {
-    "@apollo/client": "^3.6.9",
+    "@apollo/client": "^3.7.4",
     "apollo-upload-client": "^17.0.0",
     "device-agnostic-ui": "~10.0.0",
     "graphql": "^16.6.0",
-    "next": "^12.2.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "next": "^13.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.18.9",
-    "@types/node": "^18.7.14",
-    "@types/react": "^17.0.49",
-    "@types/react-dom": "^17.0.17",
+    "@babel/eslint-parser": "^7.19.1",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.10",
     "babel-plugin-graphql-tag": "^3.3.0",
-    "eslint": "^8.23.0",
+    "eslint": "^8.31.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
-    "prettier": "^2.7.1",
-    "stylelint": "^14.11.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "prettier": "^2.8.2",
+    "stylelint": "^14.16.1",
     "stylelint-config-recommended": "^9.0.0",
-    "typescript": "^4.8.2"
+    "typescript": "^4.9.4"
+  },
+  "overrides": {
+    "next": "^13.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "dev": "next dev",

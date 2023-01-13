@@ -71,7 +71,7 @@ if (typeof window === "undefined")
       const [props, { default: ReactDOMServer }, { getMarkupFromTree }] =
         await Promise.all([
           nextApp.default.getInitialProps(context),
-          import("react-dom/server.js"),
+          import("react-dom/server"),
           import("@apollo/client/react/ssr/getDataFromTree.js"),
         ]);
 
