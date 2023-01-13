@@ -16,7 +16,7 @@
   "bugs": "https://github.com/jaydenseric/apollo-upload-examples/issues",
   "funding": "https://github.com/sponsors/jaydenseric",
   "engines": {
-    "node": "^14.17.0 || ^16.0.0 || >= 18.0.0",
+    "node": ">= 18.11.0",
     "npm": ">= 7"
   },
   "dependencies": {
@@ -33,12 +33,11 @@
     "@types/node": "^18.11.18",
     "eslint": "^8.31.0",
     "eslint-plugin-simple-import-sort": "^8.0.0",
-    "nodemon": "^2.0.20",
     "prettier": "^2.8.2",
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "dev": "nodemon",
+    "dev": "node --watch -r dotenv/config server.mjs",
     "start": "node -r dotenv/config server.mjs",
     "eslint": "eslint .",
     "prettier": "prettier -c .",
