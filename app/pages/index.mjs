@@ -20,7 +20,7 @@ export default function IndexPage() {
     h(
       Header,
       null,
-      h(Heading, { level: 1, size: 1 }, "Apollo upload examples")
+      h(Heading, { level: 1, size: 1 }, "Apollo upload examples"),
     ),
     h(
       Section,
@@ -28,9 +28,9 @@ export default function IndexPage() {
       h(
         Header,
         null,
-        h(Heading, { level: 2, size: 2 }, "Upload ", h(Code, null, "FileList"))
+        h(Heading, { level: 2, size: 2 }, "Upload ", h(Code, null, "FileList")),
       ),
-      h(Margin, null, h(UploadFileList))
+      h(Margin, null, h(UploadFileList)),
     ),
     h(
       Section,
@@ -38,9 +38,9 @@ export default function IndexPage() {
       h(
         Header,
         null,
-        h(Heading, { level: 2, size: 2 }, "Upload ", h(Code, null, "File"))
+        h(Heading, { level: 2, size: 2 }, "Upload ", h(Code, null, "File")),
       ),
-      h(Margin, null, h(UploadFile))
+      h(Margin, null, h(UploadFile)),
     ),
     h(
       Section,
@@ -48,10 +48,10 @@ export default function IndexPage() {
       h(
         Header,
         null,
-        h(Heading, { level: 2, size: 2 }, "Upload ", h(Code, null, "Blob"))
+        h(Heading, { level: 2, size: 2 }, "Upload ", h(Code, null, "Blob")),
       ),
-      h(Margin, null, h(UploadBlob))
+      h(Margin, null, h(UploadBlob)),
     ),
-    h(Section, null, h(Header, null, h(Heading, null, "Uploads")), h(Uploads))
+    h(Section, null, h(Header, null, h(Heading, null, "Uploads")), h(Uploads)),
   );
 }

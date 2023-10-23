@@ -14,6 +14,6 @@ export default function Page({ title, children }) {
     Fragment,
     null,
     h(nextHead.default, null, h("title", null, title)),
-    children
+    children,
   );
 }

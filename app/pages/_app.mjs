@@ -23,7 +23,9 @@ import { createElement as h, Fragment } from "react";
 
 /**
  * Creates an Apollo Client instance.
- * @param {{ [key: string]: unknown }} [cache] Apollo Client initial cache.
+ * @param {import(
+ *   "@apollo/client/cache/inmemory/types.js"
+ * ).NormalizedCacheObject} [cache] Apollo Client initial cache.
  */
 const createApolloClient = (cache = {}) =>
   new ApolloClient({
@@ -61,9 +63,9 @@ function App({
         }),
         h("meta", { name: "color-scheme", content: "light dark" }),
         h("meta", { name: "theme-color", content: "white" }),
-        h("link", { rel: "manifest", href: "/manifest.webmanifest" })
+        h("link", { rel: "manifest", href: "/manifest.webmanifest" }),
       ),
-      h(Component, pageProps)
+      h(Component, pageProps),
     ),
   });
 }
@@ -106,6 +108,8 @@ export default App;
 /**
  * Next.js app custom props.
  * @typedef {object} AppCustomProps
- * @prop {{ [key: string]: unknown }} [apolloCache] Apollo Client initial cache.
+ * @prop {import(
+ *   "@apollo/client/cache/inmemory/types.js"
+ * ).NormalizedCacheObject} [apolloCache] Apollo Client initial cache.
  * @prop {ApolloClient<any>} apolloClient Apollo Client.
  */

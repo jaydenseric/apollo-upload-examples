@@ -44,8 +44,8 @@ export default function Uploads() {
       h(
         "tbody",
         null,
-        uploads.map(({ id, url }) => h("tr", { key: id }, h("td", null, url)))
-      )
-    )
+        uploads.map(({ id, url }) => h("tr", { key: id }, h("td", null, url))),
+      ),
+    ),
   );
 }

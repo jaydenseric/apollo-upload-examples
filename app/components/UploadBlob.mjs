@@ -22,7 +22,7 @@ export default function UploadBlob() {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [singleUploadMutation, { loading }] = useMutation(
-    SINGLE_UPLOAD_MUTATION
+    SINGLE_UPLOAD_MUTATION,
   );
   const apolloClient = useApolloClient();
 
@@ -68,7 +68,7 @@ export default function UploadBlob() {
           null,
           "File name (without ",
           h(Code, null, ".txt"),
-          ")"
+          ")",
         ),
       },
       h(Textbox, {
@@ -76,7 +76,7 @@ export default function UploadBlob() {
         required: true,
         value: name,
         onChange: onNameChange,
-      })
+      }),
     ),
     h(
       Fieldset,
@@ -87,8 +87,8 @@ export default function UploadBlob() {
         required: true,
         value: content,
         onChange: onContentChange,
-      })
+      }),
     ),
-    h(ButtonSubmit, { loading }, "Upload")
+    h(ButtonSubmit, { loading }, "Upload"),
   );
 }
