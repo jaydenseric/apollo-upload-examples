@@ -16,7 +16,7 @@ import "device-agnostic-ui/Textbox.css";
 import { InMemoryCache } from "@apollo/client/cache/inmemory/inMemoryCache.js";
 import { ApolloClient } from "@apollo/client/core/ApolloClient.js";
 import { ApolloProvider } from "@apollo/client/react/context/ApolloProvider.js";
-import { createUploadLink } from "apollo-upload-client";
+import createUploadLink from "apollo-upload-client/createUploadLink.mjs";
 import nextApp from "next/app.js";
 import nextHead from "next/head.js";
 import { createElement as h, Fragment } from "react";
