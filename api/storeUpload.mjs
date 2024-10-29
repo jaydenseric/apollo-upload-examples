@@ -19,6 +19,10 @@ export default async function storeUpload(upload) {
   const storedFileName = `${shortId.generate()}-${filename}`;
   const storedFileUrl = new URL(storedFileName, UPLOAD_DIRECTORY_URL);
 
+  // Set the max file size limit in bytes (10MB)
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  let uploadedSize = 0;
+
   // Store the file in the filesystem.
   await new Promise((resolve, reject) => {
     // Create a stream to which the upload will be written.
@@ -33,6 +37,17 @@ export default async function storeUpload(upload) {
       unlink(storedFileUrl, () => {
         reject(error);
       });
+    });
+
+    // Monitor the stream's data events to track upload size
+    stream.on('data', (chunk) => {
+      uploadedSize += chunk.length;
+      if (uploadedSize > MAX_FILE_SIZE) {
+        stream.destroy(); // Stop the stream if it exceeds the size limit
+        writeStream.destroy(); // Also destroy the write stream
+        unlink(storedFileUrl, () => null); // Clean up the file
+        reject(new Error('File size exceeds the 10MB limit.'));
+      }
     });
 
     // In Node.js <= v13, errors are not automatically propagated between piped
