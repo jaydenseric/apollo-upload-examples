@@ -1,5 +1,5 @@
+import { randomUUID } from "node:crypto";
 import { createWriteStream, unlink } from "node:fs";
-import shortId from "shortid";
 import type { FileUpload } from "graphql-upload/processRequest.mjs";
 
 import UPLOAD_DIRECTORY_URL from "./constants/UPLOAD_DIRECTORY_URL.mts";
@@ -14,7 +14,7 @@ export default async function storeUpload(
 ): Promise<string> {
   const { createReadStream, filename } = await upload;
   const stream = createReadStream();
-  const storedFileName = `${shortId.generate()}-${filename}`;
+  const storedFileName = `${randomUUID()}-${filename}`;
   const storedFileUrl = new URL(storedFileName, UPLOAD_DIRECTORY_URL);
 
   // Store the file in the filesystem.

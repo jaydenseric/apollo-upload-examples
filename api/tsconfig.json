@@ -9,7 +9,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "skipLibCheck": true,
-    "strict": true,
+    "types": ["node"],
     "verbatimModuleSyntax": true
   },
   "typeAcquisition": {
