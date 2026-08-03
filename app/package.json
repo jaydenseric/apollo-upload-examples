@@ -16,10 +16,10 @@
   "bugs": "https://github.com/jaydenseric/apollo-upload-examples/issues",
   "funding": "https://github.com/sponsors/jaydenseric",
   "engines": {
-    "node": ">=22.0.0",
+    "node": ">=26",
     "npm": ">=7"
   },
-  "browserslist": "Node >= 22, Chrome >= 139",
+  "browserslist": "Node >= 26, Chrome >= 151",
   "dependencies": {
     "@apollo/client": "^4.0.2",
     "apollo-upload-client": "^19.0.0",

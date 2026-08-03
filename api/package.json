@@ -16,7 +16,7 @@
   "bugs": "https://github.com/jaydenseric/apollo-upload-examples/issues",
   "funding": "https://github.com/sponsors/jaydenseric",
   "engines": {
-    "node": ">=23.6.0",
+    "node": ">=26",
     "npm": ">=7"
   },
   "dependencies": {
