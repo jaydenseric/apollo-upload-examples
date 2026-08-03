@@ -33,7 +33,7 @@
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "esbuild": "^0.25.9",
-    "prettier": "^3.6.2",
+    "prettier": "^3.9.6",
     "typescript": "^5.9.2"
   },
   "type": "module",
