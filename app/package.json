@@ -38,7 +38,7 @@
   },
   "type": "module",
   "scripts": {
-    "dev": "esbuild app.tsx --target=node22,chrome139 --bundle --minify --sourcemap --outdir=public/build --servedir=public",
+    "dev": "esbuild app.tsx --target=node26,chrome151 --bundle --minify --sourcemap --outdir=public/build --servedir=public",
     "prettier": "prettier -c .",
     "types": "tsc -p tsconfig.json",
     "check": "node --run prettier && node --run types"
