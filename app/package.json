@@ -21,20 +21,20 @@
   },
   "browserslist": "Node >= 26, Chrome >= 151",
   "dependencies": {
-    "@apollo/client": "^4.0.2",
-    "apollo-upload-client": "^19.0.0",
-    "graphql": "^16.11.0",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "@apollo/client": "^4.2.9",
+    "apollo-upload-client": "^20.0.0",
+    "graphql": "^17.0.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
-    "@types/node": "^24.3.0",
-    "@types/react": "^19.1.12",
-    "@types/react-dom": "^19.1.9",
-    "esbuild": "^0.25.9",
+    "@types/node": "^26.1.2",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "esbuild": "^0.28.1",
     "prettier": "^3.9.6",
-    "typescript": "^5.9.2"
+    "typescript": "^7.0.2"
   },
   "type": "module",
   "scripts": {
