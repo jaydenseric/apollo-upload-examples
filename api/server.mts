@@ -6,7 +6,7 @@ import { koaMiddleware as apolloServerKoa } from "@as-integrations/koa";
 import corsKoa from "@koa/cors";
 import graphqlUploadKoa from "graphql-upload/graphqlUploadKoa.mjs";
 import Koa from "koa";
-import bodyParserKoa from "koa-bodyparser";
+import bodyParserKoa from "@koa/bodyparser";
 
 import UPLOAD_DIRECTORY_URL from "./constants/UPLOAD_DIRECTORY_URL.mts";
 import schema from "./schema/index.mts";
@@ -33,13 +33,7 @@ app.use(
   }),
 );
 app.use(bodyParserKoa());
-app.use(
-  apolloServerKoa(
-    // @ts-expect-error Appears to be a dual package hazard with the outdated
-    // dependencies and types.
-    apolloServer,
-  ),
-);
+app.use(apolloServerKoa(apolloServer));
 
 /** Port to serve on. */
 const port = 3001;
